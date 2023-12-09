@@ -22,39 +22,44 @@ class _AnimationLogoAndTextState extends State<AnimationLogoAndText>
     super.initState();
 
     initAnimation();
-    Future.delayed(const Duration(seconds: 3), () {
-      context.go(AppRouters.homePage);
-    });
+    // Future.delayed(const Duration(seconds: 3), () {
+    //   context.go(AppRouters.homePage);
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 35),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AnimatedBuilder(
-              animation: slidingLogoAnimation,
-              builder: (context, _) {
-                return SlideTransition(
-                  position: slidingLogoAnimation,
-                  child: Image.asset(AppImages.appLogo),
-                );
-              }),
-          AnimatedBuilder(
-              animation: slidingTextAnimation,
-              builder: (context, _) {
-                return SlideTransition(
-                  position: slidingTextAnimation,
-                  child: Text(
-                    'ITUS INSURANCE',
-                    style: Styles.normal24.copyWith(
-                      color: Colors.white,
-                    ),
-                  ),
-                );
-              })
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AnimatedBuilder(
+                  animation: slidingLogoAnimation,
+                  builder: (context, _) {
+                    return SlideTransition(
+                      position: slidingLogoAnimation,
+                      child: Image.asset(AppImages.appLogo),
+                    );
+                  }),
+              AnimatedBuilder(
+                  animation: slidingTextAnimation,
+                  builder: (context, _) {
+                    return SlideTransition(
+                      position: slidingTextAnimation,
+                      child: Text(
+                        'ITUS INSURANCE',
+                        style: Styles.normal24.copyWith(
+                          color: Colors.white,
+                        ),
+                      ),
+                    );
+                  })
+            ],
+          ),
         ],
       ),
     );
