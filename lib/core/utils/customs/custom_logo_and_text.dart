@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pfe_projet/core/utils/app_images.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
 
@@ -13,9 +14,10 @@ class LogoAndText extends StatelessWidget {
         Image.asset(AppImages.appLogo),
         Text(
           'ITUS INSURANCE',
-          style: Styles.normal24.copyWith(
+          style: GoogleFonts.comfortaa(
+              textStyle: Styles.normal24.copyWith(
             color: Colors.white,
-          ),
+          )),
         ),
       ],
     );

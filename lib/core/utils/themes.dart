@@ -5,7 +5,7 @@ class AppThemes {
   static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     textTheme: GoogleFonts.allertaTextTheme(
-      ThemeData().textTheme,
+      ThemeData.light().textTheme,
     ),
   );
 
