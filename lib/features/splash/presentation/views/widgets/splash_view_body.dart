@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/utils/app_images.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
@@ -45,6 +47,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
       setState(() {
         isShape = !isShape;
       });
+    });
+    Future.delayed(const Duration(seconds: 3), () {
+      context.go(AppRouters.signInView);
     });
   }
 

@@ -9,13 +9,16 @@ class MyTextField extends StatefulWidget {
   final bool isPassField;
   final TextEditingController controller;
   final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
   final IconData prefixIcon;
   final String hintText;
+
   const MyTextField({
     Key? key,
     required this.isPassField,
     required this.controller,
     this.validator,
+    this.onChanged,
     required this.prefixIcon,
     required this.hintText,
   }) : super(key: key);
@@ -39,14 +42,12 @@ class _MyTextFieldState extends State<MyTextField> {
       obscureText: obsecureText!,
       controller: widget.controller,
       validator: widget.validator,
+      onChanged: widget.onChanged,
       style: Styles.normal16.copyWith(
         color: AppColors.kSecondColor,
       ),
       decoration: InputDecoration(
         hintText: widget.hintText,
-        hintStyle: Styles.normal16.copyWith(
-          color: AppColors.kSecondColor,
-        ),
         contentPadding: EdgeInsets.zero,
         prefixIcon: IconButton(
           onPressed: () {},
