@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/utils/app_colors.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button_with_gradient_color.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
 
@@ -13,10 +14,7 @@ class ConnectButton extends StatelessWidget {
         strokeWidth: 1,
         radius: 12,
         gradient: const LinearGradient(
-          colors: [
-            Color(0XFF827777),
-            Color(0XFFEFC887),
-          ],
+          colors: AppColors.gradientColors,
         ),
         child: Container(
           decoration: BoxDecoration(

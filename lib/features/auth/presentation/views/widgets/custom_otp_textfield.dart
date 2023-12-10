@@ -39,10 +39,7 @@ class OTPTextField extends StatelessWidget {
           focusedBorder: GradientOutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             gradient: LinearGradient(
-              colors: [
-                Color(0XFF827777),
-                Color(0XFFEFC887),
-              ],
+              colors: AppColors.gradientColors,
             ),
             width: 1,
           ),

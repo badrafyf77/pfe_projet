@@ -74,20 +74,14 @@ class _MyTextFieldState extends State<MyTextField> {
         border: const GradientOutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           gradient: LinearGradient(
-            colors: [
-              Color(0XFF827777),
-              Color(0XFFEFC887),
-            ],
+            colors: AppColors.gradientColors,
           ),
           width: 0.4,
         ),
         focusedBorder: const GradientOutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           gradient: LinearGradient(
-            colors: [
-              Color(0XFF827777),
-              Color(0XFFEFC887),
-            ],
+            colors:AppColors.gradientColors,
           ),
           width: 0.4,
         ),
