@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
-import 'package:pfe_projet/features/auth/presentation/views/widgets/blur_container.dart';
+import 'package:pfe_projet/core/utils/customs/blur_container.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/connect_button.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/google_button.dart';

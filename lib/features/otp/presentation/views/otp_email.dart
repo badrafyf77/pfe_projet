@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/customs/background_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
-import 'package:pfe_projet/features/auth/presentation/views/widgets/blur_container.dart';
-import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_OTP_textfield.dart';
+import 'package:pfe_projet/core/utils/customs/blur_container.dart';
+import 'package:pfe_projet/features/otp/presentation/views/widgets/custom_OTP_textfield.dart';
 
 class OTPEmailView extends StatelessWidget {
   const OTPEmailView({super.key});

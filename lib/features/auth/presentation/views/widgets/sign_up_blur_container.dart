@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/features/auth/presentation/views/widgets/blur_container.dart';
+import 'package:pfe_projet/core/utils/customs/blur_container.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/inscrire_button.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/sign_up_back_button.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/sign_up_container_body.dart';
