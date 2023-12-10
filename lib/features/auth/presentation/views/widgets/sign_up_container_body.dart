@@ -16,7 +16,7 @@ class SignUpContainerBody extends StatelessWidget {
     TextEditingController passController = TextEditingController();
     TextEditingController confirmPassController = TextEditingController();
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
       child: Column(
         children: [
           TextAndTextField(

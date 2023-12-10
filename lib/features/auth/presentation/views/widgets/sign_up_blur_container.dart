@@ -19,8 +19,8 @@ class SignUpBlurContainer extends StatelessWidget {
         BlurContainer(
           height: size.height * .7,
           width: size.width * .8,
+          blurContainerBody: const SignUpContainerBody(),
         ),
-        const SignUpContainerBody(),
         const SignUpBackButton(),
         const SinscrireButton()
       ],

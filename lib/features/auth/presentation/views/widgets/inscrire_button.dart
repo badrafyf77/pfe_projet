@@ -18,7 +18,9 @@ class SinscrireButton extends StatelessWidget {
       child: UnicornOutlineButton(
           strokeWidth: 0.7,
           radius: 12,
-          gradient: const LinearGradient(colors: AppColors.gradientColors,),
+          gradient: const LinearGradient(
+            colors: AppColors.gradientColors,
+          ),
           child: Container(
             height: 42,
             width: 134,

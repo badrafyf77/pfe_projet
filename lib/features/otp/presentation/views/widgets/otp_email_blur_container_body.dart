@@ -1,69 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/core/utils/customs/background_container.dart';
-import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
-import 'package:pfe_projet/core/utils/customs/blur_container.dart';
 import 'package:pfe_projet/features/otp/presentation/views/widgets/custom_OTP_textfield.dart';
-
-class OTPEmailView extends StatelessWidget {
-  const OTPEmailView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: OTPEmailBody(),
-    );
-  }
-}
-
-class OTPEmailBody extends StatefulWidget {
-  const OTPEmailBody({super.key});
-
-  @override
-  State<OTPEmailBody> createState() => _OTPEmailBodyState();
-}
-
-class _OTPEmailBodyState extends State<OTPEmailBody> {
-  @override
-  Widget build(BuildContext context) {
-    return BackgroundImageContainer(
-      widget: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .15,
-            ),
-            const LogoAndText(),
-            const SizedBox(
-              height: 75,
-            ),
-            const OTPEmailBlurContainer(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class OTPEmailBlurContainer extends StatelessWidget {
-  const OTPEmailBlurContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: AlignmentDirectional.topCenter,
-      children: [
-        BlurContainer(
-          height: MediaQuery.of(context).size.height * 0.5,
-          width: MediaQuery.of(context).size.width * .8,
-        ),
-        const OTPEmailBlurContainerBody()
-      ],
-    );
-  }
-}
 
 class OTPEmailBlurContainerBody extends StatelessWidget {
   const OTPEmailBlurContainerBody({super.key});

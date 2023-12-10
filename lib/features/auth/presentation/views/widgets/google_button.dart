@@ -5,10 +5,8 @@ import 'package:pfe_projet/core/utils/customs/custom_button_with_gradient_color.
 import 'package:pfe_projet/core/utils/styles.dart';
 
 class GoogleButton extends StatelessWidget {
-  final Size size;
   const GoogleButton({
     Key? key,
-    required this.size,
   }) : super(key: key);
 
   @override

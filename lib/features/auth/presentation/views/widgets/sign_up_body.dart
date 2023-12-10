@@ -3,18 +3,6 @@ import 'package:pfe_projet/core/utils/customs/background_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/sign_up_blur_container.dart';
 
-class SignUpView extends StatelessWidget {
-  const SignUpView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SignUpBody(),
-    );
-  }
-}
-
 class SignUpBody extends StatelessWidget {
   const SignUpBody({super.key});
 

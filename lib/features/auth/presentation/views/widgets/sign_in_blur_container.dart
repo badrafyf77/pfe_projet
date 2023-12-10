@@ -15,75 +15,82 @@ class SignInBlurContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    return BlurContainer(
+      height: size.height * .55,
+      width: size.width * .8,
+      blurContainerBody: const SignInBlurContainerBody(),
+    );
+  }
+}
+
+class SignInBlurContainerBody extends StatelessWidget {
+  const SignInBlurContainerBody({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController passController = TextEditingController();
-    return Stack(
-      alignment: AlignmentDirectional.topCenter,
-      children: [
-        BlurContainer(
-          height: size.height * .55,
-          width: size.width * .8,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-          child: Column(
-            children: [
-              TextAndTextField(
-                text: 'Email',
-                hintText: 'example@gmail.com',
-                controller: emailController,
-                isPassField: false,
-                prefixIcon: Icons.mail,
-              ),
-              const SizedBox(
-                height: 28,
-              ),
-              TextAndTextField(
-                text: 'Mot de passe',
-                hintText: '++++++++',
-                controller: passController,
-                isPassField: true,
-                prefixIcon: Icons.lock,
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: SizedBox(
-                  height: 30,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Mot de passe oublie?',
-                      style: Styles.normal12,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 29,
-              ),
-              GoogleButton(
-                size: size,
-              ),
-              const SizedBox(
-                height: 60,
-              ),
-              const ConnectButton(),
-              const SizedBox(
-                height: 8,
-              ),
-              TextButton(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+      child: Column(
+        children: [
+          TextAndTextField(
+            text: 'Email',
+            hintText: 'example@gmail.com',
+            controller: emailController,
+            isPassField: false,
+            prefixIcon: Icons.mail,
+          ),
+          const SizedBox(
+            height: 28,
+          ),
+          TextAndTextField(
+            text: 'Mot de passe',
+            hintText: '++++++++',
+            controller: passController,
+            isPassField: true,
+            prefixIcon: Icons.lock,
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: SizedBox(
+              height: 30,
+              child: TextButton(
                 onPressed: () {
-                  Get.toNamed(AppRouters.signUpView);
+                  Get.toNamed(AppRouters.forgotPassView);
                 },
                 child: const Text(
-                  'S\'inscrire?',
+                  'Mot de passe oublie?',
                   style: Styles.normal12,
                 ),
               ),
-            ],
+            ),
           ),
-        ),
-      ],
+          const SizedBox(
+            height: 29,
+          ),
+          const GoogleButton(),
+          const SizedBox(
+            height: 60,
+          ),
+          const ConnectButton(),
+          const SizedBox(
+            height: 8,
+          ),
+          TextButton(
+            onPressed: () {
+              Get.toNamed(AppRouters.signUpView);
+            },
+            child: const Text(
+              'S\'inscrire?',
+              style: Styles.normal12,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
