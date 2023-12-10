@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/inscrire_button.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/sign_up_back_button.dart';
-import 'package:pfe_projet/features/auth/presentation/views/widgets/sign_up_container_body.dart';
+import 'package:pfe_projet/features/auth/presentation/views/widgets/sign_up_blur_container_body.dart';
 
 class SignUpBlurContainer extends StatelessWidget {
   const SignUpBlurContainer({super.key});
@@ -18,7 +19,7 @@ class SignUpBlurContainer extends StatelessWidget {
         ),
         BlurContainer(
           height: size.height * .7,
-          width: size.width * .8,
+          width: size.width * Constants.blurConatinerWidth,
           blurContainerBody: const SignUpContainerBody(),
         ),
         const SignUpBackButton(),

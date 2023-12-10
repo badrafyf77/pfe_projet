@@ -22,7 +22,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return const BackgroundImageContainer(
+    return const BackgroundContainer(
       widget: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: LogoAndText(),
