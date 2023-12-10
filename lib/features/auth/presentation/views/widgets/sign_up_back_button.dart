@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:pfe_projet/core/configures/app_routers.dart';
+import 'package:get/get.dart';
 
 class SignUpBackButton extends StatelessWidget {
   const SignUpBackButton({
@@ -19,7 +18,7 @@ class SignUpBackButton extends StatelessWidget {
         ),
         child: IconButton(
           onPressed: () {
-            context.go(AppRouters.signInView);
+            Get.back();
           },
           icon: const Icon(
             Icons.arrow_back_ios_sharp,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/utils/customs/background_image_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
@@ -16,7 +16,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 4), () {
-      context.go(AppRouters.signInView);
+      Get.offNamed(AppRouters.signInView);
     });
   }
 

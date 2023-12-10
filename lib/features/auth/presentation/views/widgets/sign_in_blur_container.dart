@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/blur_container.dart';
@@ -73,7 +73,7 @@ class SignInBlurContainer extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  context.go(AppRouters.signUpView);
+                  Get.toNamed(AppRouters.signUpView);
                 },
                 child: const Text(
                   'S\'inscrire?',

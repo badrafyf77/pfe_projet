@@ -1,4 +1,4 @@
-import 'package:go_router/go_router.dart';
+import 'package:get/get.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_in.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
@@ -9,24 +9,10 @@ class AppRouters {
   static const signInView = '/signInView';
   static const signUpView = '/signUpView';
 
-  static final router = GoRouter(
-    routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const SplashView(),
-      ),
-      GoRoute(
-        path: homeView,
-        builder: (context, state) => const HomeView(),
-      ),
-      GoRoute(
-        path: signInView,
-        builder: (context, state) => const SignInView(),
-      ),
-      GoRoute(
-        path: signUpView,
-        builder: (context, state) => const SignUpView(),
-      ),
-    ],
-  );
+  static final router = [
+    GetPage(name: '/', page: () => const SplashView()),
+    GetPage(name: homeView, page: () => const HomeView()),
+    GetPage(name: signInView, page: () => const SignInView()),
+    GetPage(name: signUpView, page: () => const SignUpView()),
+  ];
 }
