@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pfe_projet/core/utils/app_images.dart';
-import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
 
 class AnimationLogoAndText extends StatefulWidget {
