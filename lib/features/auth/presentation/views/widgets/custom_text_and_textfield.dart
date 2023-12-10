@@ -32,7 +32,7 @@ class TextAndTextField extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 3,
+          height: 7,
         ),
         SizedBox(
             height: 44,

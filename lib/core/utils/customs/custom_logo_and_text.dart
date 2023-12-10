@@ -15,7 +15,7 @@ class LogoAndText extends StatelessWidget {
         Text(
           'ITUS INSURANCE',
           style: GoogleFonts.comfortaa(
-              textStyle: Styles.semiBold24.copyWith(
+              textStyle: Styles.normal24.copyWith(
             color: Colors.white,
           )),
         ),

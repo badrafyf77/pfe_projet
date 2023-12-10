@@ -47,7 +47,7 @@ class _AnimationLogoAndTextState extends State<AnimationLogoAndText>
                       position: slidingTextAnimation,
                       child: Text(
                         'ITUS INSURANCE',
-                        style: Styles.semiBold24.copyWith(
+                        style: Styles.normal24.copyWith(
                           color: Colors.white,
                         ),
                       ),

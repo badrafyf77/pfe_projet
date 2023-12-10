@@ -6,9 +6,9 @@ class Styles {
     fontWeight: FontWeight.normal,
     color: Colors.white,
   );
-  static const semiBold24 = TextStyle(
+  static const normal24 = TextStyle(
     fontSize: 24,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.normal,
   );
   static const normal16 = TextStyle(
     fontSize: 16,
