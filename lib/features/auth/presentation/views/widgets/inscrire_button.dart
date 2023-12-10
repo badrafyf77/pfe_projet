@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button_with_gradient_color.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
 
@@ -32,7 +34,9 @@ class SinscrireButton extends StatelessWidget {
               ),
             ),
           ),
-          onPressed: () {}),
+          onPressed: () {
+            Get.toNamed(AppRouters.otpEmailView);
+          }),
     );
   }
 }

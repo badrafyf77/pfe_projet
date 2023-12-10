@@ -20,7 +20,6 @@ class _AnimationLogoAndTextState extends State<AnimationLogoAndText>
     super.initState();
 
     initAnimation();
-
   }
 
   @override
@@ -48,7 +47,7 @@ class _AnimationLogoAndTextState extends State<AnimationLogoAndText>
                       position: slidingTextAnimation,
                       child: Text(
                         'ITUS INSURANCE',
-                        style: Styles.normal24.copyWith(
+                        style: Styles.semiBold24.copyWith(
                           color: Colors.white,
                         ),
                       ),

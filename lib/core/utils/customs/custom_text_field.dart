@@ -44,7 +44,7 @@ class _MyTextFieldState extends State<MyTextField> {
       validator: widget.validator,
       onChanged: widget.onChanged,
       style: Styles.normal16.copyWith(
-        color: AppColors.kSecondColor,
+        color: AppColors.kPrimaryColor,
       ),
       decoration: InputDecoration(
         hintText: widget.hintText,
@@ -53,7 +53,7 @@ class _MyTextFieldState extends State<MyTextField> {
           onPressed: () {},
           icon: Icon(
             widget.prefixIcon,
-            color: AppColors.kSecondColor,
+            color: AppColors.kPrimaryColor,
           ),
         ),
         suffixIcon: widget.isPassField
@@ -65,7 +65,7 @@ class _MyTextFieldState extends State<MyTextField> {
                 },
                 icon: Icon(
                   obsecureText! ? Icons.visibility : Icons.visibility_off,
-                  color: AppColors.kSecondColor,
+                  color: AppColors.kPrimaryColor,
                 ),
               )
             : null,

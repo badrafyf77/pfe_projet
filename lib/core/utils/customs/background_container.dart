@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/core/utils/app_images.dart';
+import 'package:pfe_projet/core/utils/app_colors.dart';
 
 class BackgroundImageContainer extends StatelessWidget {
   final Widget widget;
@@ -11,13 +11,8 @@ class BackgroundImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints.expand(),
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(AppImages.backgroundImage),
-          fit: BoxFit.fill,
-        ),
-      ),
+      height: MediaQuery.of(context).size.height,
+      color: AppColors.kPrimaryColor,
       child: widget,
     );
   }

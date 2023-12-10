@@ -38,7 +38,7 @@ class GoogleButton extends StatelessWidget {
             ),
             Text(
               'Continuez avec google',
-              style: Styles.normal16.copyWith(color: AppColors.kSecondColor),
+              style: Styles.normal16.copyWith(color: AppColors.kPrimaryColor),
             ),
           ],
         ),

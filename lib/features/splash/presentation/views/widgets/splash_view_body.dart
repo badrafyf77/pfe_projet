@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
-import 'package:pfe_projet/core/utils/customs/background_image_container.dart';
+import 'package:pfe_projet/core/utils/customs/background_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
 
 class SplashViewBody extends StatefulWidget {

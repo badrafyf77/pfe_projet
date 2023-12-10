@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/core/utils/customs/background_image_container.dart';
+import 'package:pfe_projet/core/utils/customs/background_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/sign_up_blur_container.dart';
 
