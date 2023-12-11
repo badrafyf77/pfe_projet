@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUpBackButton extends StatelessWidget {
-  const SignUpBackButton({
+class BlurContineraBackButton extends StatelessWidget {
+  const BlurContineraBackButton({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 2,
+      top: 0,
       left: 30,
       child: Container(
         decoration: BoxDecoration(

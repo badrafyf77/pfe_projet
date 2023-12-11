@@ -1,4 +1,45 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
+import 'package:pfe_projet/core/utils/app_colors.dart';
+import 'package:pfe_projet/core/utils/styles.dart';
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({
+    Key? key,
+    required this.text,
+    required this.width,
+    required this.onPressed,
+  }) : super(key: key);
+
+  final String text;
+  final double width;
+  final void Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return UnicornOutlineButton(
+        strokeWidth: 1,
+        radius: 12,
+        gradient: const LinearGradient(
+          colors: AppColors.gradientColors,
+        ),
+        onPressed: onPressed,
+        child: Container(
+          height: 42,
+          width: width,
+          decoration: BoxDecoration(
+              color: Colors.white.withOpacity(.1),
+              borderRadius: BorderRadius.circular(16)),
+          child: Center(
+            child: Text(
+              text,
+              style: Styles.normal16,
+            ),
+          ),
+        ));
+  }
+}
 
 class UnicornOutlineButton extends StatelessWidget {
   final _GradientPainter _painter;

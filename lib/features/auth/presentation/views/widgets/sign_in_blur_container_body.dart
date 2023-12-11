@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
+import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
-import 'package:pfe_projet/features/auth/presentation/views/widgets/connect_button.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/google_button.dart';
 
@@ -58,7 +58,11 @@ class SignInBlurContainerBody extends StatelessWidget {
           const SizedBox(
             height: 60,
           ),
-          const ConnectButton(),
+          CustomButton(
+            text: 'Se connecter',
+            width: 143,
+            onPressed: () {},
+          ),
           const SizedBox(
             height: 8,
           ),

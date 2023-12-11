@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/app_colors.dart';
 import 'package:pfe_projet/core/utils/app_images.dart';
-import 'package:pfe_projet/core/utils/customs/custom_button_with_gradient_color.dart';
+import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
 
 class GoogleButton extends StatelessWidget {
