@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
-import 'package:pfe_projet/core/utils/styles.dart';
+import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/google_button.dart';
 
@@ -36,18 +36,18 @@ class SignInBlurContainerBody extends StatelessWidget {
             isPassField: true,
             prefixIcon: Icons.lock,
           ),
+          const SizedBox(
+            height: 2,
+          ),
           Align(
             alignment: Alignment.centerRight,
             child: SizedBox(
               height: 30,
-              child: TextButton(
-                onPressed: () {
+              child: CustomTextButton(
+                onpressed: () {
                   Get.toNamed(AppRouters.forgotPassView);
                 },
-                child: const Text(
-                  'Mot de passe oublie?',
-                  style: Styles.normal12,
-                ),
+                text: 'Mot de passe oublie?',
               ),
             ),
           ),
@@ -56,7 +56,7 @@ class SignInBlurContainerBody extends StatelessWidget {
           ),
           const GoogleButton(),
           const SizedBox(
-            height: 60,
+            height: 55,
           ),
           CustomButton(
             text: 'Se connecter',
@@ -66,15 +66,12 @@ class SignInBlurContainerBody extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          TextButton(
-            onPressed: () {
+          CustomTextButton(
+            onpressed: () {
               Get.toNamed(AppRouters.signUpView);
             },
-            child: const Text(
-              'S\'inscrire?',
-              style: Styles.normal12,
-            ),
-          ),
+            text: 'S\'inscrire?',
+          )
         ],
       ),
     );
