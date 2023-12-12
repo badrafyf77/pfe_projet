@@ -6,22 +6,24 @@ import 'package:pfe_projet/core/utils/app_colors.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
 
 class MyTextField extends StatefulWidget {
+  const MyTextField({
+    Key? key,
+    this.justNumbers = false,
+    required this.isPassField,
+    required this.controller,
+    required this.validator,
+    this.onChanged,
+    required this.prefixIcon,
+    required this.hintText,
+  }) : super(key: key);
+
+  final bool justNumbers;
   final bool isPassField;
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final IconData prefixIcon;
   final String hintText;
-
-  const MyTextField({
-    Key? key,
-    required this.isPassField,
-    required this.controller,
-    this.validator,
-    this.onChanged,
-    required this.prefixIcon,
-    required this.hintText,
-  }) : super(key: key);
 
   @override
   State<MyTextField> createState() => _MyTextFieldState();
@@ -43,10 +45,16 @@ class _MyTextFieldState extends State<MyTextField> {
       controller: widget.controller,
       validator: widget.validator,
       onChanged: widget.onChanged,
+      keyboardType: widget.justNumbers ? TextInputType.number : null,
       style: Styles.normal16.copyWith(
         color: AppColors.kPrimaryColor,
       ),
       decoration: InputDecoration(
+        errorStyle: const TextStyle(
+          color: Colors.red,
+          fontSize: 1,
+          
+        ),
         hintText: widget.hintText,
         contentPadding: EdgeInsets.zero,
         prefixIcon: IconButton(
@@ -84,6 +92,14 @@ class _MyTextFieldState extends State<MyTextField> {
             colors: AppColors.gradientColors,
           ),
           width: 1,
+        ),
+        errorBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderSide: BorderSide(color: Colors.red),
+        ),
+        focusedErrorBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderSide: BorderSide(color: Colors.red),
         ),
       ),
     );

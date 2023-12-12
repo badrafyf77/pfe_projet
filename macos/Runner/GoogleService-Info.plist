@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBYkL3wrY8hJJ0tr8J9gQqpL0VR1DrDShE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>14440217307</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.pfeProjet.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>itus-ansurance</string>
+	<key>STORAGE_BUCKET</key>
+	<string>itus-ansurance.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:14440217307:ios:6e02fcc71c267b6a3e6afe</string>
+</dict>
+</plist>

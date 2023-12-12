@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/utils/helpers.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 
 class SignUpContainerBody extends StatelessWidget {
@@ -20,6 +21,12 @@ class SignUpContainerBody extends StatelessWidget {
       child: Column(
         children: [
           TextAndTextField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer nom';
+              }
+              return null;
+            },
             text: 'Nom',
             hintText: 'Nom',
             controller: nomController,
@@ -30,6 +37,12 @@ class SignUpContainerBody extends StatelessWidget {
             height: 5,
           ),
           TextAndTextField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer prenom';
+              }
+              return null;
+            },
             text: 'Prenom',
             hintText: 'Prenom',
             controller: prenomController,
@@ -40,6 +53,12 @@ class SignUpContainerBody extends StatelessWidget {
             height: 5,
           ),
           TextAndTextField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer CIN';
+              }
+              return null;
+            },
             text: 'Cin',
             hintText: 'Cin',
             controller: cinController,
@@ -50,16 +69,31 @@ class SignUpContainerBody extends StatelessWidget {
             height: 5,
           ),
           TextAndTextField(
-            text: 'Numero de telephone',
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer numéro de téléphone';
+              }
+              return null;
+            },
+            text: 'Numéro de téléphone',
             hintText: '0612345678',
             controller: phoneController,
             isPassField: false,
             prefixIcon: Icons.phone,
+            justNumbers: true,
           ),
           const SizedBox(
             height: 5,
           ),
           TextAndTextField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer email';
+              } else if (value.isValidEmail()) {
+                return 'Entrer valide email';
+              }
+              return null;
+            },
             text: 'Email',
             hintText: 'Email',
             controller: emailController,
@@ -70,8 +104,16 @@ class SignUpContainerBody extends StatelessWidget {
             height: 5,
           ),
           TextAndTextField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer votre mot de passe';
+              } else if (value.length < 8) {
+                return 'Mot de passe doit être d\'au moins 8 caractères';
+              }
+              return null;
+            },
             text: 'Mot de passe',
-            hintText: '●●●●●●●●',
+            hintText: '++++++++',
             controller: passController,
             isPassField: true,
             prefixIcon: Icons.lock,
@@ -80,8 +122,16 @@ class SignUpContainerBody extends StatelessWidget {
             height: 5,
           ),
           TextAndTextField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer votre confirmation mot de passe';
+              } else if (value.length < 8) {
+                return 'Mot de passe doit être d\'au moins 8 caractères';
+              }
+              return null;
+            },
             text: 'Confirmer le mot de passe',
-            hintText: '●●●●●●●●',
+            hintText: '++++++++',
             controller: confirmPassController,
             isPassField: true,
             prefixIcon: Icons.lock,

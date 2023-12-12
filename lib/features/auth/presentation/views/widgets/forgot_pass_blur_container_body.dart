@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
+import 'package:pfe_projet/core/utils/helpers.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 
@@ -30,6 +31,14 @@ class ForgotPassblurContainerBody extends StatelessWidget {
             height: 30,
           ),
           TextAndTextField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer email';
+              } else if (value.isValidEmail()) {
+                return 'Entrer valide email';
+              }
+              return null;
+            },
             text: 'Email de connexion',
             hintText: 'Saisir votre email',
             controller: controller,

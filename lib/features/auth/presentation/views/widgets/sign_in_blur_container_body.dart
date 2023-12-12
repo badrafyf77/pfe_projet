@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
+import 'package:pfe_projet/core/utils/helpers.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/google_button.dart';
 
@@ -20,6 +21,14 @@ class SignInBlurContainerBody extends StatelessWidget {
       child: Column(
         children: [
           TextAndTextField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer email';
+              } else if (value.isValidEmail()) {
+                return 'Entrer valide email';
+              }
+              return null;
+            },
             text: 'Email',
             hintText: 'example@gmail.com',
             controller: emailController,
@@ -30,6 +39,14 @@ class SignInBlurContainerBody extends StatelessWidget {
             height: 28,
           ),
           TextAndTextField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Entrer votre mot de passe';
+              } else if (value.length < 8) {
+                return 'Mot de passe doit être d\'au moins 8 caractères';
+              }
+              return null;
+            },
             text: 'Mot de passe',
             hintText: '++++++++',
             controller: passController,
