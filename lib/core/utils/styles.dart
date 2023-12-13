@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Styles {
+  static final titleStyle26 = GoogleFonts.comfortaa(
+    textStyle: const TextStyle(
+      fontSize: 26,
+      fontWeight: FontWeight.normal,
+      color: Colors.white,
+    ),
+  );
   static const normal27 = TextStyle(
     fontSize: 27,
     fontWeight: FontWeight.normal,

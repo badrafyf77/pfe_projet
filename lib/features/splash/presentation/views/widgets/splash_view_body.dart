@@ -15,9 +15,9 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 4), () {
-      Get.offNamed(AppRouters.signInView);
-    });
+    // Future.delayed(const Duration(seconds: 4), () {
+    //   Get.offNamed(AppRouters.signInView);
+    // });
   }
 
   @override
