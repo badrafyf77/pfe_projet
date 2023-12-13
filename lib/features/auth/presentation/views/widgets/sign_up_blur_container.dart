@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pfe_projet/core/configures/app_routers.dart';
 
 import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
@@ -171,10 +173,9 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
             text: 'S\'inscrire',
             width: 134,
             onPressed: () {
-              // Get.toNamed(
-              //   AppRouters.otpEmailView,
-              // );
-              if (formKey.currentState!.validate()) {}
+              Get.toNamed(
+                AppRouters.otpEmailView,
+              );
             },
           ),
         ),
