@@ -13,7 +13,7 @@ class LogoAndText extends StatelessWidget {
         Image.asset(AppImages.appLogo),
         Text(
           'ITUS INSURANCE',
-          style: Styles.titleStyle26,
+          style: Styles.titleStyle24,
         ),
       ],
     );
