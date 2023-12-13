@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
-import 'package:pfe_projet/core/utils/customs/background_container.dart';
-import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
+import 'package:pfe_projet/core/utils/styles.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -11,133 +10,83 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody> {
+class _SplashViewBodyState extends State<SplashViewBody>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation<double> animaton;
+  late Animation<Offset> animatonLogo;
+  double opacity = 0;
   @override
-  void initState() {
+  initState() {
     super.initState();
-    // Future.delayed(const Duration(seconds: 4), () {
-      Get.offNamed(AppRouters.signInView);
-    // });
+
+    initAnimation();
+
+    startAnimationAndNavigatToSignInView();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const BackgroundContainer(
-      widget: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30),
-        child: LogoAndText(),
-      ),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        AnimatedBuilder(
+          animation: animaton,
+          builder: (context, _) {
+            return Transform.scale(
+              scale: animaton.value,
+              child: Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/vector.png')),
+                ),
+              ),
+            );
+          },
+        ),
+        Positioned(
+          left: 165,
+          child: AnimatedOpacity(
+            duration: const Duration(milliseconds: 800),
+            curve: Curves.linear,
+            opacity: opacity,
+            child: Text(
+              'ITUS INSURANCE',
+              style: Styles.titleStyle24,
+            ),
+          ),
+        ),
+        AnimatedBuilder(
+            animation: animatonLogo,
+            builder: (context, _) {
+              return SlideTransition(
+                position: animatonLogo,
+                child: Image.asset('assets/images/logo.png'),
+              );
+            }),
+      ],
     );
   }
+
+  void startAnimationAndNavigatToSignInView() {
+    Future.delayed(const Duration(seconds: 1, milliseconds: 400), () {
+      controller.forward();
+      setState(() {
+        opacity = 1;
+      });
+      Future.delayed(const Duration(seconds: 1), () {
+        Get.offNamed(AppRouters.signInView);
+      });
+    });
+  }
+
+  void initAnimation() {
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 700));
+    animaton = Tween<double>(begin: 1, end: 7.7)
+        .animate(CurvedAnimation(parent: controller, curve: Curves.linear));
+    animatonLogo =
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-1.2, 0))
+            .animate(CurvedAnimation(parent: controller, curve: Curves.linear));
+  }
 }
-
-
-
-
-
-
-
-
-
-
-// class SplashViewBody extends StatefulWidget {
-//   const SplashViewBody({super.key});
-
-//   @override
-//   State<SplashViewBody> createState() => _SplashViewBodyState();
-// }
-
-// class _SplashViewBodyState extends State<SplashViewBody>
-//     with SingleTickerProviderStateMixin {
-//   late AnimationController animationController;
-//   late Animation<Offset> slidingAnimation;
-//   bool selected = false;
-//   bool isShape = false;
-//   @override
-//   void initState() {
-//     super.initState();
-//     Future.delayed(
-//         const Duration(
-//           seconds: 1,
-//           milliseconds: 500,
-//         ), () {
-//       setState(() {
-//         selected = !selected;
-//       });
-//     });
-//     animationController = AnimationController(
-//       vsync: this,
-//       duration: const Duration(seconds: 1),
-//     );
-
-//     slidingAnimation =
-//         Tween<Offset>(begin: const Offset(0.45, 0), end: Offset.zero)
-//             .animate(animationController);
-
-//     Future.delayed(const Duration(seconds: 1, milliseconds: 400), () {
-//       animationController.forward();
-//     });
-//     Future.delayed(const Duration(seconds: 1, milliseconds: 400), () {
-//       setState(() {
-//         isShape = !isShape;
-//       });
-//     });
-//     Future.delayed(const Duration(seconds: 3), () {
-//       context.go(AppRouters.signInView);
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final size = MediaQuery.of(context).size;
-//     return Stack(
-//       children: [
-//         Center(
-//           child: AnimatedContainer(
-//             width: selected ? size.width : 100,
-//             height: selected ? size.height : 100,
-//             alignment:
-//                 selected ? Alignment.center : AlignmentDirectional.topCenter,
-//             duration: const Duration(seconds: 1),
-//             curve: Curves.linear,
-//             decoration: const BoxDecoration(
-//               image: DecorationImage(
-//                 image: AssetImage(AppImages.backgroundImage),
-//                 fit: BoxFit.fill,
-//               ),
-//             ),
-//             child: const SizedBox(),
-//           ),
-//         ),
-//         Positioned(
-//           top: size.height * 0.47,
-//           child: AnimatedBuilder(
-//               animation: slidingAnimation,
-//               builder: (context, _) {
-//                 return SlideTransition(
-//                   position: slidingAnimation,
-//                   child: Padding(
-//                     padding: const EdgeInsets.symmetric(horizontal: 30),
-//                     child: Row(
-//                       children: [
-//                         Image.asset(
-//                           AppImages.appLogo,
-//                           scale: 1.2,
-//                         ),
-//                         const SizedBox(
-//                           width: 40,
-//                         ),
-//                         Text(
-//                           "ITUS CARE",
-//                           style: Styles.normal24.copyWith(color: Colors.white),
-//                         )
-//                       ],
-//                     ),
-//                   ),
-//                 );
-//               }),
-//         ),
-//       ],
-//     );
-//   }
-// }
