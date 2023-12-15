@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:pfe_projet/core/utils/app_colors.dart';
-import 'package:pfe_projet/core/utils/styles.dart';
+import 'package:pfe_projet/core/configures/app_colors.dart';
+import 'package:pfe_projet/core/configures/styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({

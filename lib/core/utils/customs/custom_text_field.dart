@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/input_borders/gradient_outline_input_border.dart';
 
-import 'package:pfe_projet/core/utils/app_colors.dart';
-import 'package:pfe_projet/core/utils/styles.dart';
+import 'package:pfe_projet/core/configures/app_colors.dart';
+import 'package:pfe_projet/core/configures/styles.dart';
 
 class MyTextField extends StatefulWidget {
   const MyTextField({

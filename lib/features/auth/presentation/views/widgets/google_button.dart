@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/core/utils/app_colors.dart';
+import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/utils/app_images.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
-import 'package:pfe_projet/core/utils/styles.dart';
+import 'package:pfe_projet/core/configures/styles.dart';
 
 class GoogleButton extends StatelessWidget {
   const GoogleButton({

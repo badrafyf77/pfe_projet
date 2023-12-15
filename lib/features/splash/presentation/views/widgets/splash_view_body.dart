@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
-import 'package:pfe_projet/core/utils/styles.dart';
+import 'package:pfe_projet/core/configures/styles.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});

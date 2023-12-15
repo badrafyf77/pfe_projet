@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:pfe_projet/core/utils/customs/custom_text_field.dart';
-import 'package:pfe_projet/core/utils/styles.dart';
+import 'package:pfe_projet/core/configures/styles.dart';
 
 class TextAndTextField extends StatelessWidget {
   const TextAndTextField({

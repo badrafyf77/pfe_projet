@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 
-import 'package:pfe_projet/core/utils/app_colors.dart';
+import 'package:pfe_projet/core/configures/app_colors.dart';
 
 class BlurContainer extends StatelessWidget {
   const BlurContainer({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/core/utils/app_colors.dart';
+import 'package:pfe_projet/core/configures/app_colors.dart';
 
 class BackgroundContainer extends StatelessWidget {
   final Widget widget;

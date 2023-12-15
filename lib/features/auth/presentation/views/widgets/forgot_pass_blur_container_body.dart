@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 import 'package:pfe_projet/core/utils/helpers.dart';
-import 'package:pfe_projet/core/utils/styles.dart';
+import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 
 class ForgotPassblurContainerBody extends StatelessWidget {
