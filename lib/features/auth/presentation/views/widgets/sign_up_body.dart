@@ -24,6 +24,7 @@ class SignUpBody extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
+                physics: const BouncingScrollPhysics(),
                 children: const [
                   SizedBox(
                     height: 112,
