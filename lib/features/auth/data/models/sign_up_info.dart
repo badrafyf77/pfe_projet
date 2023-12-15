@@ -1,4 +1,4 @@
-class UserInfo {
+class UserInformation {
   final String name;
   final String prename;
   final String cin;
@@ -7,7 +7,7 @@ class UserInfo {
   final String password;
 
 
-  UserInfo({
+  UserInformation({
     required this.name,
     required this.prename,
     required this.cin,
