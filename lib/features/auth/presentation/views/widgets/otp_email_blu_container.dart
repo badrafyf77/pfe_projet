@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
-import 'package:pfe_projet/features/otp/presentation/views/widgets/otp_email_blur_container_body.dart';
+import 'package:pfe_projet/features/auth/presentation/views/widgets/otp_email_blur_container_body.dart';
 
 class OTPEmailBlurContainer extends StatelessWidget {
   const OTPEmailBlurContainer({super.key});

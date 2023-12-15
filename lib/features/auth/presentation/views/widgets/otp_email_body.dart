@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/utils/customs/background_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
-import 'package:pfe_projet/features/otp/presentation/views/widgets/otp_email_blu_container.dart';
+import 'package:pfe_projet/features/auth/presentation/views/widgets/otp_email_blu_container.dart';
 
 class OTPEmailBody extends StatefulWidget {
   const OTPEmailBody({super.key});
