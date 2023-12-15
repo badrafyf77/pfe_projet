@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
 import 'package:pfe_projet/core/utils/styles.dart';
-import 'package:pfe_projet/features/otp/presentation/views/widgets/custom_OTP_textfield.dart';
+import 'package:pfe_projet/features/auth/presentation/views/widgets/otp_custom_textfield.dart';
 
 class OTPEmailBlurContainerBody extends StatelessWidget {
   const OTPEmailBlurContainerBody({super.key});
