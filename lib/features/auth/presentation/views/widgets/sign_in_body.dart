@@ -11,7 +11,7 @@ class SignInBody extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return BackgroundContainer(
-      widget: Padding(
+      child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Constants.appPadding),
         child: SingleChildScrollView(
           child: Column(

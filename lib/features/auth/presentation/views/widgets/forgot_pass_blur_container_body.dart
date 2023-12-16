@@ -16,9 +16,7 @@ class ForgotPassblurContainerBody extends StatelessWidget {
         children: [
           Text(
             'Mot de passe oublier ?',
-            style: Styles.normal24.copyWith(
-              color: Colors.white,
-            ),
+            style: Styles.normal24,
           ),
           const SizedBox(
             height: 35,

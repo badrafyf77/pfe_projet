@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 
 class BackgroundContainer extends StatelessWidget {
-  final Widget widget;
+  final Widget child;
   const BackgroundContainer({
     Key? key,
-    required this.widget,
+    required this.child,
   }) : super(key: key);
 
   @override
@@ -13,7 +13,7 @@ class BackgroundContainer extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       color: AppColors.kPrimaryColor,
-      child: widget,
+      child: child,
     );
   }
 }

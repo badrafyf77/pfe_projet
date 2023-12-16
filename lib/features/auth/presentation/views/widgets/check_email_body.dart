@@ -2,31 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/utils/customs/background_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
-import 'package:pfe_projet/features/auth/presentation/views/widgets/otp_email_blur_container.dart';
+import 'package:pfe_projet/features/auth/presentation/views/widgets/check_email_blur_container.dart';
 
-class OTPNumBody extends StatefulWidget {
-  const OTPNumBody({super.key});
+class CheckEmailBody extends StatelessWidget {
+  const CheckEmailBody({super.key});
 
-  @override
-  State<OTPNumBody> createState() => _OTPNumBodyState();
-}
-
-class _OTPNumBodyState extends State<OTPNumBody> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return BackgroundContainer(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Constants.appPadding),
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * .15,
+              height: size.height * .15,
             ),
             const LogoAndText(),
             const SizedBox(
               height: 75,
             ),
-            const OTPNumBlurContainer(),
+            const CheckEmailBlurContainer(),
           ],
         ),
       ),
