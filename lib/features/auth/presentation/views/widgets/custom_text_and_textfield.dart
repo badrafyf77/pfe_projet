@@ -39,16 +39,14 @@ class TextAndTextField extends StatelessWidget {
         const SizedBox(
           height: 7,
         ),
-        SizedBox(
-            height: 44,
-            child: MyTextField(
-              isPassField: isPassField,
-              controller: controller,
-              prefixIcon: prefixIcon,
-              hintText: hintText,
-              justNumbers: justNumbers,
-              validator: validator,
-            )),
+        MyTextField(
+          isPassField: isPassField,
+          controller: controller,
+          prefixIcon: prefixIcon,
+          hintText: hintText,
+          justNumbers: justNumbers,
+          validator: validator,
+        ),
       ],
     );
   }

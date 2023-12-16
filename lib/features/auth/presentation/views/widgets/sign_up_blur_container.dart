@@ -25,6 +25,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
+  bool isError = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -33,12 +34,12 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
       alignment: AlignmentDirectional.center,
       children: [
         SizedBox(
-          height: size.height * .75,
+          height: isError ? size.height * .85 : size.height * .8,
         ),
         Form(
           key: formKey,
           child: BlurContainer(
-            height: size.height * .7,
+            height: isError ? size.height * .8 : size.height * .75,
             width: size.width * Constants.blurConatinerWidth,
             blurContainerBody: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
@@ -113,9 +114,10 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Entrer email';
-                      } else if (value.isValidEmail()) {
-                        return 'Entrer valide email';
                       }
+                      // else if (value.isValidEmail()) {
+                      //   return 'Entrer valide email';
+                      // }
                       return null;
                     },
                     text: 'Email',
@@ -173,9 +175,18 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
             text: 'S\'inscrire',
             width: 134,
             onPressed: () {
-              Get.toNamed(
-                AppRouters.otpEmailView,
-              );
+              if (formKey.currentState!.validate()) {
+                // Get.toNamed(
+                //   AppRouters.otpEmailView,
+                // );
+                setState(() {
+                  isError = false;
+                });
+              } else {
+                setState(() {
+                  isError = true;
+                });
+              }
             },
           ),
         ),

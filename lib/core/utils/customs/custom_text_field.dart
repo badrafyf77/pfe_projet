@@ -49,14 +49,17 @@ class _MyTextFieldState extends State<MyTextField> {
       style: Styles.normal16.copyWith(
         color: AppColors.kPrimaryColor,
       ),
+      cursorColor: AppColors.kPrimaryColor,
       decoration: InputDecoration(
-        errorStyle: const TextStyle(
-          color: Colors.red,
-          fontSize: 1,
-          
-        ),
-        hintText: widget.hintText,
         contentPadding: EdgeInsets.zero,
+        hintText: widget.hintText,
+        filled: true,
+        fillColor: Colors.white.withOpacity(.63),
+        errorStyle: const TextStyle(
+          color: Colors.transparent,
+          fontSize: 0,
+          height: 0,
+        ),
         prefixIcon: IconButton(
           onPressed: () {},
           icon: Icon(
@@ -77,29 +80,31 @@ class _MyTextFieldState extends State<MyTextField> {
                 ),
               )
             : null,
-        filled: true,
-        fillColor: Colors.white.withOpacity(.63),
         border: const GradientOutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           gradient: LinearGradient(
             colors: AppColors.gradientColors,
           ),
-          width: 1,
         ),
         focusedBorder: const GradientOutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           gradient: LinearGradient(
             colors: AppColors.gradientColors,
           ),
-          width: 1,
         ),
         errorBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: Colors.red),
+          borderSide: BorderSide(
+            color: Colors.red,
+            width: 1.5,
+          ),
         ),
         focusedErrorBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: Colors.red),
+          borderSide: BorderSide(
+            color: Colors.red,
+            width: 1.5,
+          ),
         ),
       ),
     );
