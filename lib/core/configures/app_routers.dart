@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:pfe_projet/features/auth/presentation/views/check_email_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/forgot_pass_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
@@ -10,8 +11,9 @@ class AppRouters {
   static const homeView = '/homeView';
   static const signInView = '/signInView';
   static const signUpView = '/signUpView';
+  static const otpNumView = '/otpNumView';
   static const forgotPassView = '/forgotPassView';
-  static const otpEmailView = '/otpEmailView';
+  static const checkEmailView = '/checkEmailView';
 
   static final router = [
     GetPage(
@@ -25,15 +27,31 @@ class AppRouters {
     GetPage(
       name: signInView,
       page: () => const SignInView(),
+      transition: Transition.rightToLeft,
     ),
     GetPage(
       name: signUpView,
       page: () => const SignUpView(),
+      transition: Transition.rightToLeft,
     ),
     GetPage(
-      name: otpEmailView,
+      name: otpNumView,
       page: () => const OTPNumView(),
+      transition: Transition.rightToLeft,
     ),
-    GetPage(name: forgotPassView, page: () => const ForgotPassView()),
+    GetPage(
+      name: checkEmailView,
+      page: () => const CheckEmailView(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: forgotPassView,
+      page: () => const ForgotPassView(),
+      transition: Transition.downToUp,
+    ),
   ];
+
+  static void navigateTo(String name) {
+    Get.toNamed(name);
+  }
 }

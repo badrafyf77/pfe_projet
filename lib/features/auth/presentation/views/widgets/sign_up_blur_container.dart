@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
-import 'package:loading_indicator/loading_indicator.dart';
-import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
+import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/helpers.dart';
 import 'package:pfe_projet/features/auth/presentation/views/manager/auth_bloc/auth_bloc.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/blur_container_back_button.dart';
@@ -51,8 +49,8 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
             isLoading = false;
           });
           myShowToast(context, 'succes', Colors.green);
-          Get.toNamed(
-            AppRouters.otpEmailView,
+          AppRouters.navigateTo(
+            AppRouters.checkEmailView,
           );
         }
       },
@@ -195,18 +193,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
             ),
           ),
           const BlurContineraBackButton(),
-          isLoading
-              ? const Center(
-                  child: SizedBox(
-                    height: 70,
-                    child: LoadingIndicator(
-                      indicatorType: Indicator.ballClipRotate,
-                      colors: AppColors.gradientColors,
-                      strokeWidth: 3,
-                    ),
-                  ),
-                )
-              : const SizedBox(),
+          isLoading ? const LoadingCircle() : const SizedBox(),
           Positioned(
             bottom: 0.5,
             right: 30,
@@ -230,7 +217,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                   BlocProvider.of<AuthBloc>(context).add(SignUpEvent(
                       email: emailController.text,
                       password: passController.text));
-                } else {}
+                }
               },
             ),
           ),

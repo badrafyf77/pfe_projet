@@ -18,7 +18,7 @@ class SinscrireButton extends StatelessWidget {
         width: 134,
         onPressed: () {
           Get.toNamed(
-            AppRouters.otpEmailView,
+            AppRouters.otpNumView,
           );
         },
       ),

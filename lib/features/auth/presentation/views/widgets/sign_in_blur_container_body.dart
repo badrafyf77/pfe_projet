@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
@@ -62,7 +61,9 @@ class SignInBlurContainerBody extends StatelessWidget {
               height: 30,
               child: CustomTextButton(
                 onpressed: () {
-                  Get.toNamed(AppRouters.forgotPassView);
+                  AppRouters.navigateTo(
+                    AppRouters.forgotPassView,
+                  );
                 },
                 text: 'Mot de passe oublie?',
               ),
@@ -85,7 +86,9 @@ class SignInBlurContainerBody extends StatelessWidget {
           ),
           CustomTextButton(
             onpressed: () {
-              Get.toNamed(AppRouters.signUpView);
+              AppRouters.navigateTo(
+                AppRouters.signUpView,
+              );
             },
             text: 'S\'inscrire?',
           )
