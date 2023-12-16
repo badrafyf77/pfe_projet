@@ -2,15 +2,13 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pfe_projet/core/utils/failures.dart';
 import 'package:pfe_projet/features/auth/data/auth_service.dart';
-import 'package:pfe_projet/features/auth/data/models/sign_up_info.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo.dart';
 
 class AuthRepoImplement implements AuthRepo {
   @override
-  Future<Either<Failure, UserCredential>> signUp(
-      UserInformation userInfo) async {
+  Future<Either<Failure, UserCredential>> signUp(String email,String password) async {
     try {
-      var user = await Authservice.signUp(userInfo.email, userInfo.password);
+      var user = await Authservice.signUp(email, password);
       return right(user);
     } catch (e) {
       if (e is FirebaseAuthException) {
@@ -22,7 +20,7 @@ class AuthRepoImplement implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserInfo>> signIn() {
+  Future<Either<Failure, UserCredential>> signIn(String email,String password) {
     // TODO: implement signIn
     throw UnimplementedError();
   }

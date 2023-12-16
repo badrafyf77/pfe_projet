@@ -3,8 +3,8 @@ import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/otp_custom_textfield.dart';
 
-class OTPEmailBlurContainerBody extends StatelessWidget {
-  const OTPEmailBlurContainerBody({super.key});
+class OTPNumBlurContainerBody extends StatelessWidget {
+  const OTPNumBlurContainerBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class OTPEmailBlurContainerBody extends StatelessWidget {
               style: Styles.normal16,
               children: <TextSpan>[
                 TextSpan(
-                  text: 'exemple@gmail.com',
+                  text: '+212707314877',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.underline,

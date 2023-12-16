@@ -56,8 +56,8 @@ class _MyTextFieldState extends State<MyTextField> {
         filled: true,
         fillColor: Colors.white.withOpacity(.63),
         errorStyle: const TextStyle(
-          color: Colors.transparent,
-          fontSize: 0,
+          color: Colors.red,
+          fontSize: 12,
           height: 0,
         ),
         prefixIcon: IconButton(

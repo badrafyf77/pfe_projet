@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/configures/themes.dart';
+import 'package:pfe_projet/features/auth/data/repo/auth_repo_implement.dart';
+import 'package:pfe_projet/features/auth/presentation/views/manager/auth_bloc/auth_bloc.dart';
 import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -19,11 +22,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppThemes.lightTheme,
-      home: const SplashView(),
-      getPages: AppRouters.router,
+    return BlocProvider(
+      create: (BuildContext context) => AuthBloc(AuthRepoImplement()),
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppThemes.lightTheme,
+        home: const SplashView(),
+        getPages: AppRouters.router,
+      ),
     );
   }
 }
