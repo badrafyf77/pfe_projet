@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pfe_projet/core/utils/failures.dart';
@@ -5,10 +7,13 @@ import 'package:pfe_projet/features/auth/data/auth_service.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo.dart';
 
 class AuthRepoImplement implements AuthRepo {
+  final AuthService _authService;
+
+  AuthRepoImplement({required AuthService authService}) : _authService = authService;
   @override
-  Future<Either<Failure, UserCredential>> signUp(String email,String password) async {
+  Future<Either<Failure, User>> signUp(String email, String password) async {
     try {
-      var user = await Authservice.signUp(email, password);
+      var user = await _authService.signUp(email, password);
       return right(user);
     } catch (e) {
       if (e is FirebaseAuthException) {
@@ -20,8 +25,22 @@ class AuthRepoImplement implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserCredential>> signIn(String email,String password) {
-    // TODO: implement signIn
+  Future<Either<Failure, User>> signIn(String email, String password) {
     throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> checkEmail() async {
+    bool isEmailVerified = false;
+    _authService.sendEmailVerification();
+    while (isEmailVerified == false) {
+      await Future.delayed(const Duration(seconds: 3), () async {
+        isEmailVerified = await _authService.checkIsEmailVerified();
+      });
+      if (isEmailVerified) {
+        break;
+      }
+    }
+    return isEmailVerified;
   }
 }

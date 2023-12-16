@@ -6,7 +6,7 @@ import 'package:pfe_projet/core/utils/customs/blur_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/helpers.dart';
-import 'package:pfe_projet/features/auth/presentation/views/manager/auth_bloc/auth_bloc.dart';
+import 'package:pfe_projet/features/auth/presentation/views/manager/auth bloc/auth_bloc.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/blur_container_back_button.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 
@@ -49,7 +49,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
             isLoading = false;
           });
           myShowToast(context, 'succes', Colors.green);
-          AppRouters.navigateTo(
+          AppRouters.navigateOff(
             AppRouters.checkEmailView,
           );
         }

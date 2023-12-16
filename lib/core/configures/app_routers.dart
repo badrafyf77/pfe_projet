@@ -54,4 +54,7 @@ class AppRouters {
   static void navigateTo(String name) {
     Get.toNamed(name);
   }
+  static void navigateOff(String name) {
+    Get.offNamed(name);
+  }
 }

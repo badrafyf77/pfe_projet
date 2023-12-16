@@ -16,10 +16,12 @@ class OTPTextField extends StatelessWidget {
       child: TextFormField(
         cursorColor: AppColors.kPrimaryColor,
         cursorWidth: 1,
-        autofocus: true,
         onChanged: (value) {
           if (value.length == 1) {
             FocusScope.of(context).nextFocus();
+          }
+          if (value.isEmpty) {
+            FocusScope.of(context).previousFocus();
           }
         },
         keyboardType: TextInputType.number,

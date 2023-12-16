@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 
@@ -75,7 +74,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         opacity = 1;
       });
       Future.delayed(const Duration(seconds: 1), () {
-        Get.offNamed(AppRouters.signInView);
+        AppRouters.navigateOff(AppRouters.signInView);
       });
     });
   }
