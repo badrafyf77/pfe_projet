@@ -19,6 +19,7 @@ class SignUpBlurContainer extends StatefulWidget {
 
 class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
   GlobalKey<FormState> formKey = GlobalKey();
+  
   TextEditingController nomController = TextEditingController();
   TextEditingController prenomController = TextEditingController();
   TextEditingController cinController = TextEditingController();

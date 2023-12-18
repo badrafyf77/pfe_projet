@@ -9,6 +9,14 @@ class AuthService {
     );
     return credential.user!;
   }
+  Future<User> signIn(String email, String password) async {
+    final credential =
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    return credential.user!;
+  }
 
   Future<bool> checkIsEmailVerified() async {
     await FirebaseAuth.instance.currentUser?.reload();

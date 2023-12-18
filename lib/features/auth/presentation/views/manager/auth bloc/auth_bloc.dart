@@ -20,6 +20,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(SignUpSuccess());
         });
       }
+
+      if (event is SignInEvent) {
+        emit(SignInLoading());
+        var user = await authRepo.signIn(event.email, event.password);
+        user.fold((failure) {
+          emit(SignInFailure(errorMessage: failure.errMessage));
+        }, (userCredential) {
+          emit(SignInSuccess());
+        });
+      }
     });
   }
 }

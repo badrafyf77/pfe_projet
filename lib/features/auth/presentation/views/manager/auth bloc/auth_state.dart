@@ -14,3 +14,13 @@ final class SignUpFailure extends AuthState {
 
   SignUpFailure({required this.errorMessage});
 }
+
+final class SignInLoading extends AuthState {}
+
+final class SignInSuccess extends AuthState {}
+
+final class SignInFailure extends AuthState {
+  final String errorMessage;
+
+  SignInFailure({required this.errorMessage});
+}

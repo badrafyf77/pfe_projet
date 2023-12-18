@@ -20,10 +20,19 @@ class FirebaseAuthFailure extends Failure {
         }
       case 'email-already-in-use':
         {
-          return FirebaseAuthFailure(errMessage: 'Email déjà utilisé');
+          return FirebaseAuthFailure(errMessage: 'email déjà utilisé');
+        }
+      case 'user-not-found':
+        {
+          return FirebaseAuthFailure(errMessage: 'utilisateur non trouvé');
+        }
+      case 'wrong-password':
+        {
+          return FirebaseAuthFailure(errMessage: 'mauvais mot de passe');
         }
       default:
-        return FirebaseAuthFailure(errMessage: 'il y a une erreur, veuillez réessayer');
+        return FirebaseAuthFailure(
+            errMessage: 'il y a une erreur, veuillez réessayer');
     }
   }
 }

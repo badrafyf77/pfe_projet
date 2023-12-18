@@ -1,11 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
+import 'package:pfe_projet/core/utils/helpers.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/otp_custom_textfield.dart';
 
-class OTPNumBlurContainerBody extends StatelessWidget {
+class OTPNumBlurContainerBody extends StatefulWidget {
   const OTPNumBlurContainerBody({super.key});
 
+  @override
+  State<OTPNumBlurContainerBody> createState() =>
+      _OTPNumBlurContainerBodyState();
+}
+
+class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -54,7 +62,48 @@ class OTPNumBlurContainerBody extends StatelessWidget {
           Align(
               alignment: Alignment.centerRight,
               child: CustomTextButton(
-                onpressed: () {},
+                onpressed: () async {
+                  FirebaseAuth auth = FirebaseAuth.instance;
+
+                  await auth.verifyPhoneNumber(
+                    phoneNumber: '+212707314877',
+                    verificationCompleted:
+                        (PhoneAuthCredential credential) async {
+                      // ANDROID ONLY!
+                      myShowToast(
+                          context, 'verificationCompleted', Colors.green);
+                      await auth.currentUser?.updatePhoneNumber(credential);
+                    },
+                    verificationFailed: (FirebaseAuthException e) {
+                      if (e.code == 'invalid-phone-number') {
+                        myShowToast(
+                            context,
+                            'The provided phone number is not valid.',
+                            Colors.red);
+                      }
+                      myShowToast(context, e.message!, Colors.red);
+                      // Handle other errors
+                    },
+                    codeSent: (String verificationId, int? resendToken) async {
+                      // Update the UI - wait for the user to enter the SMS code
+                      // String smsCode = '123456';
+
+                      // // Create a PhoneAuthCredential with the code
+                      // PhoneAuthCredential credential =
+                      //     PhoneAuthProvider.credential(
+                      //         verificationId: verificationId, smsCode: smsCode);
+                      myShowToast(context, 'codeSent', Colors.green);
+                      // Sign the user in (or link) with the credential
+                      // await auth.currentUser?.updatePhoneNumber(credential);
+                    },
+                    timeout: const Duration(seconds: 60),
+                    codeAutoRetrievalTimeout: (String verificationId) {
+                      // Auto-resolution timed out...
+                      myShowToast(
+                          context, 'codeAutoRetrievalTimeout', Colors.green);
+                    },
+                  );
+                },
                 text: 'Renvoyer le code',
               )),
         ],
