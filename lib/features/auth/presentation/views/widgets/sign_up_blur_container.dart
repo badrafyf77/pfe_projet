@@ -19,7 +19,7 @@ class SignUpBlurContainer extends StatefulWidget {
 
 class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
   GlobalKey<FormState> formKey = GlobalKey();
-  
+
   TextEditingController nomController = TextEditingController();
   TextEditingController prenomController = TextEditingController();
   TextEditingController cinController = TextEditingController();
@@ -194,33 +194,34 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
             ),
           ),
           const BlurContineraBackButton(),
-          isLoading ? const LoadingCircle() : const SizedBox(),
           Positioned(
             bottom: 0.5,
             right: 30,
-            child: CustomButton(
-              text: 'S\'inscrire',
-              width: 134,
-              onPressed: () {
-                setState(() {
-                  containerHeight = containerHeightFunction(
-                    nomController.text,
-                    prenomController.text,
-                    cinController.text,
-                    phoneController.text,
-                    emailController.text,
-                    passController.text,
-                    confirmPassController.text,
-                  );
-                });
+            child: isLoading
+                ? const LoadingCircle()
+                : CustomButton(
+                    text: 'S\'inscrire',
+                    width: 134,
+                    onPressed: () {
+                      setState(() {
+                        containerHeight = containerHeightFunction(
+                          nomController.text,
+                          prenomController.text,
+                          cinController.text,
+                          phoneController.text,
+                          emailController.text,
+                          passController.text,
+                          confirmPassController.text,
+                        );
+                      });
 
-                if (formKey.currentState!.validate()) {
-                  BlocProvider.of<AuthBloc>(context).add(SignUpEvent(
-                      email: emailController.text,
-                      password: passController.text));
-                }
-              },
-            ),
+                      if (formKey.currentState!.validate()) {
+                        BlocProvider.of<AuthBloc>(context).add(SignUpEvent(
+                            email: emailController.text,
+                            password: passController.text));
+                      }
+                    },
+                  ),
           ),
         ],
       ),

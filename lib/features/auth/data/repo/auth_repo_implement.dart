@@ -21,7 +21,7 @@ class AuthRepoImplement implements AuthRepo {
       return right(user);
     } catch (e) {
       if (e is FirebaseAuthException) {
-        return left(FirebaseAuthFailure(errMessage: e.code));
+        return left(FirebaseAuthFailure.fromFirebaseAuthException(e));
       }
       return left(FirebaseAuthFailure(
           errMessage: 'il y a une erreur, veuillez réessayer'));
@@ -35,7 +35,7 @@ class AuthRepoImplement implements AuthRepo {
       return right(user);
     } catch (e) {
       if (e is FirebaseAuthException) {
-        return left(FirebaseAuthFailure(errMessage: e.code));
+        return left(FirebaseAuthFailure.fromFirebaseAuthException(e));
       }
       return left(FirebaseAuthFailure(
           errMessage: 'il y a une erreur, veuillez réessayer'));
