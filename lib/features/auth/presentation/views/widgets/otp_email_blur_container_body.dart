@@ -14,6 +14,7 @@ class OTPNumBlurContainerBody extends StatefulWidget {
 }
 
 class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
+  String codeVerification = "";
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -63,16 +64,14 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
               alignment: Alignment.centerRight,
               child: CustomTextButton(
                 onpressed: () async {
-                  FirebaseAuth auth = FirebaseAuth.instance;
-
-                  await auth.verifyPhoneNumber(
-                    phoneNumber: '+212707314877',
+                  await FirebaseAuth.instance.verifyPhoneNumber(
+                    phoneNumber: '+2120707314877',
                     verificationCompleted:
                         (PhoneAuthCredential credential) async {
                       // ANDROID ONLY!
                       myShowToast(
                           context, 'verificationCompleted', Colors.green);
-                      await auth.currentUser?.updatePhoneNumber(credential);
+                      // await auth.currentUser?.updatePhoneNumber(credential);
                     },
                     verificationFailed: (FirebaseAuthException e) {
                       if (e.code == 'invalid-phone-number') {
@@ -80,8 +79,10 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
                             context,
                             'The provided phone number is not valid.',
                             Colors.red);
+                      } else {
+                        myShowToast(context, e.message!, Colors.red);
                       }
-                      myShowToast(context, e.message!, Colors.red);
+                      print(e.message);
                       // Handle other errors
                     },
                     codeSent: (String verificationId, int? resendToken) async {
@@ -92,13 +93,15 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
                       // PhoneAuthCredential credential =
                       //     PhoneAuthProvider.credential(
                       //         verificationId: verificationId, smsCode: smsCode);
+                      codeVerification = verificationId;
                       myShowToast(context, 'codeSent', Colors.green);
                       // Sign the user in (or link) with the credential
                       // await auth.currentUser?.updatePhoneNumber(credential);
                     },
-                    timeout: const Duration(seconds: 60),
+                    // timeout: const Duration(seconds: 60),
                     codeAutoRetrievalTimeout: (String verificationId) {
                       // Auto-resolution timed out...
+                      codeVerification = verificationId;
                       myShowToast(
                           context, 'codeAutoRetrievalTimeout', Colors.green);
                     },

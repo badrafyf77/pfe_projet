@@ -31,8 +31,7 @@ class FirebaseAuthFailure extends Failure {
           return FirebaseAuthFailure(errMessage: 'mauvais mot de passe');
         }
       default:
-        return FirebaseAuthFailure(
-            errMessage: 'il y a une erreur, veuillez réessayer');
+        return FirebaseAuthFailure(errMessage: e.code);
     }
   }
 }
