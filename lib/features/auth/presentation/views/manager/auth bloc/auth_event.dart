@@ -22,3 +22,12 @@ class SignInEvent extends AuthEvent {
     required this.password,
   });
 }
+
+
+class ForgotPassEvent extends AuthEvent {
+  final String email;
+  
+  ForgotPassEvent({
+    required this.email,
+  });
+}

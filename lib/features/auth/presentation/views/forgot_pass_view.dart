@@ -11,6 +11,3 @@ class ForgotPassView extends StatelessWidget {
     );
   }
 }
-
-
-

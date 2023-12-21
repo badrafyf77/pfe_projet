@@ -30,6 +30,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(SignInSuccess());
         });
       }
+
+      if (event is ForgotPassEvent) {
+        emit(ForgotPassLoading());
+        var data = await authRepo.forgotPass(event.email);
+        data.fold((failure) {
+          emit(ForgotPassFailure(errorMessage: failure.errMessage));
+        }, (noError) {
+          emit(ForgotPassSuccess());
+        });
+      }
     });
   }
 }

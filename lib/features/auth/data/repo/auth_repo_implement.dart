@@ -56,4 +56,18 @@ class AuthRepoImplement implements AuthRepo {
     }
     return isEmailVerified;
   }
+
+  @override
+  Future<Either<Failure, bool>> forgotPass(String email) async {
+    try {
+      await _authService.sendPasswordReset(email);
+      return right(false);
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        return left(FirebaseAuthFailure.fromFirebaseAuthException(e));
+      }
+      return left(FirebaseAuthFailure(
+          errMessage: 'il y a une erreur, veuillez réessayer'));
+    }
+  }
 }

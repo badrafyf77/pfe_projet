@@ -6,4 +6,5 @@ abstract class AuthRepo {
   Future<Either<Failure, User>> signUp(String email, String password);
   Future<Either<Failure, User>> signIn(String email, String password);
   Future<bool> checkEmail();
+  Future<Either<Failure, bool>> forgotPass(String email);
 }

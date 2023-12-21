@@ -13,10 +13,11 @@ class ForgotPassBody extends StatelessWidget {
     return BackgroundContainer(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Constants.appPadding),
-        child: Column(
+        child: ListView(
+          physics: const BouncingScrollPhysics(),
           children: [
             SizedBox(
-              height: size.height * .12,
+              height: size.height * .07,
             ),
             const LogoAndText(),
             const SizedBox(

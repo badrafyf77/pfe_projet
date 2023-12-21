@@ -32,6 +32,5 @@ class Styles {
   static const normal12 = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
-    color: Colors.white,
   );
 }
