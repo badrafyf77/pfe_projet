@@ -1,25 +1,3 @@
-//verifier email format
-import 'package:flutter/material.dart';
-import 'package:flutter_styled_toast/flutter_styled_toast.dart';
-
-extension EmailValidator on String {
-  bool isValidEmail() {
-    return RegExp(
-            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-        .hasMatch(this);
-  }
-}
-
-void myShowToast(BuildContext context, String text, Color color) {
-  showToast(
-    text,
-    context: context,
-    animation: StyledToastAnimation.slideFromBottomFade,
-    borderRadius: BorderRadius.circular(12),
-    backgroundColor: color,
-  );
-}
-
 double containerHeightFunction(txt1, txt2, txt3, txt4, txt5, txt6, txt7) {
   int errNum = 0;
   if (txt1 == null || txt1.isEmpty) {
