@@ -7,7 +7,6 @@ import 'package:pfe_projet/core/configures/themes.dart';
 import 'package:pfe_projet/core/utils/service_locator.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo_implement.dart';
 import 'package:pfe_projet/features/auth/presentation/views/manager/auth%20bloc/auth_bloc.dart';
-import 'package:pfe_projet/features/auth/presentation/views/manager/check%20email%20cubit/check_email_cubit.dart';
 import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -35,11 +34,6 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => AuthBloc(
             getIt.get<AuthRepoImplement>(),
           ),
-        ),
-        BlocProvider(
-          create: (BuildContext context) => CheckEmailCubit(
-            getIt.get<AuthRepoImplement>(),
-          )..checkEmailCubit(),
         ),
       ],
       child: GetMaterialApp(
