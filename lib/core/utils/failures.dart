@@ -16,19 +16,19 @@ class FirebaseAuthFailure extends Failure {
     switch (e.code) {
       case 'weak-password':
         {
-          return FirebaseAuthFailure(errMessage: 'mot de passe faible');
+          return FirebaseAuthFailure(errMessage: 'Mot de passe faible');
         }
       case 'email-already-in-use':
         {
-          return FirebaseAuthFailure(errMessage: 'email déjà utilisé');
+          return FirebaseAuthFailure(errMessage: 'Email déjà utilisé');
         }
       case 'user-not-found':
         {
-          return FirebaseAuthFailure(errMessage: 'utilisateur non trouvé');
+          return FirebaseAuthFailure(errMessage: 'Utilisateur non trouvé');
         }
       case 'wrong-password':
         {
-          return FirebaseAuthFailure(errMessage: 'mauvais mot de passe');
+          return FirebaseAuthFailure(errMessage: 'Mauvais mot de passe');
         }
       default:
         return FirebaseAuthFailure(errMessage: e.code);

@@ -15,7 +15,7 @@ class CheckEmailBlurContainerBody extends StatelessWidget {
       listener: (context, state) {
         if (state is CheckEmailSuccess) {
           myShowToast(context, 'Email vérifié avec succès', Colors.green);
-          AppRouters.navigateOff(AppRouters.otpNumView);
+          AppRouters.navigateOff(AppRouters.googleMapsView);
         }
       },
       child: Padding(

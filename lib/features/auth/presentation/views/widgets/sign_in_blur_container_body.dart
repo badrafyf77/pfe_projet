@@ -45,7 +45,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
           });
           myShowToast(context, 'succes', Colors.green);
           AppRouters.navigateOff(
-            AppRouters.otpNumView,
+            AppRouters.googleMapsView,
           );
         }
       },

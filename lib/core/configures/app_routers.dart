@@ -8,6 +8,7 @@ import 'package:pfe_projet/features/auth/presentation/views/manager/check%20emai
 import 'package:pfe_projet/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
+import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
 
@@ -18,6 +19,7 @@ class AppRouters {
   static const otpNumView = '/otpNumView';
   static const forgotPassView = '/forgotPassView';
   static const checkEmailView = '/checkEmailView';
+  static const googleMapsView = '/googleMapsView';
 
   static final router = [
     GetPage(
@@ -56,6 +58,11 @@ class AppRouters {
       name: forgotPassView,
       page: () => const ForgotPassView(),
       transition: Transition.downToUp,
+    ),
+    GetPage(
+      name: googleMapsView,
+      page: () => const GoogleMapsView(),
+      transition: Transition.fade,
     ),
   ];
 
