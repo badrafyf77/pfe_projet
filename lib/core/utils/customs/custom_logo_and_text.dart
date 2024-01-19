@@ -10,17 +10,24 @@ class LogoAndText extends StatelessWidget {
   const LogoAndText({
     Key? key,
     this.alignment = MainAxisAlignment.spaceBetween,
-    this.scale = 1.1,
+    this.height = 99,
+    this.width = 80,
   }) : super(key: key);
   final MainAxisAlignment alignment;
-  final double scale;
+  final double height;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: alignment,
       children: [
-        const SvgReader(assetImage: AppImages.appLogo),
+        SvgReader(
+          assetImage: AppImages.appLogo,
+          defaultSize: false,
+          height: height,
+          width: width,
+        ),
         if (alignment == MainAxisAlignment.center)
           const SizedBox(
             width: 18,

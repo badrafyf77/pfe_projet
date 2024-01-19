@@ -31,7 +31,7 @@ class GoogleButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SvgReader(assetImage: AppImages.googleLogo),
+            const SvgReader(assetImage: AppImages.googleLogo,defaultSize: true,),
             const SizedBox(
               width: 5,
             ),

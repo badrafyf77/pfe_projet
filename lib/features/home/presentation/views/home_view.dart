@@ -19,7 +19,8 @@ class HomeView extends StatelessWidget {
             ),
             LogoAndText(
               alignment: MainAxisAlignment.center,
-              scale: 1.8,
+              height: 49.62,
+              width: 39.62,
             ),
           ],
         ),
