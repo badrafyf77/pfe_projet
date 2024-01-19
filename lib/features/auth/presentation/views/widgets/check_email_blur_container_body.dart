@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pfe_projet/core/configures/app_routers.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
@@ -16,7 +16,7 @@ class CheckEmailBlurContainerBody extends StatelessWidget {
       listener: (context, state) {
         if (state is CheckEmailSuccess) {
           myShowToast(context, 'Email vérifié avec succès', Colors.green);
-          AppRouters.navigateOff(AppRouters.homeView);
+          AppRouter.navigateOff(AppRouter.homeView);
         }
       },
       child: Padding(

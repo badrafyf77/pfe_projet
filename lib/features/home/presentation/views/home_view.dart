@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
@@ -22,7 +23,11 @@ class HomeView extends StatelessWidget {
             ),
           ],
         ),
-        
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          FirebaseAuth.instance.signOut();
+        },
       ),
       body: const HomeBody(),
     );

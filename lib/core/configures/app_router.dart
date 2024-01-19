@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:get/get.dart';
 import 'package:pfe_projet/core/utils/service_locator.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo_implement.dart';
+import 'package:pfe_projet/features/auth/presentation/auth_gate.dart';
 import 'package:pfe_projet/features/auth/presentation/views/check_email_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/forgot_pass_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/manager/check%20email%20cubit/check_email_cubit.dart';
@@ -12,7 +13,8 @@ import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_v
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
 
-class AppRouters {
+class AppRouter {
+  static const splashView = '/splashView';
   static const homeView = '/homeView';
   static const signInView = '/signInView';
   static const signUpView = '/signUpView';
@@ -20,10 +22,15 @@ class AppRouters {
   static const forgotPassView = '/forgotPassView';
   static const checkEmailView = '/checkEmailView';
   static const googleMapsView = '/googleMapsView';
+  
 
   static final router = [
     GetPage(
       name: '/',
+      page: () => const AuthGate(),
+    ),
+    GetPage(
+      name: splashView,
       page: () => const SplashView(),
     ),
     GetPage(

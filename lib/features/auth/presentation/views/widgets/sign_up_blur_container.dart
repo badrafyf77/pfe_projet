@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pfe_projet/core/configures/app_routers.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
@@ -51,8 +51,8 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
             isLoading = false;
           });
           myShowToast(context, 'succes', Colors.green);
-          AppRouters.navigateOff(
-            AppRouters.checkEmailView,
+          AppRouter.navigateOff(
+            AppRouter.checkEmailView,
           );
         }
       },

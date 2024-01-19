@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pfe_projet/core/configures/app_routers.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 
 class SinscrireButton extends StatelessWidget {
@@ -18,7 +18,7 @@ class SinscrireButton extends StatelessWidget {
         width: 134,
         onPressed: () {
           Get.toNamed(
-            AppRouters.otpNumView,
+            AppRouter.otpNumView,
           );
         },
       ),

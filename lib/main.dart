@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:pfe_projet/core/configures/app_routers.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/themes.dart';
 import 'package:pfe_projet/core/utils/service_locator.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo_implement.dart';
+import 'package:pfe_projet/features/auth/presentation/auth_gate.dart';
 import 'package:pfe_projet/features/auth/presentation/views/manager/auth%20bloc/auth_bloc.dart';
-import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -35,8 +35,8 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppThemes.lightTheme,
-        home: const SplashView(),
-        getPages: AppRouters.router,
+        home: const AuthGate(),
+        getPages: AppRouter.router,
       ),
     );
   }

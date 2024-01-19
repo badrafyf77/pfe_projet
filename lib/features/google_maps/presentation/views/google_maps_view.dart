@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
 
 class GoogleMapsView extends StatefulWidget {
   const GoogleMapsView({super.key});
@@ -11,12 +10,8 @@ class GoogleMapsView extends StatefulWidget {
 class _GoogleMapsViewState extends State<GoogleMapsView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FlutterMap(
-        mapController: MapController(),
-        options: const MapOptions(),
-        children: const [],
-      ),
+    return const Scaffold(
+      body: GoogleMapsBody(),
     );
   }
 }

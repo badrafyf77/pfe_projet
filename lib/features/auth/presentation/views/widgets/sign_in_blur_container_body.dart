@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pfe_projet/core/configures/app_routers.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
@@ -44,8 +44,8 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
             isLoading = false;
           });
           myShowToast(context, 'succes', Colors.green);
-          AppRouters.navigateOff(
-            AppRouters.homeView,
+          AppRouter.navigateOff(
+            AppRouter.homeView,
           );
         }
       },
@@ -95,8 +95,8 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
                   height: 30,
                   child: CustomTextButton(
                     onpressed: () {
-                      AppRouters.navigateTo(
-                        AppRouters.forgotPassView,
+                      AppRouter.navigateTo(
+                        AppRouter.forgotPassView,
                       );
                     },
                     text: 'Mot de passe oublie?',
@@ -131,8 +131,8 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
               ),
               CustomTextButton(
                 onpressed: () {
-                  AppRouters.navigateTo(
-                    AppRouters.signUpView,
+                  AppRouter.navigateTo(
+                    AppRouter.signUpView,
                   );
                 },
                 text: 'S\'inscrire?',

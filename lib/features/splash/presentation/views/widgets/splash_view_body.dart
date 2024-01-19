@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/core/configures/app_routers.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -15,6 +15,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late Animation<double> animaton;
   late Animation<Offset> animatonLogo;
   double opacity = 0;
+
   @override
   initState() {
     super.initState();
@@ -22,6 +23,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
     initAnimation();
 
     startAnimationAndNavigatToSignInView();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
   }
 
   @override
@@ -69,12 +76,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void startAnimationAndNavigatToSignInView() {
     Future.delayed(const Duration(seconds: 1, milliseconds: 400), () {
-      controller.forward();
-      setState(() {
-        opacity = 1;
-      });
+      if (mounted) {
+        controller.forward();
+        setState(() {
+          opacity = 1;
+        });
+      }
+
       Future.delayed(const Duration(seconds: 1), () {
-        AppRouters.navigateOff(AppRouters.signInView);
+        if (mounted) {
+          AppRouter.navigateOff(AppRouter.signInView);
+        }
       });
     });
   }
