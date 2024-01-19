@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/configures/app_routers.dart';
@@ -15,7 +16,7 @@ class CheckEmailBlurContainerBody extends StatelessWidget {
       listener: (context, state) {
         if (state is CheckEmailSuccess) {
           myShowToast(context, 'Email vérifié avec succès', Colors.green);
-          AppRouters.navigateOff(AppRouters.googleMapsView);
+          AppRouters.navigateOff(AppRouters.homeView);
         }
       },
       child: Padding(
@@ -30,13 +31,13 @@ class CheckEmailBlurContainerBody extends StatelessWidget {
               height: 30,
             ),
             RichText(
-              text: const TextSpan(
+              text: TextSpan(
                 text: 'Un lien de vérification par e-mail envoyé à ',
                 style: Styles.normal16,
                 children: <TextSpan>[
                   TextSpan(
-                    text: 'example@example.com',
-                    style: TextStyle(
+                    text: FirebaseAuth.instance.currentUser!.email,
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
                     ),

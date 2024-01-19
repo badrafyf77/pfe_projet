@@ -19,7 +19,6 @@ class ForgotPassBody extends StatelessWidget {
             SizedBox(
               height: size.height * .07,
             ),
-            const LogoAndText(),
             const SizedBox(
               height: 112,
             ),
