@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:get/get.dart';
 import 'package:pfe_projet/core/utils/service_locator.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo_implement.dart';
-import 'package:pfe_projet/features/auth/presentation/auth_gate.dart';
+import 'package:pfe_projet/features/auth/presentation/views/auth_gate.dart';
 import 'package:pfe_projet/features/auth/presentation/views/check_email_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/forgot_pass_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/manager/check%20email%20cubit/check_email_cubit.dart';

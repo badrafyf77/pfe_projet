@@ -142,9 +142,6 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                         if (value == null || value.isEmpty) {
                           return 'Entrer email';
                         }
-                        // else if (value.isValidEmail()) {
-                        //   return 'Entrer valide email';
-                        // }
                         return null;
                       },
                       text: 'Email',
@@ -215,11 +212,12 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                           confirmPassController.text,
                         );
                       });
-
                       if (formKey.currentState!.validate()) {
-                        BlocProvider.of<AuthBloc>(context).add(SignUpEvent(
-                            email: emailController.text,
-                            password: passController.text));
+                        BlocProvider.of<AuthBloc>(context).add(
+                          SignUpEvent(
+                              email: emailController.text,
+                              password: passController.text),
+                        );
                       }
                     },
                   ),

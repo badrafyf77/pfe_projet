@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
+import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
+import 'package:pfe_projet/core/utils/app_images.dart';
+import 'package:pfe_projet/core/utils/helpers/svg_reader.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -41,11 +44,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
           builder: (context, _) {
             return Transform.scale(
               scale: animaton.value,
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/vector.png')),
-                ),
+              child: const Center(
+                child: SvgReader(assetImage: AppImages.vector),
               ),
             );
           },
@@ -57,7 +57,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
             curve: Curves.linear,
             opacity: opacity,
             child: Text(
-              'ITUS INSURANCE',
+              Constants.appTitle,
               style: Styles.titleStyle24,
             ),
           ),
@@ -67,7 +67,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
             builder: (context, _) {
               return SlideTransition(
                 position: animatonLogo,
-                child: Image.asset('assets/images/logo.png'),
+                child: const SvgReader(assetImage: AppImages.appLogo),
               );
             }),
       ],

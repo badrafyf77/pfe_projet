@@ -3,6 +3,7 @@ import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/utils/app_images.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
+import 'package:pfe_projet/core/utils/helpers/svg_reader.dart';
 
 class GoogleButton extends StatelessWidget {
   const GoogleButton({
@@ -30,7 +31,7 @@ class GoogleButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(AppImages.googleLogo),
+            const SvgReader(assetImage: AppImages.googleLogo),
             const SizedBox(
               width: 5,
             ),
@@ -45,4 +46,3 @@ class GoogleButton extends StatelessWidget {
     );
   }
 }
-
