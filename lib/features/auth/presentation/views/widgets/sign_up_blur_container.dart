@@ -52,7 +52,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
           });
           myShowToast(context, 'succes', Colors.green);
           AppRouter.navigateOff(
-            AppRouter.checkEmailView,
+            context,AppRouter.checkEmailView,
           );
         }
       },

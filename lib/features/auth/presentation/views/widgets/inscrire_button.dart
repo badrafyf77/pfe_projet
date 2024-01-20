@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 
@@ -17,8 +16,8 @@ class SinscrireButton extends StatelessWidget {
         text: 'S\'inscrire',
         width: 134,
         onPressed: () {
-          Get.toNamed(
-            AppRouter.otpNumView,
+          AppRouter.navigateOff(
+            context,AppRouter.otpNumView,
           );
         },
       ),

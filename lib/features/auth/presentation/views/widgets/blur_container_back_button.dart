@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 
 class BlurContineraBackButton extends StatelessWidget {
   const BlurContineraBackButton({
@@ -18,7 +18,7 @@ class BlurContineraBackButton extends StatelessWidget {
         ),
         child: IconButton(
           onPressed: () {
-            Get.back();
+            AppRouter.pop(context);
           },
           icon: const Icon(
             Icons.arrow_back_ios_sharp,

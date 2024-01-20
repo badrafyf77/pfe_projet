@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/slider_item_and_icon.dart';
 
@@ -17,7 +18,9 @@ class SliderFooter extends StatelessWidget {
           text: 'Mode Claire',
         ),
         SliderItem(
-          onPressed: () {},
+          onPressed: () {
+            FirebaseAuth.instance.signOut();
+          },
           icon: CupertinoIcons.power,
           text: 'Déconnexion',
         ),

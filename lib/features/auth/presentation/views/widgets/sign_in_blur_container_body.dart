@@ -44,9 +44,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
             isLoading = false;
           });
           myShowToast(context, 'succes', Colors.green);
-          AppRouter.navigateOff(
-            AppRouter.homeView,
-          );
+          AppRouter.navigateOff(context, AppRouter.homeView);
         }
       },
       child: Padding(
@@ -96,6 +94,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
                   child: CustomTextButton(
                     onpressed: () {
                       AppRouter.navigateTo(
+                        context,
                         AppRouter.forgotPassView,
                       );
                     },
@@ -132,6 +131,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
               CustomTextButton(
                 onpressed: () {
                   AppRouter.navigateTo(
+                    context,
                     AppRouter.signUpView,
                   );
                 },
