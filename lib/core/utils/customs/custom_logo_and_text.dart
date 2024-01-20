@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/core/configures/constants.dart';
 
+import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/app_images.dart';
 import 'package:pfe_projet/core/utils/helpers/svg_reader.dart';
