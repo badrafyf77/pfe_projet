@@ -14,8 +14,8 @@ class HomeBody extends StatelessWidget {
         children: [
           const VerticalDivider(
             color: AppColors.kThirdColor,
-            thickness: 3,
-            width: 3,
+            thickness: 2,
+            width: 2,
           ),
           Column(
             children: [

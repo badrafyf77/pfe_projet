@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/slider_item_and_icon.dart';
 import 'package:provider/provider.dart';
@@ -25,8 +26,11 @@ class SliderFooter extends StatelessWidget {
           text: 'Mode Claire',
         ),
         SliderItem(
-          onPressed: () {
-            FirebaseAuth.instance.signOut();
+          onPressed: () async {
+            await FirebaseAuth.instance.signOut();
+            if (context.mounted) {
+              AppRouter.navigateOff(context, AppRouter.splashView);
+            }
           },
           icon: CupertinoIcons.power,
           text: 'Déconnexion',

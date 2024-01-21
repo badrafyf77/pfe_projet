@@ -45,7 +45,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
             return Transform.scale(
               scale: animaton.value,
               child: const Center(
-                child: SvgReader(assetImage: AppImages.vector,defaultSize: true,),
+                child: SvgReader(
+                  assetImage: AppImages.vector,
+                  defaultSize: true,
+                ),
               ),
             );
           },
@@ -67,7 +70,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
             builder: (context, _) {
               return SlideTransition(
                 position: animatonLogo,
-                child: const SvgReader(assetImage: AppImages.appLogo,defaultSize: true,),
+                child: const SvgReader(
+                  assetImage: AppImages.appLogo,
+                  defaultSize: false,
+                  height: 80,
+                ),
               );
             }),
       ],
@@ -85,7 +92,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
       Future.delayed(const Duration(seconds: 1), () {
         if (mounted) {
-          AppRouter.navigateOff(context,AppRouter.signInView);
+          AppRouter.navigateOff(context, AppRouter.signInView);
         }
       });
     });
