@@ -21,7 +21,7 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
       child: Column(
         children: [
-          const Text(
+          Text(
             'Code de vérification',
             style: Styles.normal27,
           ),
@@ -29,10 +29,10 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
             height: 30,
           ),
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
               text: 'veuillez entrer le code de vérification envoyer à ',
               style: Styles.normal16,
-              children: <TextSpan>[
+              children: const <TextSpan>[
                 TextSpan(
                   text: '+212707314877',
                   style: TextStyle(
@@ -82,8 +82,6 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
                       } else {
                         myShowToast(context, e.message!, Colors.red);
                       }
-                      print(e.message);
-                      // Handle other errors
                     },
                     codeSent: (String verificationId, int? resendToken) async {
                       // Update the UI - wait for the user to enter the SMS code

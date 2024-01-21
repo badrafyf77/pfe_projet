@@ -47,14 +47,14 @@ class _ForgotPassblurContainerBodyState
         padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
         child: Column(
           children: [
-            const Text(
+            Text(
               'Mot de passe oublier ?',
               style: Styles.normal24,
             ),
             const SizedBox(
               height: 35,
             ),
-            const Text(
+            Text(
               'Veuillez saisir votre email de connexion afin de recevoir un lien de réinitialisation de votre mot de passe',
               style: Styles.normal14,
             ),

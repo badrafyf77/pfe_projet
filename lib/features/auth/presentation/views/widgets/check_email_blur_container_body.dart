@@ -23,7 +23,7 @@ class CheckEmailBlurContainerBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
         child: Column(
           children: [
-            const Text(
+            Text(
               'Vérifier votre email',
               style: Styles.normal24,
             ),

@@ -47,9 +47,9 @@ class _MyTextFieldState extends State<MyTextField> {
       onChanged: widget.onChanged,
       keyboardType: widget.justNumbers ? TextInputType.number : null,
       style: Styles.normal16.copyWith(
-        color: AppColors.kPrimaryColor,
+        color: AppColors.kLightPrimaryColor,
       ),
-      cursorColor: AppColors.kPrimaryColor,
+      cursorColor: AppColors.kLightPrimaryColor,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.zero,
         hintText: widget.hintText,
@@ -64,7 +64,7 @@ class _MyTextFieldState extends State<MyTextField> {
           onPressed: () {},
           icon: Icon(
             widget.prefixIcon,
-            color: AppColors.kPrimaryColor,
+            color: AppColors.kLightPrimaryColor,
           ),
         ),
         suffixIcon: widget.isPassField
@@ -76,20 +76,20 @@ class _MyTextFieldState extends State<MyTextField> {
                 },
                 icon: Icon(
                   obsecureText! ? Icons.visibility : Icons.visibility_off,
-                  color: AppColors.kPrimaryColor,
+                  color: AppColors.kLightPrimaryColor,
                 ),
               )
             : null,
         border: const GradientOutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           gradient: LinearGradient(
-            colors: AppColors.gradientColors,
+            colors: AppColors.kLightGradientColors,
           ),
         ),
         focusedBorder: const GradientOutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           gradient: LinearGradient(
-            colors: AppColors.gradientColors,
+            colors: AppColors.kLightGradientColors,
           ),
         ),
         errorBorder: const OutlineInputBorder(

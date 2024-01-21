@@ -31,13 +31,17 @@ class GoogleButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SvgReader(assetImage: AppImages.googleLogo,defaultSize: true,),
+            const SvgReader(
+              assetImage: AppImages.googleLogo,
+              defaultSize: true,
+            ),
             const SizedBox(
               width: 5,
             ),
             Text(
               'Continuez avec google',
-              style: Styles.normal16.copyWith(color: AppColors.kPrimaryColor),
+              style:
+                  Styles.normal16.copyWith(color: AppColors.kLightPrimaryColor),
             ),
           ],
         ),

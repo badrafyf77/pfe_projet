@@ -28,7 +28,7 @@ class BlurContainer extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             border: const GradientBoxBorder(
               gradient: LinearGradient(
-                colors: AppColors.gradientColors,
+                colors: AppColors.kLightGradientColors,
               ),
               width: 1,
             ),

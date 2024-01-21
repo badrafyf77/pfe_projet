@@ -14,7 +14,7 @@ class OTPTextField extends StatelessWidget {
           color: Colors.white.withOpacity(.62),
           borderRadius: BorderRadius.circular(20)),
       child: TextFormField(
-        cursorColor: AppColors.kPrimaryColor,
+        cursorColor: AppColors.kLightPrimaryColor,
         cursorWidth: 1,
         onChanged: (value) {
           if (value.length == 1) {
@@ -41,7 +41,7 @@ class OTPTextField extends StatelessWidget {
           focusedBorder: GradientOutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             gradient: LinearGradient(
-              colors: AppColors.gradientColors,
+              colors: AppColors.kLightGradientColors,
             ),
             width: 1,
           ),
@@ -50,7 +50,7 @@ class OTPTextField extends StatelessWidget {
         style: const TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: AppColors.kPrimaryColor),
+            color: AppColors.kLightPrimaryColor),
       ),
     );
   }

@@ -19,7 +19,7 @@ class CustomTextButton extends StatelessWidget {
         foregroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
           if (states.contains(MaterialState.pressed)) {
-            return AppColors.kPrimaryColor;
+            return AppColors.kLightPrimaryColor;
           }
           return Colors.white;
         }),

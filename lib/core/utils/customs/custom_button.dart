@@ -22,7 +22,7 @@ class CustomButton extends StatelessWidget {
         strokeWidth: 1,
         radius: 12,
         gradient: const LinearGradient(
-          colors: AppColors.gradientColors,
+          colors: AppColors.kLightGradientColors,
         ),
         onPressed: onPressed,
         child: Container(

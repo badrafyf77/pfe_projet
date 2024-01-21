@@ -1,36 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pfe_projet/core/configures/app_colors.dart';
 
 class Styles {
+  static const basicStyle = TextStyle(
+    color: AppColors.kThirdColor,
+    fontWeight: FontWeight.normal,
+  );
+
   static final titleStyle24 = GoogleFonts.comfortaa(
-    textStyle: const TextStyle(
+    textStyle: basicStyle.copyWith(
       fontSize: 24,
-      fontWeight: FontWeight.normal,
-      color: Colors.white,
     ),
   );
-  static const normal27 = TextStyle(
+  static final normal27 = basicStyle.copyWith(
     fontSize: 27,
-    fontWeight: FontWeight.normal,
-    color: Colors.white,
   );
-  static const normal24 = TextStyle(
+  static final normal24 = basicStyle.copyWith(
     fontSize: 24,
-    fontWeight: FontWeight.normal,
-    color: Colors.white,
   );
-  static const normal16 = TextStyle(
+  static final normal16 = basicStyle.copyWith(
     fontSize: 16,
-    fontWeight: FontWeight.normal,
-    color: Colors.white,
   );
-  static const normal14 = TextStyle(
+  static final normal14 = basicStyle.copyWith(
     fontSize: 14,
-    fontWeight: FontWeight.normal,
-    color: Colors.white,
   );
-  static const normal12 = TextStyle(
+  static final normal12 = basicStyle.copyWith(
     fontSize: 12,
-    fontWeight: FontWeight.normal,
   );
 }

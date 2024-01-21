@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
+import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
+import 'package:provider/provider.dart';
 
 class HomeBodyItemCard extends StatelessWidget {
   const HomeBodyItemCard({
@@ -17,6 +19,7 @@ class HomeBodyItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -24,16 +27,20 @@ class HomeBodyItemCard extends StatelessWidget {
         width: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          border: const GradientBoxBorder(
+          border: GradientBoxBorder(
             gradient: LinearGradient(
-              colors: AppColors.gradientColors,
+              colors: themeChange.darkTheme
+                  ? AppColors.kDarkGradientColors
+                  : AppColors.kLightGradientColors,
             ),
             width: 1,
           ),
-          color: const Color(0xFFFBF6ED),
+          color: HSLColor.fromColor(Theme.of(context).colorScheme.secondary)
+              .withLightness(themeChange.darkTheme ? 0.27 : 0.97)
+              .toColor(),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.25),
+              color: Colors.grey.withOpacity(0.15),
               blurRadius: 7,
               offset: const Offset(7, 9),
             ),
@@ -47,11 +54,21 @@ class HomeBodyItemCard extends StatelessWidget {
               Icon(
                 icon,
                 size: 48,
-                color: AppColors.kPrimaryColor,
+                color: themeChange.darkTheme
+                    ? AppColors.kThirdColor
+                    : AppColors.kLightPrimaryColor,
+              ),
+              const SizedBox(
+                height: 8,
               ),
               Text(
                 text,
-                style: Styles.normal12,
+                style: Styles.normal12.copyWith(
+                  color: themeChange.darkTheme
+                      ? AppColors.kThirdColor
+                      : AppColors.kLightPrimaryColor,
+                  fontSize: 11,
+                ),
                 textAlign: TextAlign.center,
               ),
             ],
