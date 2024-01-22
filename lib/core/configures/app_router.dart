@@ -74,6 +74,7 @@ class AppRouter {
   }
 
   static void navigateOff(BuildContext context, String path) {
+    Navigator.of(context).popUntil((route) => route.isFirst);
     context.pushReplacement(path);
   }
 

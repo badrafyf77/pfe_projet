@@ -7,6 +7,7 @@ import 'package:pfe_projet/core/utils/customs/custom_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/helpers/calcule_signup_container_height.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
+import 'package:pfe_projet/core/utils/helpers/validators.dart';
 import 'package:pfe_projet/features/auth/presentation/views/manager/auth bloc/auth_bloc.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/blur_container_back_button.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
@@ -52,7 +53,8 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
           });
           myShowToast(context, 'succes', Colors.green);
           AppRouter.navigateOff(
-            context,AppRouter.checkEmailView,
+            context,
+            AppRouter.checkEmailView,
           );
         }
       },
@@ -76,6 +78,8 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Entrer nom';
+                        } else if (containsNumbers(value)) {
+                          return 'Entrer un nom valide';
                         }
                         return null;
                       },
@@ -92,6 +96,8 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Entrer prenom';
+                        } else if (containsNumbers(value)) {
+                          return 'Entrer un prenom valide';
                         }
                         return null;
                       },
@@ -108,6 +114,8 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Entrer CIN';
+                        } else if (value.length > 10) {
+                          return 'Entrer un CIN valide';
                         }
                         return null;
                       },
@@ -124,6 +132,8 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Entrer numéro de téléphone';
+                        } else if (!isNumeric(value) || value.length > 14) {
+                          return 'Entrer un numéro valide';
                         }
                         return null;
                       },
@@ -140,12 +150,14 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                     TextAndTextField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Entrer email';
+                          return 'Entrer e-mail';
+                        } else if (!isEmailValid(value)) {
+                          return 'Entrer un e-mail valide';
                         }
                         return null;
                       },
-                      text: 'Email',
-                      hintText: 'Email',
+                      text: 'E-mail',
+                      hintText: 'E-mail',
                       controller: emailController,
                       isPassField: false,
                       prefixIcon: Icons.mail,
