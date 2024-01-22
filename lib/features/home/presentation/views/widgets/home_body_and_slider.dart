@@ -6,20 +6,19 @@ import 'package:pfe_projet/features/home/presentation/views/widgets/home_slider_
 class HomeBodyAndSlider extends StatelessWidget {
   const HomeBodyAndSlider({
     super.key,
-    required GlobalKey<SliderDrawerState> sliderDrawerKey,
-  }) : _sliderDrawerKey = sliderDrawerKey;
-
-  final GlobalKey<SliderDrawerState> _sliderDrawerKey;
+  });
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<SliderDrawerState> sliderDrawerKey =
+      GlobalKey<SliderDrawerState>();
     return SliderDrawer(
       appBar: const SizedBox(),
-      key: _sliderDrawerKey,
+      key: sliderDrawerKey,
       sliderOpenSize: MediaQuery.of(context).size.width * .55,
       sliderCloseSize: 65,
       slider: HomeSliderBody(
-        sliderDrawerKey: _sliderDrawerKey,
+        sliderDrawerKey: sliderDrawerKey,
       ),
       child: const HomeBody(),
     );

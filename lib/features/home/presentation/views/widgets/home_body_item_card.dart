@@ -63,6 +63,8 @@ class HomeBodyItemCard extends StatelessWidget {
               ),
               Text(
                 text,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
                 style: Styles.normal12.copyWith(
                   color: themeChange.darkTheme
                       ? AppColors.kThirdColor

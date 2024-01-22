@@ -22,7 +22,7 @@ class SliderBody extends StatelessWidget {
         SliderItem(
           onPressed: () {},
           icon: Icons.person,
-          text: 'Mon Conseiller',
+          text: 'Mon Conseiller hhhhhhhhhhhhhhhhhhhhh',
         ),
         const HorizontalLine(),
         SliderItem(
