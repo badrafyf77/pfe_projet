@@ -53,9 +53,7 @@ class SliderItem extends StatelessWidget {
             text,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: Styles.normal14.copyWith(
-              color: AppColors.kThirdColor,
-            ),
+            style: Styles.normal14,
           ),
         ),
       ],
