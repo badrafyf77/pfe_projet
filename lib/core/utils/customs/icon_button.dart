@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyIconButton extends StatelessWidget {
   const MyIconButton({
     Key? key,
-    this.onPressed,
+    required this.onPressed,
     required this.icon,
   }) : super(key: key);
 
