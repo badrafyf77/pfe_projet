@@ -57,7 +57,6 @@ class PermisRecto():
                 data_cin={}
                 for key,image in data.items():
                     ocr_text = pytesseract.image_to_string(image)
-                    print(key+":"+ocr_text)
                     data_cin[key]=self.remove_non_alphanumeric(ocr_text)
 
                 try:
