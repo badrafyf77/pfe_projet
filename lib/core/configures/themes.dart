@@ -4,6 +4,7 @@ import 'package:pfe_projet/core/configures/app_colors.dart';
 
 class AppThemes {
   static final lightTheme = ThemeData(
+    scaffoldBackgroundColor: AppColors.kLightSecondColor,
     primaryColor: AppColors.kLightPrimaryColor,
     fontFamily: GoogleFonts.inter().fontFamily,
     colorScheme: const ColorScheme.light(
@@ -18,6 +19,7 @@ class AppThemes {
   );
 
   static final darkTheme = ThemeData(
+    scaffoldBackgroundColor: AppColors.kDarkSecondColor,
     primaryColor: AppColors.kDarkPrimaryColor,
     fontFamily: GoogleFonts.inter().fontFamily,
     colorScheme: const ColorScheme.dark(

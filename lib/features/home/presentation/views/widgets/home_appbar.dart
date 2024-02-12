@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/customs/custom_logo_and_text.dart';
 import 'package:pfe_projet/core/utils/customs/horizontal_line.dart';
 
-class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({
+class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const AppAppBar({
     super.key,
   });
 
@@ -13,6 +13,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       toolbarHeight: 150,
       elevation: 0,
       title: const Column(

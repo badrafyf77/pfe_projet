@@ -68,7 +68,6 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
                     phoneNumber: '+2120707314877',
                     verificationCompleted:
                         (PhoneAuthCredential credential) async {
-                      // ANDROID ONLY!
                       myShowToast(
                           context, 'verificationCompleted', Colors.green);
                       // await auth.currentUser?.updatePhoneNumber(credential);

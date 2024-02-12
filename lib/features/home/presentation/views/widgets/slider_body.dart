@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/horizontal_line.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/slider_item_and_icon.dart';
 
@@ -38,9 +39,11 @@ class SliderBody extends StatelessWidget {
         ),
         const HorizontalLine(),
         SliderItem(
-          onPressed: () {},
+          onPressed: () {
+            AppRouter.navigateTo(context, AppRouter.settingsView);
+          },
           icon: Icons.settings,
-          text: 'Paramètes',
+          text: 'Paramètres',
         ),
         const HorizontalLine(),
       ],
