@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
+import 'package:pfe_projet/core/utils/customs/icon_button.dart';
 
 class AppHeader extends StatelessWidget {
   const AppHeader({
@@ -19,7 +20,7 @@ class AppHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          IconButton(
+          MyIconButton(
             onPressed: () {
               AppRouter.pop(context);
             },

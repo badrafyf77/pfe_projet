@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
+import 'package:pfe_projet/core/utils/customs/icon_button.dart';
 
 class SliderIcon extends StatelessWidget {
   const SliderIcon({
@@ -16,7 +17,7 @@ class SliderIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8),
-      child: IconButton(
+      child: MyIconButton(
         onPressed: onPressed,
         icon: Icon(
           icon,

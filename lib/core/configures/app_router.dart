@@ -13,6 +13,7 @@ import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
 import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/settings_view.dart';
+import 'package:pfe_projet/features/settings/presentation/views/user_info_view.dart';
 import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
 
 class AppRouter {
@@ -25,6 +26,7 @@ class AppRouter {
   static const checkEmailView = '/checkEmailView';
   static const googleMapsView = '/googleMapsView';
   static const settingsView = '/settingsView';
+  static const userInfoView = '/userInfoView';
 
   static final router = GoRouter(
     routes: [
@@ -71,6 +73,10 @@ class AppRouter {
       GoRoute(
         path: settingsView,
         builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        path: userInfoView,
+        builder: (context, state) => const UserInfoView(),
       ),
     ],
   );

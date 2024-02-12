@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
+import 'package:pfe_projet/core/utils/customs/icon_button.dart';
 
 class SettingItem extends StatelessWidget {
   const SettingItem({
     Key? key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
   }) : super(key: key);
 
   final String text;
-  final void Function()? onTap;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +26,12 @@ class SettingItem extends StatelessWidget {
           ),
           child: Align(
             alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 4),
-              child: GestureDetector(
-                onTap: onTap,
-                child: Icon(
-                  Icons.chevron_right,
-                  color: Theme.of(context).colorScheme.primary,
-                  size: 35,
-                ),
+            child: MyIconButton(
+              onPressed: onPressed,
+              icon: Icon(
+                Icons.chevron_right,
+                color: Theme.of(context).colorScheme.primary,
+                size: 35,
               ),
             ),
           ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/features/home/presentation/views/widgets/home_appbar.dart';
+import 'package:pfe_projet/core/utils/customs/home_appbar.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/home_body_and_slider.dart';
 
 class HomeView extends StatefulWidget {
