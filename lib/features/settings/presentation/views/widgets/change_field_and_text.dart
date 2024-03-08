@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
@@ -31,11 +30,14 @@ class SecurityFieldAndTextItem extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        SecurityTextField(
-          controller: passController,
-          validator: validator,
-          obscureText: obscureText,
-          hintText: hintText,
+        SizedBox(
+          height: 60,
+          child: SecurityTextField(
+            controller: passController,
+            validator: validator,
+            obscureText: obscureText,
+            hintText: hintText,
+          ),
         ),
       ],
     );
