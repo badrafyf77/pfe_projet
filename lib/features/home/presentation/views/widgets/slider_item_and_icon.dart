@@ -43,21 +43,27 @@ class SliderItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SliderIcon(icon: icon, onPressed: onPressed),
-        const SizedBox(
-          width: 8,
+    return Material(
+      color: Theme.of(context).colorScheme.primary,
+      child: InkWell(
+        onTap: onPressed,
+        child: Row(
+          children: [
+            SliderIcon(icon: icon, onPressed: onPressed),
+            const SizedBox(
+              width: 8,
+            ),
+            Expanded(
+              child: Text(
+                text,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Styles.normal14,
+              ),
+            ),
+          ],
         ),
-        Expanded(
-          child: Text(
-            text,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: Styles.normal14,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

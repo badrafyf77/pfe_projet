@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/customs/home_appbar.dart';
+import 'package:pfe_projet/features/settings/presentation/views/widgets/change_password_body.dart';
 
 class ChangePasswordView extends StatelessWidget {
   const ChangePasswordView({super.key});
@@ -12,17 +13,6 @@ class ChangePasswordView extends StatelessWidget {
         title: "Changer le mot de passe",
       ),
       body: ChangePasswordBody(),
-    );
-  }
-}
-
-class ChangePasswordBody extends StatelessWidget {
-  const ChangePasswordBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Column(
-      children: [],
     );
   }
 }

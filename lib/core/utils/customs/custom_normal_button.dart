@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 
 class CustomNormalButton extends StatelessWidget {
-  final bool enable;
   final Function()? onPressed;
   final String textButton;
   final Color backgroundColor;
@@ -13,7 +12,6 @@ class CustomNormalButton extends StatelessWidget {
   final double width;
   const CustomNormalButton({
     Key? key,
-    this.enable = true,
     required this.onPressed,
     required this.textButton,
     required this.backgroundColor,
@@ -26,10 +24,10 @@ class CustomNormalButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return UnconstrainedBox(
       child: ElevatedButton(
-        onPressed: enable ? onPressed : null,
+        onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor:
-              MaterialStatePropertyAll(enable ? backgroundColor : Colors.grey),
+              MaterialStatePropertyAll(backgroundColor),
           foregroundColor: const MaterialStatePropertyAll(Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(

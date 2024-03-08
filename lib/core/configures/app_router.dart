@@ -12,6 +12,7 @@ import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
 import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
+import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_email_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_password_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/security_view.dart';
@@ -28,6 +29,7 @@ class AppRouter {
   static const forgotPassView = '/forgotPassView';
   static const checkEmailView = '/checkEmailView';
   static const googleMapsView = '/googleMapsView';
+  static const notificationView = '/notificationView';
   static const settingsView = '/settingsView';
   static const userInfoView = '/userInfoView';
   static const securityView = '/securityView';
@@ -75,6 +77,10 @@ class AppRouter {
       GoRoute(
         path: googleMapsView,
         builder: (context, state) => const GoogleMapsView(),
+      ),
+      GoRoute(
+        path: notificationView,
+        builder: (context, state) => const NotificationView(),
       ),
       GoRoute(
         path: settingsView,
