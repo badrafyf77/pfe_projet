@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton({
+class CustomGradientButton extends StatelessWidget {
+  const CustomGradientButton({
     Key? key,
     required this.text,
     required this.width,

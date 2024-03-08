@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/constants.dart';
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
-import 'package:pfe_projet/core/utils/customs/custom_button.dart';
+import 'package:pfe_projet/core/utils/customs/custom_gradient_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/helpers/calcule_signup_container_height.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
@@ -209,7 +209,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
             right: 30,
             child: isLoading
                 ? const LoadingCircle()
-                : CustomButton(
+                : CustomGradientButton(
                     text: 'S\'inscrire',
                     width: 134,
                     onPressed: () {

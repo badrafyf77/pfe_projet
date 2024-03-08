@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
-import 'package:pfe_projet/core/utils/customs/custom_button.dart';
+import 'package:pfe_projet/core/utils/customs/custom_gradient_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
@@ -114,7 +114,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
               ),
               isLoading
                   ? const LoadingCircle()
-                  : CustomButton(
+                  : CustomGradientButton(
                       text: 'Se connecter',
                       width: 143,
                       onPressed: () {

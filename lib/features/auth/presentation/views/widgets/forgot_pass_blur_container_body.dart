@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pfe_projet/core/utils/customs/custom_button.dart';
+import 'package:pfe_projet/core/utils/customs/custom_gradient_button.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
@@ -79,7 +79,7 @@ class _ForgotPassblurContainerBodyState
             ),
             _isLoading
                 ? const LoadingCircle()
-                : CustomButton(
+                : CustomGradientButton(
                     text: 'Recevoir le lien',
                     width: 150,
                     onPressed: () {
