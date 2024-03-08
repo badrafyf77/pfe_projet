@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:pfe_projet/core/utils/customs/custom_text_field.dart';
+import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_auth_text_field.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 
 class TextAndTextField extends StatelessWidget {
@@ -39,7 +39,7 @@ class TextAndTextField extends StatelessWidget {
         const SizedBox(
           height: 7,
         ),
-        MyTextField(
+        AuthTextField(
           isPassField: isPassField,
           controller: controller,
           prefixIcon: prefixIcon,

@@ -11,11 +11,15 @@ class BlurContainer extends StatelessWidget {
     Key? key,
     required this.height,
     required this.width,
+    this.opacity = 0.1,
+    this.color = Colors.white,
     required this.blurContainerBody,
   }) : super(key: key);
 
   final double height;
   final double width;
+  final double opacity;
+  final Color color;
   final Widget blurContainerBody;
 
   @override
@@ -38,11 +42,11 @@ class BlurContainer extends StatelessWidget {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 23.0, sigmaY: 25.0),
               child: Opacity(
-                opacity: 0.1,
+                opacity: opacity,
                 child: Container(
                   width: width,
                   height: height,
-                  color: Colors.white,
+                  color: color,
                 ),
               ),
             ),
@@ -50,6 +54,59 @@ class BlurContainer extends StatelessWidget {
         ),
         blurContainerBody,
       ],
+    );
+  }
+}
+
+class MyBlurContainer extends StatelessWidget {
+  const MyBlurContainer({
+    Key? key,
+    required this.height,
+    required this.width,
+    this.opacity = 0.1,
+    this.color = Colors.white,
+    required this.blurContainerBody,
+  }) : super(key: key);
+
+  final double height;
+  final double width;
+  final double opacity;
+  final Color color;
+  final Widget blurContainerBody;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: const GradientBoxBorder(
+          gradient: LinearGradient(
+            colors: AppColors.kLightGradientColors,
+          ),
+          width: 1,
+        ),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 23.0, sigmaY: 25.0),
+          child: SizedBox(
+            width: width,
+            height: height,
+            child: Stack(
+              children: [
+                Opacity(
+                  opacity: opacity,
+                  child: Container(
+                    color: color,
+                  ),
+                ),
+                blurContainerBody,
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

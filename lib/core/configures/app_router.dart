@@ -12,6 +12,9 @@ import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
 import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
+import 'package:pfe_projet/features/settings/presentation/views/change_email_view.dart';
+import 'package:pfe_projet/features/settings/presentation/views/change_password_view.dart';
+import 'package:pfe_projet/features/settings/presentation/views/security_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/settings_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/user_info_view.dart';
 import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
@@ -27,6 +30,9 @@ class AppRouter {
   static const googleMapsView = '/googleMapsView';
   static const settingsView = '/settingsView';
   static const userInfoView = '/userInfoView';
+  static const securityView = '/securityView';
+  static const changeEmailView = '/changeEmailView';
+  static const changePasswordView = '/changePasswordView';
 
   static final router = GoRouter(
     routes: [
@@ -77,6 +83,18 @@ class AppRouter {
       GoRoute(
         path: userInfoView,
         builder: (context, state) => const UserInfoView(),
+      ),
+      GoRoute(
+        path: securityView,
+        builder: (context, state) => const SecurityView(),
+      ),
+      GoRoute(
+        path: changeEmailView,
+        builder: (context, state) => const ChangeEmailView(),
+      ),
+      GoRoute(
+        path: changePasswordView,
+        builder: (context, state) => const ChangePasswordView(),
       ),
     ],
   );

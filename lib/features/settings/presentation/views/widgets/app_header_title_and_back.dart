@@ -15,7 +15,7 @@ class AppHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45,
+      height: 47,
       color: Theme.of(context).colorScheme.primary,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +34,9 @@ class AppHeader extends StatelessWidget {
             child: Text(
               text,
               textAlign: TextAlign.center,
-              style: Styles.normal20,
+              style: Styles.normal20.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           const SizedBox(

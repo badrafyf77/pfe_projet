@@ -3,8 +3,8 @@ import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/icon_button.dart';
 
-class SettingItem extends StatelessWidget {
-  const SettingItem({
+class SecurityItem extends StatelessWidget {
+  const SecurityItem({
     Key? key,
     required this.text,
     required this.onPressed,
@@ -21,16 +21,16 @@ class SettingItem extends StatelessWidget {
           height: 50,
           width: MediaQuery.of(context).size.width * .75,
           decoration: BoxDecoration(
-            color: AppColors.kThirdColor,
+            color: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Align(
             alignment: Alignment.centerRight,
             child: MyIconButton(
               onPressed: onPressed,
-              icon: Icon(
+              icon: const Icon(
                 Icons.chevron_right,
-                color: Theme.of(context).colorScheme.primary,
+                color: AppColors.kThirdColor,
                 size: 35,
               ),
             ),
@@ -40,7 +40,7 @@ class SettingItem extends StatelessWidget {
           height: 50,
           width: MediaQuery.of(context).size.width * .65,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            color: AppColors.kThirdColor,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Align(
@@ -50,7 +50,7 @@ class SettingItem extends StatelessWidget {
               child: Text(
                 text,
                 style: Styles.normal16.copyWith(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -61,3 +61,4 @@ class SettingItem extends StatelessWidget {
     );
   }
 }
+

@@ -1,12 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/input_borders/gradient_outline_input_border.dart';
 
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 
-class MyTextField extends StatefulWidget {
-  const MyTextField({
+class AuthTextField extends StatefulWidget {
+  const AuthTextField({
     Key? key,
     this.justNumbers = false,
     required this.isPassField,
@@ -26,10 +25,10 @@ class MyTextField extends StatefulWidget {
   final String hintText;
 
   @override
-  State<MyTextField> createState() => _MyTextFieldState();
+  State<AuthTextField> createState() => _AuthTextFieldState();
 }
 
-class _MyTextFieldState extends State<MyTextField> {
+class _AuthTextFieldState extends State<AuthTextField> {
   bool? obsecureText;
   @override
   void initState() {
