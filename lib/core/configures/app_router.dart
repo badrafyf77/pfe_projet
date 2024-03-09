@@ -13,6 +13,7 @@ import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
 import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
+import 'package:pfe_projet/features/insurances/presentation/views/insurance_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/our_insurances_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_email_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_password_view.dart';
@@ -43,7 +44,10 @@ class AppRouter {
     changeEmailView: '/changeEmailView',
     changePasswordView: '/changePasswordView',
   );
-  static var insurancesFeature = (ourInsurancesView: '/ourInsurancesView',);
+  static var insurancesFeature = (
+    ourInsurancesView: '/ourInsurancesView',
+    insurancesInfoView: '/insurancesInfoView',
+  );
 
   static final router = GoRouter(
     routes: [
@@ -114,6 +118,10 @@ class AppRouter {
       GoRoute(
         path: insurancesFeature.ourInsurancesView,
         builder: (context, state) => const OurInsurancesView(),
+      ),
+      GoRoute(
+        path: insurancesFeature.insurancesInfoView,
+        builder: (context, state) => const InsurancesInfoView(),
       ),
     ],
   );
