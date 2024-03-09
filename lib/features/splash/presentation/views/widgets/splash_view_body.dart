@@ -92,7 +92,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
       Future.delayed(const Duration(seconds: 1), () {
         if (mounted) {
-          AppRouter.navigateOff(context, AppRouter.signInView);
+          AppRouter.navigateOff(context, AppRouter.authFeature.signInView);
         }
       });
     });

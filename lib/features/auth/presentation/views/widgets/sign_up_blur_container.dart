@@ -54,7 +54,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
           myShowToast(context, 'succes', Colors.green);
           AppRouter.navigateOff(
             context,
-            AppRouter.checkEmailView,
+            AppRouter.authFeature.checkEmailView,
           );
         }
       },

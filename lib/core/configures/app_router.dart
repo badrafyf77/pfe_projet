@@ -22,19 +22,27 @@ import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
 
 class AppRouter {
   static const splashView = '/splashView';
-  static const homeView = '/homeView';
-  static const signInView = '/signInView';
-  static const signUpView = '/signUpView';
-  static const otpNumView = '/otpNumView';
-  static const forgotPassView = '/forgotPassView';
-  static const checkEmailView = '/checkEmailView';
   static const googleMapsView = '/googleMapsView';
-  static const notificationView = '/notificationView';
-  static const settingsView = '/settingsView';
-  static const userInfoView = '/userInfoView';
-  static const securityView = '/securityView';
-  static const changeEmailView = '/changeEmailView';
-  static const changePasswordView = '/changePasswordView';
+  
+
+  static var authFeature = (
+    signInView: '/signInView', 
+    signUpView : '/signUpView', 
+    otpNumView : '/otpNumView',
+    forgotPassView : '/forgotPassView',
+    checkEmailView : '/checkEmailView',
+  );
+  static var homeFeature = (
+    homeView: '/homeView', 
+    notificationView : '/notificationView',
+  );
+  static var settingsFeature = (
+    settingsView: '/settingsView', 
+    userInfoView : '/userInfoView',
+    securityView : '/securityView',
+    changeEmailView : '/changeEmailView',
+    changePasswordView : '/changePasswordView',
+  );
 
   static final router = GoRouter(
     routes: [
@@ -47,27 +55,27 @@ class AppRouter {
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
-        path: homeView,
+        path: homeFeature.homeView,
         builder: (context, state) => const HomeView(),
       ),
       GoRoute(
-        path: signInView,
+        path: authFeature.signInView,
         builder: (context, state) => const SignInView(),
       ),
       GoRoute(
-        path: signUpView,
+        path: authFeature.signUpView,
         builder: (context, state) => const SignUpView(),
       ),
       GoRoute(
-        path: forgotPassView,
+        path: authFeature.forgotPassView,
         builder: (context, state) => const ForgotPassView(),
       ),
       GoRoute(
-        path: otpNumView,
+        path: authFeature.otpNumView,
         builder: (context, state) => const OTPNumView(),
       ),
       GoRoute(
-        path: checkEmailView,
+        path: authFeature.checkEmailView,
         builder: (context, state) => bloc.BlocProvider(
           create: (context) => CheckEmailCubit(getIt.get<AuthRepoImplement>())
             ..checkEmailCubit(),
@@ -79,27 +87,27 @@ class AppRouter {
         builder: (context, state) => const GoogleMapsView(),
       ),
       GoRoute(
-        path: notificationView,
+        path: homeFeature.notificationView,
         builder: (context, state) => const NotificationView(),
       ),
       GoRoute(
-        path: settingsView,
+        path: settingsFeature.settingsView,
         builder: (context, state) => const SettingsView(),
       ),
       GoRoute(
-        path: userInfoView,
+        path: settingsFeature.userInfoView,
         builder: (context, state) => const UserInfoView(),
       ),
       GoRoute(
-        path: securityView,
+        path: settingsFeature.securityView,
         builder: (context, state) => const SecurityView(),
       ),
       GoRoute(
-        path: changeEmailView,
+        path: settingsFeature.changeEmailView,
         builder: (context, state) => const ChangeEmailView(),
       ),
       GoRoute(
-        path: changePasswordView,
+        path: settingsFeature.changePasswordView,
         builder: (context, state) => const ChangePasswordView(),
       ),
     ],

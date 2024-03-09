@@ -67,13 +67,13 @@ class NotificationItem extends StatelessWidget {
                 Text(
                   'Notification',
                   style: Styles.normal12.copyWith(
-                    color: const Color(0XFF7F8287),
+                    color: Colors.black.withOpacity(0.6),
                   ),
                 ),
                 Text(
                   '12/02/2024',
                   style: Styles.normal12.copyWith(
-                    color: const Color(0XFF7F8287),
+                    color: Colors.black.withOpacity(0.6),
                   ),
                 ),
               ],

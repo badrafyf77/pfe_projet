@@ -23,7 +23,7 @@ class SettingsInnerBody extends StatelessWidget {
           SettingItem(
             text: "Données personnelles",
             onPressed: () {
-              AppRouter.navigateTo(context, AppRouter.userInfoView);
+              AppRouter.navigateTo(context, AppRouter.settingsFeature.userInfoView);
             },
           ),
           const SizedBox(
@@ -32,7 +32,7 @@ class SettingsInnerBody extends StatelessWidget {
           SettingItem(
             text: "Sécurité",
             onPressed: () {
-              AppRouter.navigateTo(context, AppRouter.securityView);
+              AppRouter.navigateTo(context, AppRouter.settingsFeature.securityView);
             },
           ),
         ],

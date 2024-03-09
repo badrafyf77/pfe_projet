@@ -34,7 +34,7 @@ class SliderBody extends StatelessWidget {
         const HorizontalLine(),
         SliderItem(
           onPressed: () {
-            AppRouter.navigateTo(context, AppRouter.notificationView);
+            AppRouter.navigateTo(context, AppRouter.homeFeature.notificationView);
           },
           icon: Icons.notifications,
           text: 'Messagerie',
@@ -42,7 +42,7 @@ class SliderBody extends StatelessWidget {
         const HorizontalLine(),
         SliderItem(
           onPressed: () {
-            AppRouter.navigateTo(context, AppRouter.settingsView);
+            AppRouter.navigateTo(context, AppRouter.settingsFeature.settingsView);
           },
           icon: Icons.settings,
           text: 'Paramètres',

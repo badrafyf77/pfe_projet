@@ -20,63 +20,122 @@ class HomeBodyItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        height: 100,
-        width: 100,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          border: GradientBoxBorder(
-            gradient: LinearGradient(
-              colors: themeChange.darkTheme
-                  ? AppColors.kDarkGradientColors
-                  : AppColors.kLightGradientColors,
-            ),
-            width: 1,
+    return Container(
+      height: 100,
+      width: 100,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: GradientBoxBorder(
+          gradient: LinearGradient(
+            colors: themeChange.darkTheme
+                ? AppColors.kDarkGradientColors
+                : AppColors.kLightGradientColors,
           ),
-          color: HSLColor.fromColor(Theme.of(context).colorScheme.secondary)
-              .withLightness(themeChange.darkTheme ? 0.27 : 0.97)
-              .toColor(),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.15),
-              blurRadius: 7,
-              offset: const Offset(7, 9),
-            ),
-          ],
+          width: 1,
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
-                size: 48,
-                color: themeChange.darkTheme
-                    ? AppColors.kThirdColor
-                    : AppColors.kLightPrimaryColor,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Text(
-                text,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                style: Styles.normal12.copyWith(
-                  color: themeChange.darkTheme
-                      ? AppColors.kThirdColor
-                      : AppColors.kLightPrimaryColor,
-                  fontSize: 11,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
+        color: HSLColor.fromColor(Theme.of(context).colorScheme.secondary)
+            .withLightness(themeChange.darkTheme ? 0.27 : 0.97)
+            .toColor(),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.15),
+            blurRadius: 7,
+            offset: const Offset(7, 9),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(16),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: ItemCardBody(
+            icon: icon,
+            themeChange: themeChange,
+            text: text,
           ),
         ),
       ),
+    );
+  }
+}
+
+class ItemCardBody extends StatelessWidget {
+  const ItemCardBody({
+    super.key,
+    required this.icon,
+    required this.themeChange,
+    required this.text,
+  });
+
+  final IconData icon;
+  final DarkThemeProvider themeChange;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ItemIcon(icon: icon, themeChange: themeChange),
+          const SizedBox(
+            height: 8,
+          ),
+          ItemText(text: text, themeChange: themeChange),
+        ],
+      ),
+    );
+  }
+}
+
+class ItemIcon extends StatelessWidget {
+  const ItemIcon({
+    super.key,
+    required this.icon,
+    required this.themeChange,
+  });
+
+  final IconData icon;
+  final DarkThemeProvider themeChange;
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      icon,
+      size: 48,
+      color: themeChange.darkTheme
+          ? AppColors.kThirdColor
+          : AppColors.kLightPrimaryColor,
+    );
+  }
+}
+
+class ItemText extends StatelessWidget {
+  const ItemText({
+    super.key,
+    required this.text,
+    required this.themeChange,
+  });
+
+  final String text;
+  final DarkThemeProvider themeChange;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      overflow: TextOverflow.ellipsis,
+      maxLines: 2,
+      style: Styles.normal12.copyWith(
+        color: themeChange.darkTheme
+            ? AppColors.kThirdColor
+            : AppColors.kLightPrimaryColor,
+        fontSize: 11,
+      ),
+      textAlign: TextAlign.center,
     );
   }
 }

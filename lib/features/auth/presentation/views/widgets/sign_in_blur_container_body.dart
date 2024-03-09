@@ -45,7 +45,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
             isLoading = false;
           });
           myShowToast(context, 'succes', Colors.green);
-          AppRouter.navigateOff(context, AppRouter.homeView);
+          AppRouter.navigateOff(context, AppRouter.homeFeature.homeView);
         }
       },
       child: Padding(
@@ -98,7 +98,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
                     onpressed: () {
                       AppRouter.navigateTo(
                         context,
-                        AppRouter.forgotPassView,
+                        AppRouter.authFeature.forgotPassView,
                       );
                     },
                     text: 'Mot de passe oublie?',
@@ -135,7 +135,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
                 onpressed: () {
                   AppRouter.navigateTo(
                     context,
-                    AppRouter.signUpView,
+                    AppRouter.authFeature.signUpView,
                   );
                 },
                 text: 'S\'inscrire?',

@@ -18,7 +18,7 @@ class SinscrireButton extends StatelessWidget {
         onPressed: () {
           AppRouter.navigateOff(
             context,
-            AppRouter.otpNumView,
+            AppRouter.authFeature.otpNumView,
           );
         },
       ),

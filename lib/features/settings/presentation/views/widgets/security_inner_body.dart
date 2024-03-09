@@ -16,7 +16,7 @@ class SecurityInnerBody extends StatelessWidget {
           SettingItem(
             text: "Changer l’adresse e-mail",
             onPressed: () {
-              AppRouter.navigateTo(context, AppRouter.changeEmailView);
+              AppRouter.navigateTo(context, AppRouter.settingsFeature.changeEmailView);
             },
           ),
           const SizedBox(
@@ -25,7 +25,7 @@ class SecurityInnerBody extends StatelessWidget {
           SettingItem(
             text: "Changer le mot de passe",
             onPressed: () {
-              AppRouter.navigateTo(context, AppRouter.changePasswordView);
+              AppRouter.navigateTo(context, AppRouter.settingsFeature.changePasswordView);
             },
           ),
         ],
