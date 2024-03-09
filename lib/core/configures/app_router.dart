@@ -120,14 +120,28 @@ class AppRouter {
         builder: (context, state) => const OurInsurancesView(),
       ),
       GoRoute(
-        path: insurancesFeature.insurancesInfoView,
-        builder: (context, state) => const InsurancesInfoView(),
-      ),
+          path: insurancesFeature.insurancesInfoView,
+          builder: (context, state) {
+            String insuranceType = state.extra as String;
+            return InsurancesInfoView(
+              insuranceType: insuranceType,
+            );
+          }),
     ],
   );
 
-  static void navigateTo(BuildContext context, String path) {
-    context.push(path);
+  static void navigateTo(BuildContext context, String path, [Object obj = ""]) {
+    String str = obj as String;
+    if (str == "") {
+      context.push(
+        path,
+      );
+    } else {
+      context.push(
+        path,
+        extra: obj,
+      );
+    }
   }
 
   static void navigateOff(BuildContext context, String path) {

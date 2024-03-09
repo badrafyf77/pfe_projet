@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/insurance_item.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/our_insurance_header.dart';
@@ -32,21 +33,39 @@ class OurInsurancesBody extends StatelessWidget {
                 children: [
                   InsuranceItem(
                     text: "Itus Auto",
-                    onPresssed: () {},
+                    onPresssed: () {
+                      AppRouter.navigateTo(
+                        context,
+                        AppRouter.insurancesFeature.insurancesInfoView,
+                        "Itus Auto",
+                      );
+                    },
                   ),
                   const SizedBox(
                     height: 7,
                   ),
                   InsuranceItem(
                     text: "Itus Moto",
-                    onPresssed: () {},
+                    onPresssed: () {
+                      AppRouter.navigateTo(
+                        context,
+                        AppRouter.insurancesFeature.insurancesInfoView,
+                        "Itus Moto",
+                      );
+                    },
                   ),
                   const SizedBox(
                     height: 7,
                   ),
                   InsuranceItem(
                     text: "Itus 90to",
-                    onPresssed: () {},
+                    onPresssed: () {
+                      AppRouter.navigateTo(
+                        context,
+                        AppRouter.insurancesFeature.insurancesInfoView,
+                        "Itus 90to",
+                      );
+                    },
                   ),
                 ],
               ),
