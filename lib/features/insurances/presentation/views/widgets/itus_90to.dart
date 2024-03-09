@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/app_images.dart';
 import 'package:pfe_projet/core/utils/helpers/svg_reader.dart';
@@ -20,7 +19,7 @@ class Itus90to extends StatelessWidget {
             Column(
               children: [
                 SizedBox(
-                  height: 20,
+                  height: 25,
                 ),
                 SvgReader(assetImage: AppImages.itus90to, defaultSize: true),
               ],
@@ -31,7 +30,7 @@ class Itus90to extends StatelessWidget {
           ],
         ),
         Padding(
-          padding: EdgeInsets.only(left: 42, right: 42, top: 30, bottom: 20),
+          padding: EdgeInsets.only(left: 42, right: 42, top: 30, bottom: 15),
           child: Column(
             children: [
               JustifyText(

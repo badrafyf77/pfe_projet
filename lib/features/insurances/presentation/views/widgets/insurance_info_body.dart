@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_border_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/fetch_insurance_info.dart';
+import 'package:provider/provider.dart';
 
 class InsuranceInfoBody extends StatelessWidget {
   const InsuranceInfoBody({
@@ -14,6 +17,7 @@ class InsuranceInfoBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
     return Column(
       children: [
         fetchInsuranceInfo(insuranceType),
@@ -23,7 +27,9 @@ class InsuranceInfoBody extends StatelessWidget {
         CustomBorderButton(
           onPressed: () {},
           textButton: "Simuler rapidement mon devis",
-          borderColor: Theme.of(context).colorScheme.primary,
+          borderColor: themeChange.darkTheme
+              ? AppColors.kThirdColor
+              : Theme.of(context).colorScheme.primary,
           height: 50,
           width: 250,
         ),
@@ -33,7 +39,12 @@ class InsuranceInfoBody extends StatelessWidget {
         CustomNormalButton(
           onPressed: () {},
           textButton: "Je demande un devis",
-          backgroundColor: Theme.of(context).colorScheme.primary,
+          backgroundColor: themeChange.darkTheme
+              ? AppColors.kThirdColor
+              : Theme.of(context).colorScheme.primary,
+          textColor: themeChange.darkTheme
+              ? Theme.of(context).colorScheme.primary
+              : AppColors.kThirdColor,
           height: 50,
           width: 185,
         )
@@ -41,11 +52,6 @@ class InsuranceInfoBody extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
 
 class InsuranceInfoTextHeader extends StatelessWidget {
   const InsuranceInfoTextHeader({
@@ -57,12 +63,15 @@ class InsuranceInfoTextHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
     return Positioned(
       top: 32,
       child: Text(
         text,
         style: Styles.normal16.copyWith(
-          color: Theme.of(context).colorScheme.primary,
+          color: themeChange.darkTheme
+              ? AppColors.kThirdColor
+              : Theme.of(context).colorScheme.primary,
           fontWeight: FontWeight.bold,
         ),
       ),

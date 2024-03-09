@@ -1,12 +1,12 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
+import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 
 class CustomNormalButton extends StatelessWidget {
   final Function()? onPressed;
   final String textButton;
   final Color backgroundColor;
+  final Color textColor;
   final double radius;
   final double height;
   final double width;
@@ -15,6 +15,7 @@ class CustomNormalButton extends StatelessWidget {
     required this.onPressed,
     required this.textButton,
     required this.backgroundColor,
+    this.textColor = AppColors.kThirdColor,
     this.radius = 10,
     required this.height,
     required this.width,
@@ -26,8 +27,7 @@ class CustomNormalButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor:
-              MaterialStatePropertyAll(backgroundColor),
+          backgroundColor: MaterialStatePropertyAll(backgroundColor),
           foregroundColor: const MaterialStatePropertyAll(Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
@@ -41,7 +41,10 @@ class CustomNormalButton extends StatelessWidget {
           child: Center(
             child: Text(
               textButton,
-              style: Styles.normal16,
+              style: Styles.normal16.copyWith(
+                color: textColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
