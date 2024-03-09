@@ -73,8 +73,8 @@ class UserInfoItemVerified extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: Container(
-                height: 50,
-                width: 50,
+                height: 52,
+                width: 52,
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(10),

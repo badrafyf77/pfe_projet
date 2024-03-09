@@ -102,9 +102,10 @@ class JustifyText extends StatelessWidget {
     return Text(
       textAlign: TextAlign.justify,
       text,
-      style: Styles.normal15.copyWith(
+      style: Styles.normal16.copyWith(
         color: Theme.of(context).colorScheme.primary,
         fontWeight: FontWeight.bold,
+        height: 1,
       ),
     );
   }

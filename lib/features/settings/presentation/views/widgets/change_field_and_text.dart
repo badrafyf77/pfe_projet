@@ -30,14 +30,11 @@ class SecurityFieldAndTextItem extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        SizedBox(
-          height: 60,
-          child: SecurityTextField(
-            controller: passController,
-            validator: validator,
-            obscureText: obscureText,
-            hintText: hintText,
-          ),
+        SecurityTextField(
+          controller: passController,
+          validator: validator,
+          obscureText: obscureText,
+          hintText: hintText,
         ),
       ],
     );
