@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/home_body_item_card.dart';
 
 class HomeBody extends StatelessWidget {
@@ -29,7 +30,8 @@ class HomeBody extends StatelessWidget {
                     icon: CupertinoIcons.umbrella_fill,
                     text: "Nos Assurances",
                     onTap: () {
-                      
+                      AppRouter.navigateTo(context,
+                          AppRouter.insurancesFeature.ourInsurancesView);
                     },
                   ),
                   const SizedBox(width: 30),
