@@ -26,7 +26,6 @@ class AuthRepoImplement implements AuthRepo {
       await _firebaseService.addUser(email, password, nom, prenom, cin, phone);
       return right(user);
     } catch (e) {
-      print(e);
       if (e is FirebaseAuthException) {
         return left(FirebaseAuthFailure.fromFirebaseAuthException(e));
       }

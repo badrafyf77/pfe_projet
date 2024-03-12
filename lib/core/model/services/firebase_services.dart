@@ -16,4 +16,21 @@ class FirebaseService {
 
     await users.doc(email).set(user.toJson());
   }
+
+  // Future<Map<String, dynamic>> getUser(String email) async {
+  //   var data = await users.doc(email).get();
+  //   return;
+  // }
+
+  Future<dynamic> getData(String email) async {
+    dynamic data;
+
+    final DocumentReference document = users.doc(email);
+
+    await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
+      data = snapshot.data;
+    });
+
+    return data;
+  }
 }
