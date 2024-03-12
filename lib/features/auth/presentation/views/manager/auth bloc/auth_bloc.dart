@@ -11,9 +11,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     this.authRepo,
   ) : super(AuthInitial()) {
     on<AuthEvent>((event, emit) async {
+
+
       if (event is SignUpEvent) {
         emit(SignUpLoading());
-        var user = await authRepo.signUp(event.email, event.password);
+        var user = await authRepo.signUp(event.email, event.password, event.nom, event.prenom, event.cin, event.phone);
         user.fold((failure) {
           emit(SignUpFailure(errorMessage: failure.errMessage));
         }, (userCredential) {

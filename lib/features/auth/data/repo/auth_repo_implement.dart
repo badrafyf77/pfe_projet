@@ -14,8 +14,10 @@ class AuthRepoImplement implements AuthRepo {
   AuthRepoImplement(
     this._authService,
   );
+
+
   @override
-  Future<Either<Failure, User>> signUp(String email, String password) async {
+  Future<Either<Failure, User>> signUp(String email, String password, String nom, String prenom, String cin, String phone) async {
     try {
       var user = await _authService.signUp(email, password);
       return right(user);
