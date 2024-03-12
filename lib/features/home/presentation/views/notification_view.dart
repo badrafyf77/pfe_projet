@@ -33,7 +33,7 @@ class NotificationBody extends StatelessWidget {
                 children: [
                   if (index == 0)
                     const SizedBox(
-                      height: 35,
+                      height: 20,
                     ),
                   const NotificationItem(),
                   const SizedBox(

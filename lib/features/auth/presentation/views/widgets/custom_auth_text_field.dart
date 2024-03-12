@@ -47,11 +47,15 @@ class _AuthTextFieldState extends State<AuthTextField> {
       keyboardType: widget.justNumbers ? TextInputType.number : null,
       style: Styles.normal16.copyWith(
         color: AppColors.kLightPrimaryColor,
+        fontWeight: FontWeight.bold,
       ),
       cursorColor: AppColors.kLightPrimaryColor,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.zero,
         hintText: widget.hintText,
+        hintStyle: Styles.normal16.copyWith(
+          color: AppColors.kLightPrimaryColor,
+        ),
         filled: true,
         fillColor: Colors.white.withOpacity(.63),
         errorStyle: const TextStyle(
