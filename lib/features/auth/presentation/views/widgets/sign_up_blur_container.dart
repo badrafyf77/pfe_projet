@@ -227,13 +227,13 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                       if (formKey.currentState!.validate()) {
                         BlocProvider.of<AuthBloc>(context).add(
                           SignUpEvent(
-                              email: emailController.text,
-                              password: passController.text,
-                              nom: nomController.text,
-                              prenom: prenomController.text,
-                              cin: cinController.text,
-                              phone: phoneController.text,
-                              ),
+                            email: emailController.text,
+                            password: passController.text,
+                            nom: nomController.text,
+                            prenom: prenomController.text,
+                            cin: cinController.text,
+                            phone: phoneController.text,
+                          ),
                         );
                       }
                     },

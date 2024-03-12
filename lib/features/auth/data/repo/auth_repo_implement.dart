@@ -4,29 +4,36 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'package:pfe_projet/core/model/services/firebase_services.dart';
 import 'package:pfe_projet/core/utils/failures.dart';
 import 'package:pfe_projet/features/auth/data/auth_service.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo.dart';
 
 class AuthRepoImplement implements AuthRepo {
   final AuthService _authService;
+  final FirebaseService _firebaseService;
 
   AuthRepoImplement(
     this._authService,
+    this._firebaseService,
   );
 
-
   @override
-  Future<Either<Failure, User>> signUp(String email, String password, String nom, String prenom, String cin, String phone) async {
+  Future<Either<Failure, User>> signUp(String email, String password,
+      String nom, String prenom, String cin, String phone) async {
     try {
-      var user = await _authService.signUp(email, password);
+      User user = await _authService.signUp(email, password);
+      await _firebaseService.addUser(email, password, nom, prenom, cin, phone);
       return right(user);
     } catch (e) {
+      print(e);
       if (e is FirebaseAuthException) {
         return left(FirebaseAuthFailure.fromFirebaseAuthException(e));
       }
-      return left(FirebaseAuthFailure(
-          errMessage: 'il y a une erreur, veuillez réessayer'));
+      return left(
+        FirebaseAuthFailure(
+            errMessage: 'il y a une erreur, veuillez réessayer'),
+      );
     }
   }
 
