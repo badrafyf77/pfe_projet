@@ -6,7 +6,7 @@ class FirebaseService {
 
   Future<void> addUser(String email, String password, String nom, String prenom,
       String cin, String phone) async {
-    UserInfo user = UserInfo(
+    UserInformation user = UserInformation(
         nom: nom,
         prenom: prenom,
         cin: cin,
@@ -22,13 +22,13 @@ class FirebaseService {
   //   return;
   // }
 
-  Future<dynamic> getData(String email) async {
+  Future<dynamic> getUser(String email) async {
     dynamic data;
 
     final DocumentReference document = users.doc(email);
 
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
-      data = snapshot.data;
+      data = snapshot.data();
     });
 
     return data;

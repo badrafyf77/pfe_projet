@@ -35,3 +35,19 @@ class FirebaseAuthFailure extends Failure {
     }
   }
 }
+
+class FirestoreFailure extends Failure {
+  FirestoreFailure({required super.errMessage});
+
+  factory FirestoreFailure.fromFirestoreFailure(
+      FirebaseException e) {
+    switch (e.code) {
+      case '':
+        {
+          return FirestoreFailure(errMessage: 'erreur message');
+        }
+      default:
+        return FirestoreFailure(errMessage: e.code);
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:go_router/go_router.dart';
@@ -15,6 +16,8 @@ import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/insurance_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/our_insurances_view.dart';
+import 'package:pfe_projet/features/settings/data/repo/user_info_repo_implement.dart';
+import 'package:pfe_projet/features/settings/presentation/manager/get%20user%20cubit/get_user_cubit.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_email_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_password_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/security_view.dart';
@@ -101,7 +104,11 @@ class AppRouter {
       ),
       GoRoute(
         path: settingsFeature.userInfoView,
-        builder: (context, state) => const UserInfoView(),
+        builder: (context, state) =>bloc.BlocProvider(
+          create: (context) => GetUserCubit(getIt.get<UserInfoRepoImplement>(),FirebaseAuth.instance.currentUser!.email!)
+            ..getUserCubit(),
+          child: const UserInfoView(),
+        ),
       ),
       GoRoute(
         path: settingsFeature.securityView,

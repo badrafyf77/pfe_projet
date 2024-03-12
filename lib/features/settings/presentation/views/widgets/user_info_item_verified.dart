@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/icon_button.dart';
 import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
-import 'package:provider/provider.dart';
 
 class UserInfoItemVerified extends StatelessWidget {
   const UserInfoItemVerified({
     Key? key,
     required this.title,
     required this.value,
+    required this.onPressed,
   }) : super(key: key);
 
   final String title;
   final String value;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +82,7 @@ class UserInfoItemVerified extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: MyIconButton(
-                  onPressed: () {},
+                  onPressed: onPressed,
                   icon: const Icon(
                     Icons.error,
                     color: Colors.red,

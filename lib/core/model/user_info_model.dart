@@ -1,4 +1,4 @@
-class UserInfo {
+class UserInformation {
   final String nom;
   final String prenom;
   final String cin;
@@ -6,7 +6,7 @@ class UserInfo {
   final String email;
   final String password;
 
-  UserInfo({
+  UserInformation({
     required this.nom,
     required this.prenom,
     required this.cin,
@@ -15,7 +15,7 @@ class UserInfo {
     required this.password,
   });
 
-  UserInfo.fromJson(Map<String, dynamic> json)
+  UserInformation.fromJson(Map<String, dynamic> json)
       : this(
           nom: json['nom']! as String,
           prenom: json['prenom']! as String,
