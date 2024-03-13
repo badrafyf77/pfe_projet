@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:pfe_projet/core/model/services/firebase_services.dart';
+import 'package:pfe_projet/core/model/services/firestore_services.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
 import 'package:pfe_projet/core/utils/failures.dart';
 import 'package:pfe_projet/features/auth/data/auth_service.dart';
@@ -12,18 +12,18 @@ import 'package:pfe_projet/features/auth/data/repo/auth_repo.dart';
 
 class AuthRepoImplement implements AuthRepo {
   final AuthService _authService;
-  final FirebaseService _firebaseService;
+  final FirestoreService _firestoreService;
 
   AuthRepoImplement(
     this._authService,
-    this._firebaseService,
+    this._firestoreService,
   );
 
   @override
   Future<Either<Failure, User>> signUp(UserInformation userInfo) async {
     try {
       User user = await _authService.signUp(userInfo.email, userInfo.password);
-      await _firebaseService.addUser(userInfo);
+      await _firestoreService.addUser(userInfo);
       return right(user);
     } catch (e) {
       if (e is FirebaseAuthException) {
