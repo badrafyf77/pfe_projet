@@ -5,7 +5,7 @@ import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_text_button.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
-import 'package:pfe_projet/features/auth/presentation/views/manager/check%20email%20cubit/check_email_cubit.dart';
+import 'package:pfe_projet/features/auth/presentation/manager/check%20email%20cubit/check_email_cubit.dart';
 
 class CheckEmailBlurContainerBody extends StatelessWidget {
   const CheckEmailBlurContainerBody({super.key});

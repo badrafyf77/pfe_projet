@@ -4,33 +4,20 @@ import 'package:pfe_projet/core/model/user_info_model.dart';
 class FirebaseService {
   CollectionReference users = FirebaseFirestore.instance.collection('users');
 
-  Future<void> addUser(String email, String password, String nom, String prenom,
-      String cin, String phone) async {
-    UserInformation user = UserInformation(
-        nom: nom,
-        prenom: prenom,
-        cin: cin,
-        phone: phone,
-        email: email,
-        password: password);
-
-    await users.doc(email).set(user.toJson());
+  Future<void> addUser(UserInformation userInfo) async {
+    await users.doc(userInfo.email).set(userInfo.toJson());
   }
 
-  // Future<Map<String, dynamic>> getUser(String email) async {
-  //   var data = await users.doc(email).get();
-  //   return;
-  // }
 
-  Future<dynamic> getUser(String email) async {
-    dynamic data;
+  Future<Map<String, dynamic>> getUser(String email) async {
+    Map<String, dynamic>? data;
 
     final DocumentReference document = users.doc(email);
 
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
-      data = snapshot.data();
+      data = snapshot.data() as Map<String, dynamic>;
     });
 
-    return data;
+    return data!;
   }
 }

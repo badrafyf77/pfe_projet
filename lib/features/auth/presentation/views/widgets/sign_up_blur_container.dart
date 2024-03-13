@@ -8,7 +8,7 @@ import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/helpers/calcule_signup_container_height.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
 import 'package:pfe_projet/core/utils/helpers/validators.dart';
-import 'package:pfe_projet/features/auth/presentation/views/manager/auth bloc/auth_bloc.dart';
+import 'package:pfe_projet/features/auth/presentation/manager/auth bloc/auth_bloc.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/blur_container_back_button.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 

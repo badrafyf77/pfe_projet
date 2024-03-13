@@ -7,7 +7,7 @@ import 'package:pfe_projet/features/auth/data/repo/auth_repo_implement.dart';
 import 'package:pfe_projet/features/auth/presentation/views/auth_gate.dart';
 import 'package:pfe_projet/features/auth/presentation/views/check_email_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/forgot_pass_view.dart';
-import 'package:pfe_projet/features/auth/presentation/views/manager/check%20email%20cubit/check_email_cubit.dart';
+import 'package:pfe_projet/features/auth/presentation/manager/check%20email%20cubit/check_email_cubit.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
