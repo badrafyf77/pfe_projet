@@ -10,13 +10,11 @@ class FirestoreService {
 
   Future<Map<String, dynamic>> getUser(String email) async {
     Map<String, dynamic>? data;
-
     final DocumentReference document = users.doc(email);
-
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
       data = snapshot.data() as Map<String, dynamic>;
     });
-
     return data!;
   }
+
 }

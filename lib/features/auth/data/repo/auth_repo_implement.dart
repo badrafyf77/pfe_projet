@@ -7,7 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pfe_projet/core/model/services/firestore_services.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
 import 'package:pfe_projet/core/utils/failures.dart';
-import 'package:pfe_projet/features/auth/data/auth_service.dart';
+import 'package:pfe_projet/core/model/services/auth_service.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo.dart';
 
 class AuthRepoImplement implements AuthRepo {

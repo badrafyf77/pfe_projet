@@ -7,12 +7,11 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final AuthRepo authRepo;
+  final AuthRepo _authRepo;
   AuthBloc(
-    this.authRepo,
+    this._authRepo,
   ) : super(AuthInitial()) {
     on<AuthEvent>((event, emit) async {
-
 
       if (event is SignUpEvent) {
         emit(SignUpLoading());
@@ -23,7 +22,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         phone: event.phone,
         email: event.email,
         password: event.password);
-        var user = await authRepo.signUp(userInfo);
+        var user = await _authRepo.signUp(userInfo);
         user.fold((failure) {
           emit(SignUpFailure(errorMessage: failure.errMessage));
         }, (userCredential) {
@@ -33,7 +32,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       if (event is SignInEvent) {
         emit(SignInLoading());
-        var user = await authRepo.signIn(event.email, event.password);
+        var user = await _authRepo.signIn(event.email, event.password);
         user.fold((failure) {
           emit(SignInFailure(errorMessage: failure.errMessage));
         }, (userCredential) {
@@ -43,7 +42,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       if (event is ForgotPassEvent) {
         emit(ForgotPassLoading());
-        var data = await authRepo.forgotPass(event.email);
+        var data = await _authRepo.forgotPass(event.email);
         data.fold((failure) {
           emit(ForgotPassFailure(errorMessage: failure.errMessage));
         }, (noError) {
