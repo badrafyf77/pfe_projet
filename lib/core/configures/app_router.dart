@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pfe_projet/core/utils/service_locator.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo_implement.dart';
@@ -18,6 +18,7 @@ import 'package:pfe_projet/features/insurances/presentation/views/insurance_info
 import 'package:pfe_projet/features/insurances/presentation/views/our_insurances_view.dart';
 import 'package:pfe_projet/features/settings/data/repo/settings_repo_implement.dart';
 import 'package:pfe_projet/features/settings/presentation/manager/get%20user%20cubit/get_user_cubit.dart';
+import 'package:pfe_projet/features/settings/presentation/manager/securite/securite_bloc.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_email_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_password_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/security_view.dart';
@@ -84,7 +85,7 @@ class AppRouter {
       ),
       GoRoute(
         path: authFeature.checkEmailView,
-        builder: (context, state) => bloc.BlocProvider(
+        builder: (context, state) => BlocProvider(
           create: (context) => CheckEmailCubit(getIt.get<AuthRepoImplement>())
             ..checkEmailCubit(),
           child: const CheckEmailView(),
@@ -104,7 +105,7 @@ class AppRouter {
       ),
       GoRoute(
         path: settingsFeature.userInfoView,
-        builder: (context, state) => bloc.BlocProvider(
+        builder: (context, state) => BlocProvider(
           create: (context) => GetUserCubit(getIt.get<SettingsRepoImplement>(),
               FirebaseAuth.instance.currentUser!.email!)
             ..getUserCubit(),
@@ -117,7 +118,12 @@ class AppRouter {
       ),
       GoRoute(
         path: settingsFeature.changeEmailView,
-        builder: (context, state) => const ChangeEmailView(),
+        builder: (context, state) => BlocProvider(
+          create: (BuildContext context) => SecuriteBloc(
+            getIt.get<SettingsRepoImplement>(),
+          ),
+          child: const ChangeEmailView(),
+        ),
       ),
       GoRoute(
         path: settingsFeature.changePasswordView,

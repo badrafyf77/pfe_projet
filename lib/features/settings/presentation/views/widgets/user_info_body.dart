@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
+import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
 import 'package:pfe_projet/features/settings/presentation/manager/get%20user%20cubit/get_user_cubit.dart';
 import 'package:pfe_projet/features/settings/presentation/views/widgets/user_info_item.dart';
 import 'package:pfe_projet/features/settings/presentation/views/widgets/user_info_item_verified.dart';
@@ -12,6 +13,9 @@ class UserInfoBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GetUserCubit, GetUserState>(
       builder: (context, state) {
+        if (state is GetUserFailure) {
+          myShowToast(context, state.errorMessage, Colors.red);
+        }
         if (state is GetUserSuccess) {
           return Center(
             child: SizedBox(
@@ -62,6 +66,7 @@ class UserInfoBody extends StatelessWidget {
             ),
           );
         }
+        print("nothing");
         return Center(
           child: LoadingCircle(
             color: Theme.of(context).colorScheme.primary,

@@ -19,7 +19,7 @@ class SecuriteBloc extends Bloc<SecuriteEvent, SecuriteState> {
         if (await AuthService().checkPassword(event.password) == false) {
           emit(ChangeEmailFailure(errorMessage: "Mot de passe incorrect."));
         } else {
-          var data = await _settingsRepo.changeEmail(event.newEmail);
+          var data = await _settingsRepo.changeEmail(event.password, event.newEmail);
           data.fold((failure) {
             emit(ChangeEmailFailure(errorMessage: failure.errMessage));
           }, (userCredential) {

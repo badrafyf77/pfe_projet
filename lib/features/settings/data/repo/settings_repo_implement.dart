@@ -19,8 +19,7 @@ class SettingsRepoImplement implements SettingsRepo {
   @override
   Future<Either<Failure, UserInformation>> getUser(String email) async {
     try {
-      var data = await _firestoreService.getUser(email);
-      UserInformation user = UserInformation.fromJson(data);
+      var user = await _firestoreService.getUser(email);
       return right(user);
     } catch (e) {
       if (e is FirebaseException) {
@@ -33,9 +32,9 @@ class SettingsRepoImplement implements SettingsRepo {
   }
 
   @override
-  Future<Either<Failure, Unit>> changeEmail(String newEmail) async {
+  Future<Either<Failure, Unit>> changeEmail(String password, String newEmail) async {
     try {
-      await _authService.updateEmail(newEmail);
+      await _authService.updateEmail(password, newEmail);
       return right(unit);
     } catch (e) {
       if (e is FirebaseAuthException) {

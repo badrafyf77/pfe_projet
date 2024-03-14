@@ -34,8 +34,19 @@ class AuthService {
     await _auth.sendPasswordResetEmail(email: email);
   }
 
-  Future<void> updateEmail(String newEmail) async {
+  Future<void> updateEmail(String password, String newEmail) async {
+    String email = _auth.currentUser!.email!;
+    await _auth.currentUser?.reauthenticateWithCredential(
+      EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      ),
+    );
+    UserInformation user = await _firestoreService.getUser(email);
     await _auth.currentUser!.updateEmail(newEmail);
+    await _firestoreService.deleteUser(email);
+    user.email = newEmail;
+    await _firestoreService.addUser(user);
   }
 
   Future<void> updatePassword(String newPassword) async {
@@ -43,7 +54,7 @@ class AuthService {
   }
 
   Future<bool> checkPassword(String password) async {
-    var data = await _firestoreService.getUser(_auth.currentUser!.email!);
-    return UserInformation.fromJson(data).password == password;
+    var user = await _firestoreService.getUser(_auth.currentUser!.email!);
+    return user.password == password;
   }
 }

@@ -2,9 +2,9 @@ class UserInformation {
   final String nom;
   final String prenom;
   final String cin;
-  final String phone;
-  final String email;
-  final String password;
+  String phone;
+  String email;
+  String password;
 
   UserInformation({
     required this.nom,

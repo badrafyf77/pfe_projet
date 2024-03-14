@@ -8,13 +8,18 @@ class FirestoreService {
     await users.doc(userInfo.email).set(userInfo.toJson());
   }
 
-  Future<Map<String, dynamic>> getUser(String email) async {
-    Map<String, dynamic>? data;
+  Future<UserInformation> getUser(String email) async {
+    dynamic data;
+    UserInformation user;
     final DocumentReference document = users.doc(email);
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
-      data = snapshot.data() as Map<String, dynamic>;
+      data = snapshot.data();
     });
-    return data!;
+    user = UserInformation.fromJson(data);
+    return user;
   }
 
+  Future<void> deleteUser(String email) async {
+    await users.doc(email).delete();
+  }
 }
