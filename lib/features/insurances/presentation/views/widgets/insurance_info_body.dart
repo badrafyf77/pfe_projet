@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_border_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
@@ -37,7 +38,12 @@ class InsuranceInfoBody extends StatelessWidget {
           height: 22,
         ),
         CustomNormalButton(
-          onPressed: () {},
+          onPressed: () {
+            AppRouter.navigateTo(
+              context,
+              AppRouter.insurancesFeature.devisView,
+            );
+          },
           textButton: "Je demande un devis",
           backgroundColor: themeChange.darkTheme
               ? AppColors.kThirdColor

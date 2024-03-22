@@ -14,6 +14,7 @@ import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
 import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
+import 'package:pfe_projet/features/insurances/presentation/views/devis_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/insurance_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/our_insurances_view.dart';
 import 'package:pfe_projet/features/settings/data/repo/settings_repo_implement.dart';
@@ -51,6 +52,7 @@ class AppRouter {
   static var insurancesFeature = (
     ourInsurancesView: '/ourInsurancesView',
     insurancesInfoView: '/insurancesInfoView',
+    devisView: '/devisView',
   );
 
   static final router = GoRouter(
@@ -139,13 +141,18 @@ class AppRouter {
         builder: (context, state) => const OurInsurancesView(),
       ),
       GoRoute(
-          path: insurancesFeature.insurancesInfoView,
-          builder: (context, state) {
-            String insuranceType = state.extra as String;
-            return InsurancesInfoView(
-              insuranceType: insuranceType,
-            );
-          }),
+        path: insurancesFeature.insurancesInfoView,
+        builder: (context, state) {
+          String insuranceType = state.extra as String;
+          return InsurancesInfoView(
+            insuranceType: insuranceType,
+          );
+        },
+      ),
+      GoRoute(
+        path: insurancesFeature.devisView,
+        builder: (context, state) => const DevisView(),
+      ),
     ],
   );
 
