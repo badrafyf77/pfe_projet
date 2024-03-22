@@ -127,7 +127,12 @@ class AppRouter {
       ),
       GoRoute(
         path: settingsFeature.changePasswordView,
-        builder: (context, state) => const ChangePasswordView(),
+        builder: (context, state) => BlocProvider(
+          create: (BuildContext context) => SecuriteBloc(
+            getIt.get<SettingsRepoImplement>(),
+          ),
+          child: const ChangePasswordView(),
+        ),
       ),
       GoRoute(
         path: insurancesFeature.ourInsurancesView,

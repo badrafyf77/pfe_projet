@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
 
 class FirestoreService {
@@ -21,5 +22,11 @@ class FirestoreService {
 
   Future<void> deleteUser(String email) async {
     await users.doc(email).delete();
+  }
+
+  Future<void> updatePassword(String newPassword) async {
+    await users.doc(FirebaseAuth.instance.currentUser!.email!).update({
+      'password': newPassword,
+    });
   }
 }
