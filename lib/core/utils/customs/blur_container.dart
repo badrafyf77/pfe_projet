@@ -55,7 +55,7 @@ class BlurContainer extends StatelessWidget {
         SizedBox(
           height: height,
           width: width,
-          child: Center(child: blurContainerBody),
+          child: blurContainerBody,
         ),
       ],
     );
