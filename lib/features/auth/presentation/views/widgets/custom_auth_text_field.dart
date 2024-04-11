@@ -4,15 +4,15 @@ import 'package:gradient_borders/input_borders/gradient_outline_input_border.dar
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 
-class AuthTextField extends StatefulWidget {
-  const AuthTextField({
+class MyTextField extends StatefulWidget {
+  const MyTextField({
     Key? key,
     this.justNumbers = false,
     required this.isPassField,
     required this.controller,
     required this.validator,
     this.onChanged,
-    required this.prefixIcon,
+    this.prefixIcon = Icons.abc,
     required this.hintText,
   }) : super(key: key);
 
@@ -25,11 +25,11 @@ class AuthTextField extends StatefulWidget {
   final String hintText;
 
   @override
-  State<AuthTextField> createState() => _AuthTextFieldState();
+  State<MyTextField> createState() => _MyTextFieldState();
 }
 
-class _AuthTextFieldState extends State<AuthTextField> {
-  bool? obsecureText;
+class _MyTextFieldState extends State<MyTextField> {
+  late bool obsecureText;
   @override
   void initState() {
     super.initState();
@@ -40,7 +40,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: obsecureText!,
+      obscureText: obsecureText,
       controller: widget.controller,
       validator: widget.validator,
       onChanged: widget.onChanged,
@@ -63,22 +63,24 @@ class _AuthTextFieldState extends State<AuthTextField> {
           fontSize: 12,
           height: 0,
         ),
-        prefixIcon: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            widget.prefixIcon,
-            color: AppColors.kLightPrimaryColor,
-          ),
-        ),
+        prefixIcon: widget.prefixIcon == Icons.abc
+            ? const SizedBox()
+            : IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  widget.prefixIcon,
+                  color: AppColors.kLightPrimaryColor,
+                ),
+              ),
         suffixIcon: widget.isPassField
             ? IconButton(
                 onPressed: () {
                   setState(() {
-                    obsecureText = !obsecureText!;
+                    obsecureText = !obsecureText;
                   });
                 },
                 icon: Icon(
-                  obsecureText! ? Icons.visibility : Icons.visibility_off,
+                  obsecureText ? Icons.visibility : Icons.visibility_off,
                   color: AppColors.kLightPrimaryColor,
                 ),
               )

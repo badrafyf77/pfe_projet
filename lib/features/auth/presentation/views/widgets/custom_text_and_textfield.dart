@@ -39,7 +39,7 @@ class TextAndTextField extends StatelessWidget {
         const SizedBox(
           height: 7,
         ),
-        AuthTextField(
+        MyTextField(
           isPassField: isPassField,
           controller: controller,
           prefixIcon: prefixIcon,
