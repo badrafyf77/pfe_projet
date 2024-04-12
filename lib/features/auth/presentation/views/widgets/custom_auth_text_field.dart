@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/input_borders/gradient_outline_input_border.dart';
 
@@ -9,6 +10,7 @@ class MyTextField extends StatefulWidget {
     Key? key,
     this.justNumbers = false,
     required this.isPassField,
+    this.gradientBorder = true,
     required this.controller,
     required this.validator,
     this.onChanged,
@@ -18,6 +20,7 @@ class MyTextField extends StatefulWidget {
 
   final bool justNumbers;
   final bool isPassField;
+  final bool gradientBorder;
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
@@ -85,18 +88,32 @@ class _MyTextFieldState extends State<MyTextField> {
                 ),
               )
             : null,
-        border: const GradientOutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          gradient: LinearGradient(
-            colors: AppColors.kLightGradientColors,
-          ),
-        ),
-        focusedBorder: const GradientOutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          gradient: LinearGradient(
-            colors: AppColors.kLightGradientColors,
-          ),
-        ),
+        border: widget.gradientBorder
+            ? const GradientOutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+                gradient: LinearGradient(
+                  colors: AppColors.kLightGradientColors,
+                ),
+              )
+            : OutlineInputBorder(
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
+                borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+        focusedBorder: widget.gradientBorder
+            ? const GradientOutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+                gradient: LinearGradient(
+                  colors: AppColors.kLightGradientColors,
+                ),
+              )
+            : OutlineInputBorder(
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
+                borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
         errorBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           borderSide: BorderSide(

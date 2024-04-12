@@ -29,6 +29,7 @@ class PuissanceFiscalTextAndField extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .55,
           child: MyTextField(
             isPassField: false,
+            gradientBorder: false,
             controller: controller,
             hintText: "Puissance fiscale",
             validator: (validator) {
