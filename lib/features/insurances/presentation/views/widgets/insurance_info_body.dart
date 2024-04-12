@@ -41,7 +41,7 @@ class InsuranceInfoBody extends StatelessWidget {
           onPressed: () {
             AppRouter.navigateTo(
               context,
-              AppRouter.insurancesFeature.devisView,
+              AppRouter.insurancesFeature.devisInfoView,
             );
           },
           textButton: "Je demande un devis",

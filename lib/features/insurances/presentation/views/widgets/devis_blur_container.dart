@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
-import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_body.dart';
 
 class DevisBlurContainer extends StatelessWidget {
-  const DevisBlurContainer({super.key});
+  const DevisBlurContainer({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +20,9 @@ class DevisBlurContainer extends StatelessWidget {
           ),
           BlurContainer(
             height: size.height * .5,
-            width: size.width * .7,
+            width: size.width * .75,
             opacity: 0.6,
-            blurContainerBody: const DevisBody(),
+            blurContainerBody: child,
           ),
         ],
       ),
