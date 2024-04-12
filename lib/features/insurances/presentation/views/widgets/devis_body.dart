@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/carburant_row.dart';
@@ -125,7 +126,10 @@ class _DevisBodyState extends State<DevisBody> {
           ),
           const Spacer(),
           CustomNormalButton(
-            onPressed: () {},
+            onPressed: () {
+              AppRouter.navigateTo(
+                  context, AppRouter.insurancesFeature.devisDurationView);
+            },
             textButton: "Suivant",
             backgroundColor: themeChange.darkTheme
                 ? AppColors.kThirdColor

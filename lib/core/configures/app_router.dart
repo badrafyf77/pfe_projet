@@ -14,6 +14,7 @@ import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
 import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
+import 'package:pfe_projet/features/insurances/presentation/views/devis_duration_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/insurance_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/our_insurances_view.dart';
@@ -53,6 +54,7 @@ class AppRouter {
     ourInsurancesView: '/ourInsurancesView',
     insurancesInfoView: '/insurancesInfoView',
     devisInfoView: '/devisInfoView',
+    devisDurationView: '/devisDurationView',
   );
 
   static final router = GoRouter(
@@ -152,6 +154,10 @@ class AppRouter {
       GoRoute(
         path: insurancesFeature.devisInfoView,
         builder: (context, state) => const DevisInfoView(),
+      ),
+      GoRoute(
+        path: insurancesFeature.devisDurationView,
+        builder: (context, state) => const DevisDurationView(),
       ),
     ],
   );

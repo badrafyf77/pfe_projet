@@ -14,9 +14,7 @@ class DevisInfoView extends StatelessWidget {
         withHeaderAndBackBar: true,
         title: 'Devis',
       ),
-      body: DevisBlurContainer(
-        child: DevisBody(),
-      ),
+      body: DevisBlurContainer(child: DevisBody()),
     );
   }
 }
