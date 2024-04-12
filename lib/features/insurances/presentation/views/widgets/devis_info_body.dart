@@ -8,14 +8,14 @@ import 'package:pfe_projet/features/insurances/presentation/views/widgets/catego
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/puissancefiscal_text_and_field.dart';
 import 'package:provider/provider.dart';
 
-class DevisBody extends StatefulWidget {
-  const DevisBody({super.key});
+class DevisInfoBody extends StatefulWidget {
+  const DevisInfoBody({super.key});
 
   @override
-  State<DevisBody> createState() => _DevisBodyState();
+  State<DevisInfoBody> createState() => _DevisInfoBodyState();
 }
 
-class _DevisBodyState extends State<DevisBody> {
+class _DevisInfoBodyState extends State<DevisInfoBody> {
   TextEditingController controller = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
   bool dieselValue = false;

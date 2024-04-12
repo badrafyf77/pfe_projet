@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/customs/home_appbar.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_blur_container.dart';
-import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_body.dart';
+import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_info_body.dart';
 
 class DevisInfoView extends StatelessWidget {
   const DevisInfoView({super.key});
@@ -14,7 +14,7 @@ class DevisInfoView extends StatelessWidget {
         withHeaderAndBackBar: true,
         title: 'Devis',
       ),
-      body: DevisBlurContainer(child: DevisBody()),
+      body: DevisBlurContainer(child: DevisInfoBody()),
     );
   }
 }
