@@ -130,7 +130,7 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
               AppRouter.navigateTo(
                   context, AppRouter.insurancesFeature.devisDurationView);
             },
-            textButton: "Suivant",
+            textButton: "SUIVANT",
             backgroundColor: themeChange.darkTheme
                 ? AppColors.kThirdColor
                 : Theme.of(context).colorScheme.primary,

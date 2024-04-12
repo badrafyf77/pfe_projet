@@ -37,4 +37,7 @@ class Styles {
   static final normal12 = basicStyle.copyWith(
     fontSize: 12,
   );
+  static final normal8 = basicStyle.copyWith(
+    fontSize: 8,
+  );
 }
