@@ -1,11 +1,14 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roundcheckbox/roundcheckbox.dart';
+
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/core/utils/customs/home_appbar.dart';
 import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_blur_container.dart';
-import 'package:provider/provider.dart';
 
 class DevisDurationView extends StatelessWidget {
   const DevisDurationView({super.key});
@@ -28,6 +31,88 @@ class DevisDurationBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return const Column(
+      children: [
+        Spacer(),
+        EditButtonWithDescription(),
+        SelectOffersWithButton(),
+        Spacer(),
+      ],
+    );
+  }
+}
+
+class SelectOffersWithButton extends StatefulWidget {
+  const SelectOffersWithButton({
+    super.key,
+  });
+
+  @override
+  State<SelectOffersWithButton> createState() => _SelectOffersWithButtonState();
+}
+
+class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
+  bool offer1 = true;
+  bool offer2 = false;
+  bool offer3 = false;
+  @override
+  Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+    return Column(
+      children: [
+        DevisDurationChoices(
+          offer1: offer1,
+          onTapOffer1: (selected) {
+            setState(() {
+              offer1 = true;
+              offer2 = false;
+              offer3 = false;
+            });
+          },
+          offer2: offer2,
+          onTapOffer2: (selected) {
+            setState(() {
+              offer1 = false;
+              offer2 = true;
+              offer3 = false;
+            });
+          },
+          offer3: offer3,
+          onTapOffer3: (selected) {
+            setState(() {
+              offer1 = false;
+              offer2 = false;
+              offer3 = true;
+            });
+          },
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        CustomNormalButton(
+          onPressed: () {},
+          textButton: "SUIVANT",
+          backgroundColor: themeChange.darkTheme
+              ? AppColors.kThirdColor
+              : Theme.of(context).colorScheme.primary,
+          textColor: themeChange.darkTheme
+              ? Theme.of(context).colorScheme.primary
+              : AppColors.kThirdColor,
+          height: 40,
+          width: 100,
+        ),
+      ],
+    );
+  }
+}
+
+class EditButtonWithDescription extends StatelessWidget {
+  const EditButtonWithDescription({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.only(left: 20),
       child: Column(
@@ -38,6 +123,152 @@ class DevisDurationBody extends StatelessWidget {
             height: 25,
           ),
           DescriptionsText(),
+          SizedBox(
+            height: 30,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DevisDurationChoices extends StatelessWidget {
+  const DevisDurationChoices({
+    Key? key,
+    required this.offer1,
+    this.onTapOffer1,
+    required this.offer2,
+    this.onTapOffer2,
+    required this.offer3,
+    this.onTapOffer3,
+  }) : super(key: key);
+
+  final bool offer1;
+  final Function(bool?)? onTapOffer1;
+  final bool offer2;
+  final Function(bool?)? onTapOffer2;
+  final bool offer3;
+  final Function(bool?)? onTapOffer3;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        DevisDCheckBox(
+          devisDuration: '12 MOIS',
+          price: '3011.60 DH',
+          value: offer1,
+          onTap: onTapOffer1,
+        ),
+        const SizedBox(
+          width: 15,
+        ),
+        DevisDCheckBox(
+          devisDuration: '06 MOIS',
+          price: '1505.80 DH',
+          value: offer2,
+          onTap: onTapOffer2,
+        ),
+        const SizedBox(
+          width: 15,
+        ),
+        DevisDCheckBox(
+          devisDuration: '03 MOIS',
+          price: '760.30 DH',
+          value: offer3,
+          onTap: onTapOffer3,
+        ),
+      ],
+    );
+  }
+}
+
+class DevisDCheckBox extends StatelessWidget {
+  const DevisDCheckBox({
+    Key? key,
+    required this.devisDuration,
+    required this.price,
+    this.onTap,
+    required this.value,
+  }) : super(key: key);
+
+  final String devisDuration;
+  final String price;
+  final Function(bool?)? onTap;
+  final bool value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 75,
+      width: 65,
+      decoration: BoxDecoration(
+        color: value
+            ? Theme.of(context).colorScheme.primary
+            : Theme.of(context).colorScheme.secondary,
+        border: Border.all(
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 5,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: value
+                    ? AppColors.kThirdColor
+                    : Theme.of(context).colorScheme.primary,
+              ),
+              shape: BoxShape.circle,
+            ),
+            child: RoundCheckBox(
+              onTap: onTap,
+              isChecked: value,
+              size: 13.5,
+              border: Border.all(
+                color: value
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.transparent,
+                width: 1,
+              ),
+              checkedColor: AppColors.kThirdColor,
+              checkedWidget: const SizedBox(),
+              animationDuration: const Duration(
+                milliseconds: 100,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          Text(
+            devisDuration,
+            style: Styles.normal8.copyWith(
+              color: value
+                  ? AppColors.kThirdColor
+                  : Theme.of(context).colorScheme.primary,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 2,
+          ),
+          Text(
+            price,
+            style: Styles.normal8.copyWith(
+              color: value
+                  ? AppColors.kThirdColor
+                  : Theme.of(context).colorScheme.primary,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const Spacer()
         ],
       ),
     );
@@ -60,7 +291,7 @@ class DescriptionsText extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 12,
+          height: 15,
         ),
         Text(
           'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',

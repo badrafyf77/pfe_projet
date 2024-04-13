@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
-import 'package:pfe_projet/features/insurances/presentation/views/widgets/custom_checkbox_with_text.dart';
+import 'package:pfe_projet/features/insurances/presentation/views/widgets/custom_i_checkbox_with_text.dart';
 
 class CategoryAndGenderRow extends StatelessWidget {
   const CategoryAndGenderRow({
@@ -44,14 +44,14 @@ class CategoryAndGenderRow extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MyCheckBox(
+            DevisICheckBox(
               width: width,
               text: firstText,
               value: firstValue,
               onTap: onTapFirst,
             ),
             const SizedBox(width: 2),
-            MyCheckBox(
+            DevisICheckBox(
               width: width,
               text: secondText,
               value: secondValue,

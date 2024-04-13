@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
-import 'package:pfe_projet/features/insurances/presentation/views/widgets/custom_checkbox_with_text.dart';
+import 'package:pfe_projet/features/insurances/presentation/views/widgets/custom_i_checkbox_with_text.dart';
 
 class CarburantRow extends StatelessWidget {
   const CarburantRow({
@@ -42,21 +42,21 @@ class CarburantRow extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MyCheckBox(
+            DevisICheckBox(
               width: width,
               text: 'Diesel',
               value: dieselValue,
               onTap: onTapDiesel,
             ),
             const SizedBox(width: 2),
-            MyCheckBox(
+            DevisICheckBox(
               width: width,
               text: 'Essence',
               value: essenceValue,
               onTap: onTapEssence,
             ),
             const SizedBox(width: 2),
-            MyCheckBox(
+            DevisICheckBox(
               width: width,
               text: 'Hybride',
               value: hybrideValue,

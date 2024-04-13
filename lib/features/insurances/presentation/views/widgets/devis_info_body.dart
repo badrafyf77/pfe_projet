@@ -44,31 +44,25 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
             dieselValue: dieselValue,
             onTapDiesel: (selected) {
               setState(() {
-                if (dieselValue == false) {
-                  essenceValue = false;
-                  hybrideValue = false;
-                }
                 dieselValue = true;
+                essenceValue = false;
+                hybrideValue = false;
               });
             },
             essenceValue: essenceValue,
             onTapEssence: (selected) {
               setState(() {
-                if (essenceValue == false) {
-                  dieselValue = false;
-                  hybrideValue = false;
-                }
                 essenceValue = true;
+                dieselValue = false;
+                hybrideValue = false;
               });
             },
             hybrideValue: hybrideValue,
             onTapHybride: (selected) {
               setState(() {
-                if (hybrideValue == false) {
-                  essenceValue = false;
-                  dieselValue = false;
-                }
                 hybrideValue = true;
+                essenceValue = false;
+                dieselValue = false;
               });
             },
           ),

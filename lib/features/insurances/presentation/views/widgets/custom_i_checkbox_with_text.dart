@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
 
-class MyCheckBox extends StatelessWidget {
-  const MyCheckBox({
+class DevisICheckBox extends StatelessWidget {
+  const DevisICheckBox({
     Key? key,
     required this.width,
     required this.text,
@@ -22,10 +22,11 @@ class MyCheckBox extends StatelessWidget {
       height: 30,
       width: width,
       decoration: BoxDecoration(
-          border: Border.all(
-            color: Theme.of(context).colorScheme.primary,
-          ),
-          borderRadius: BorderRadius.circular(25)),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        borderRadius: BorderRadius.circular(25),
+      ),
       child: Row(
         children: [
           const SizedBox(
