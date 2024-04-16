@@ -27,7 +27,6 @@ dependencies:
   gradient_borders: ^1.0.0
   loading_indicator: ^3.1.1
   provider: ^6.1.1
-  roundcheckbox: ^2.0.5
 
 dev_dependencies:
   flutter_lints: ^2.0.0

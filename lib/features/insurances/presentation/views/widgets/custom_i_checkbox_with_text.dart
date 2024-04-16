@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
-import 'package:roundcheckbox/roundcheckbox.dart';
 
 class DevisICheckBox extends StatelessWidget {
   const DevisICheckBox({
@@ -32,17 +31,28 @@ class DevisICheckBox extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-          RoundCheckBox(
-            onTap: onTap,
-            isChecked: value,
-            size: 16.5,
-            border: Border.all(width: 1),
-            checkedColor: Theme.of(context).colorScheme.primary,
-            checkedWidget: const SizedBox(),
-            animationDuration: const Duration(
-              milliseconds: 100,
+          SizedBox(
+            height: 16,
+            width: 16,
+            child: Checkbox(
+              value: value,
+              onChanged: onTap,
+              shape: const CircleBorder(
+                side: BorderSide(color: Colors.cyanAccent, width: 2),
+              ),
             ),
           ),
+          // RoundCheckBox(
+          //   onTap: onTap,
+          //   isChecked: value,
+          //   size: 16.5,
+          //   border: Border.all(width: 1),
+          //   checkedColor: Theme.of(context).colorScheme.primary,
+          //   checkedWidget: const SizedBox(),
+          //   animationDuration: const Duration(
+          //     milliseconds: 100,
+          //   ),
+          // ),
           const SizedBox(
             width: 5,
           ),
