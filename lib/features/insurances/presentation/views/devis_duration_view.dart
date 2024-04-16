@@ -1,13 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 import 'package:provider/provider.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
-
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/core/utils/customs/home_appbar.dart';
-import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_blur_container.dart';
 
 class DevisDurationView extends StatelessWidget {
@@ -57,7 +55,6 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
   bool offer3 = false;
   @override
   Widget build(BuildContext context) {
-    final themeChange = Provider.of<DarkThemeProvider>(context);
     return Column(
       children: [
         DevisDurationChoices(
@@ -92,12 +89,8 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
         CustomNormalButton(
           onPressed: () {},
           textButton: "SUIVANT",
-          backgroundColor: themeChange.darkTheme
-              ? AppColors.kThirdColor
-              : Theme.of(context).colorScheme.primary,
-          textColor: themeChange.darkTheme
-              ? Theme.of(context).colorScheme.primary
-              : AppColors.kThirdColor,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          textColor: AppColors.kThirdColor,
           height: 40,
           width: 100,
         ),
@@ -200,13 +193,16 @@ class DevisDCheckBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
     return Container(
       height: 75,
       width: 65,
       decoration: BoxDecoration(
         color: value
             ? Theme.of(context).colorScheme.primary
-            : Theme.of(context).colorScheme.secondary,
+            : themeChange.darkTheme
+                ? AppColors.kThirdColor
+                : Theme.of(context).colorScheme.secondary,
         border: Border.all(
           color: Theme.of(context).colorScheme.primary,
         ),
@@ -234,7 +230,9 @@ class DevisDCheckBox extends StatelessWidget {
               border: Border.all(
                 color: value
                     ? Theme.of(context).colorScheme.primary
-                    : Colors.transparent,
+                    : themeChange.darkTheme
+                        ? AppColors.kThirdColor
+                        : Colors.transparent,
                 width: 1,
               ),
               checkedColor: AppColors.kThirdColor,
@@ -334,7 +332,6 @@ class EditButtonWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeChange = Provider.of<DarkThemeProvider>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -362,12 +359,8 @@ class EditButtonWithText extends StatelessWidget {
         CustomNormalButton(
           onPressed: () {},
           textButton: "MODIFIER",
-          backgroundColor: themeChange.darkTheme
-              ? AppColors.kThirdColor
-              : Theme.of(context).colorScheme.primary,
-          textColor: themeChange.darkTheme
-              ? Theme.of(context).colorScheme.primary
-              : AppColors.kThirdColor,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          textColor: AppColors.kThirdColor,
           height: 45,
           width: 82,
         ),

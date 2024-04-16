@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
-import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/carburant_row.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/category_gender_row.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/puissancefiscal_text_and_field.dart';
-import 'package:provider/provider.dart';
 
 class DevisInfoBody extends StatefulWidget {
   const DevisInfoBody({super.key});
@@ -18,16 +16,15 @@ class DevisInfoBody extends StatefulWidget {
 class _DevisInfoBodyState extends State<DevisInfoBody> {
   TextEditingController controller = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
-  bool dieselValue = false;
+  bool dieselValue = true;
   bool essenceValue = false;
   bool hybrideValue = false;
-  bool particuliersValue = false;
+  bool particuliersValue = true;
   bool proValue = false;
-  bool maleValue = false;
+  bool maleValue = true;
   bool femaleValue = false;
   @override
   Widget build(BuildContext context) {
-    final themeChange = Provider.of<DarkThemeProvider>(context);
     return Form(
       key: formKey,
       child: Column(
@@ -125,12 +122,8 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
                   context, AppRouter.insurancesFeature.devisDurationView);
             },
             textButton: "SUIVANT",
-            backgroundColor: themeChange.darkTheme
-                ? AppColors.kThirdColor
-                : Theme.of(context).colorScheme.primary,
-            textColor: themeChange.darkTheme
-                ? Theme.of(context).colorScheme.primary
-                : AppColors.kThirdColor,
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            textColor: AppColors.kThirdColor,
             height: 40,
             width: 100,
           ),
