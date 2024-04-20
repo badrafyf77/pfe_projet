@@ -37,22 +37,11 @@ class DevisICheckBox extends StatelessWidget {
             child: Checkbox(
               value: value,
               onChanged: onTap,
-              shape: const CircleBorder(
-                side: BorderSide(color: Colors.cyanAccent, width: 2),
-              ),
+              shape: const CircleBorder(),
+              side: BorderSide(color: Theme.of(context).colorScheme.primary),
+              checkColor: Theme.of(context).colorScheme.primary,
             ),
           ),
-          // RoundCheckBox(
-          //   onTap: onTap,
-          //   isChecked: value,
-          //   size: 16.5,
-          //   border: Border.all(width: 1),
-          //   checkedColor: Theme.of(context).colorScheme.primary,
-          //   checkedWidget: const SizedBox(),
-          //   animationDuration: const Duration(
-          //     milliseconds: 100,
-          //   ),
-          // ),
           const SizedBox(
             width: 5,
           ),
