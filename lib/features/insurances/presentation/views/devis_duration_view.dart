@@ -213,32 +213,17 @@ class DevisDCheckBox extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: value
-                    ? AppColors.kThirdColor
-                    : Theme.of(context).colorScheme.primary,
-              ),
-              shape: BoxShape.circle,
-            ),
+          SizedBox(
+            height: 12,
+            width: 12,
             child: Checkbox(
-              onChanged: onTap,
               value: value,
-              // size: 13.5,
-              // border: Border.all(
-              //   color: value
-              //       ? Theme.of(context).colorScheme.primary
-              //       : themeChange.darkTheme
-              //           ? AppColors.kThirdColor
-              //           : Colors.transparent,
-              //   width: 1,
-              // ),
-              // checkedColor: AppColors.kThirdColor,
-              // checkedWidget: const SizedBox(),
-              // animationDuration: const Duration(
-              //   milliseconds: 100,
-              // ),
+              onChanged: onTap,
+              shape: const CircleBorder(),
+              side: BorderSide(color: Theme.of(context).colorScheme.primary),
+              splashRadius: 4,
+              activeColor: AppColors.kThirdColor,
+              checkColor: AppColors.kThirdColor,
             ),
           ),
           const SizedBox(
