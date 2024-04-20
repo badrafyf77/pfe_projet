@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 import 'package:provider/provider.dart';
-import 'package:roundcheckbox/roundcheckbox.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
@@ -223,23 +222,23 @@ class DevisDCheckBox extends StatelessWidget {
               ),
               shape: BoxShape.circle,
             ),
-            child: RoundCheckBox(
-              onTap: onTap,
-              isChecked: value,
-              size: 13.5,
-              border: Border.all(
-                color: value
-                    ? Theme.of(context).colorScheme.primary
-                    : themeChange.darkTheme
-                        ? AppColors.kThirdColor
-                        : Colors.transparent,
-                width: 1,
-              ),
-              checkedColor: AppColors.kThirdColor,
-              checkedWidget: const SizedBox(),
-              animationDuration: const Duration(
-                milliseconds: 100,
-              ),
+            child: Checkbox(
+              onChanged: onTap,
+              value: value,
+              // size: 13.5,
+              // border: Border.all(
+              //   color: value
+              //       ? Theme.of(context).colorScheme.primary
+              //       : themeChange.darkTheme
+              //           ? AppColors.kThirdColor
+              //           : Colors.transparent,
+              //   width: 1,
+              // ),
+              // checkedColor: AppColors.kThirdColor,
+              // checkedWidget: const SizedBox(),
+              // animationDuration: const Duration(
+              //   milliseconds: 100,
+              // ),
             ),
           ),
           const SizedBox(
