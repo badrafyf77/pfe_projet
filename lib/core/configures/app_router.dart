@@ -11,6 +11,7 @@ import 'package:pfe_projet/features/auth/presentation/manager/check%20email%20cu
 import 'package:pfe_projet/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/pickfile_view.dart';
 import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
@@ -31,6 +32,7 @@ import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
 class AppRouter {
   static const splashView = '/splashView';
   static const googleMapsView = '/googleMapsView';
+  static const pickfileView = '/pickfileView';
 
   static var authFeature = (
     signInView: '/signInView',
@@ -158,6 +160,10 @@ class AppRouter {
       GoRoute(
         path: insurancesFeature.devisDurationView,
         builder: (context, state) => const DevisDurationView(),
+      ),
+      GoRoute(
+        path: pickfileView,
+        builder: (context, state) => const PickFileView(),
       ),
     ],
   );
