@@ -1,8 +1,22 @@
 part of 'get_image_bloc.dart';
 
 @immutable
-sealed class GetImageState {}
+abstract class GetImageState {}
 
 final class GetImageInitial extends GetImageState {}
-final class GetImageSucces extends GetImageState {}
-final class GetImageFailure extends GetImageState {}
+
+final class GetImageSucces extends GetImageState {
+  final XFile file;
+
+  GetImageSucces({
+    required this.file,
+  });
+}
+
+final class GetImageFailure extends GetImageState {
+  final String errorMessage;
+
+  GetImageFailure({
+    required this.errorMessage,
+  });
+}

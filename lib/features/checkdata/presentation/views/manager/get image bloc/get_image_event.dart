@@ -1,7 +1,7 @@
 part of 'get_image_bloc.dart';
 
 @immutable
-sealed class GetImageEvent {
+abstract class GetImageEvent {
   final ImageSource source;
 
   const GetImageEvent({
