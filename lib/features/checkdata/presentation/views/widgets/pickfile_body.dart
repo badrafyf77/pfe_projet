@@ -15,6 +15,7 @@ class PickFileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Base64Container base64Container = Base64Container("");
     return Center(
       child: Column(
         children: [
@@ -48,11 +49,13 @@ class PickFileBody extends StatelessWidget {
           BlocBuilder<CheckDataBloc, CheckDataState>(
             builder: (context, state) {
               if (state is GetImageSucces) {
+                getBase64(state.file, base64Container);
                 return ImageViewer(
                   file: File(state.file.path),
                   name: state.file.name,
                 );
               }
+              base64Container.base64 = "";
               return Text(
                 'veuillez importer une image',
                 style: Styles.normal16.copyWith(
@@ -66,7 +69,9 @@ class PickFileBody extends StatelessWidget {
             height: 10,
           ),
           CustomNormalButton(
-            onPressed: () {},
+            onPressed: () {
+              
+            },
             textButton: "Valider",
             backgroundColor: Theme.of(context).colorScheme.primary,
             textColor: AppColors.kThirdColor,
@@ -79,16 +84,13 @@ class PickFileBody extends StatelessWidget {
   }
 }
 
-Future<XFile?> getImage(ImageSource source) async {
-  final ImagePicker picker = ImagePicker();
-  final image = await picker.pickImage(source: source);
+void getBase64(XFile file, Base64Container base64Container) async {
+  List<int> imageBytes = await file.readAsBytes();
+  base64Container.base64 = base64Encode(imageBytes);
+}
 
-  if (image != null) {
-    List<int> imageBytes = await image.readAsBytes();
-    String base64Image = base64Encode(imageBytes);
+class Base64Container {
+  String base64;
 
-    return image;
-  } else {
-    return null;
-  }
+  Base64Container(this.base64);
 }
