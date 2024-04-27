@@ -11,6 +11,8 @@ import 'package:pfe_projet/features/auth/presentation/manager/check%20email%20cu
 import 'package:pfe_projet/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
+import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo_implementation.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20data%20bloc/check_data_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/pickfile_view.dart';
 import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
@@ -21,7 +23,7 @@ import 'package:pfe_projet/features/insurances/presentation/views/insurance_info
 import 'package:pfe_projet/features/insurances/presentation/views/our_insurances_view.dart';
 import 'package:pfe_projet/features/settings/data/repo/settings_repo_implement.dart';
 import 'package:pfe_projet/features/settings/presentation/manager/get%20user%20cubit/get_user_cubit.dart';
-import 'package:pfe_projet/features/settings/presentation/manager/securite/securite_bloc.dart';
+import 'package:pfe_projet/features/settings/presentation/manager/securite%20bloc/securite_bloc.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_email_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_password_view.dart';
 import 'package:pfe_projet/features/settings/presentation/views/security_view.dart';
@@ -164,8 +166,8 @@ class AppRouter {
       GoRoute(
         path: pickfileView,
         builder: (context, state) => BlocProvider(
-          create: (BuildContext context) => GetI(
-            getIt.get<SettingsRepoImplement>(),
+          create: (BuildContext context) => CheckDataBloc(
+            getIt.get<CheckDataRepoImplement>(),
           ),
           child: const PickFileView(),
         ),

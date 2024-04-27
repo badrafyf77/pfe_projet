@@ -4,7 +4,7 @@ import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
 import 'package:pfe_projet/core/utils/helpers/validators.dart';
-import 'package:pfe_projet/features/settings/presentation/manager/securite/securite_bloc.dart';
+import 'package:pfe_projet/features/settings/presentation/manager/securite%20bloc/securite_bloc.dart';
 import 'package:pfe_projet/features/settings/presentation/views/widgets/change_field_and_text.dart';
 
 class ChangeEmailBody extends StatefulWidget {
