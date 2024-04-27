@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20data%20bloc/check_data_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/widgets/iconbutton_with_text.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/widgets/image_viewer.dart';
 
@@ -22,8 +24,10 @@ class PickFileBody extends StatelessWidget {
           IconButtonWithText(
             text: 'Prendre en photo la CIN :',
             icon: Icons.camera_alt,
-            onPressed: () async {
-              
+            onPressed: () {
+              BlocProvider.of<CheckDataBloc>(context).add(
+                GetImageEvent(source: ImageSource.camera),
+              );
             },
           ),
           const SizedBox(
@@ -32,27 +36,32 @@ class PickFileBody extends StatelessWidget {
           IconButtonWithText(
             text: 'Choisir une photo  de la CIN :',
             icon: Icons.insert_photo,
-            onPressed: () async {
-              // file = await getImage(ImageSource.gallery);
-              // setState(() {});
+            onPressed: () {
+              BlocProvider.of<CheckDataBloc>(context).add(
+                GetImageEvent(source: ImageSource.gallery),
+              );
             },
           ),
           const SizedBox(
             height: 10,
           ),
-          // file != null
-          //     ? ImageViewer(
-          //         file: File(file!.path),
-          //         name: file!.name,
-          //       )
-          //     : 
-              Text(
-                  'veuillez importer une image',
-                  style: Styles.normal16.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold,
-                  ),
+          BlocBuilder<CheckDataBloc, CheckDataState>(
+            builder: (context, state) {
+              if (state is GetImageSucces) {
+                return ImageViewer(
+                  file: File(state.file.path),
+                  name: state.file.name,
+                );
+              }
+              return Text(
+                'veuillez importer une image',
+                style: Styles.normal16.copyWith(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.bold,
                 ),
+              );
+            },
+          ),
           const SizedBox(
             height: 10,
           ),

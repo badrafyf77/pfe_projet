@@ -13,7 +13,7 @@ class CheckDataBloc extends Bloc<CheckDataEvent, CheckDataState> {
       if (event is GetImageEvent) {
         var result = await _checkDataRepo.getImage(event.source);
         result.fold((failure) {
-          emit(GetImageFailure(errorMessage: failure.errMessage));
+          emit(GetImageInitial());
         }, (image) {
           emit(GetImageSucces(file: image));
         });

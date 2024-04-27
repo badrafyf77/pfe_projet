@@ -12,11 +12,3 @@ final class GetImageSucces extends CheckDataState {
     required this.file,
   });
 }
-
-final class GetImageFailure extends CheckDataState {
-  final String errorMessage;
-
-  GetImageFailure({
-    required this.errorMessage,
-  });
-}

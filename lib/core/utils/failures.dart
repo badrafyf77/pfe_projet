@@ -51,7 +51,3 @@ class FirestoreFailure extends Failure {
     }
   }
 }
-
-class GetImageFailure extends Failure {
-  GetImageFailure({required super.errMessage});
-}
