@@ -163,7 +163,12 @@ class AppRouter {
       ),
       GoRoute(
         path: pickfileView,
-        builder: (context, state) => const PickFileView(),
+        builder: (context, state) => BlocProvider(
+          create: (BuildContext context) => GetI(
+            getIt.get<SettingsRepoImplement>(),
+          ),
+          child: const PickFileView(),
+        ),
       ),
     ],
   );
