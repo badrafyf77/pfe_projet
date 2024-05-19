@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'check_data_bloc.dart';
 
 @immutable
@@ -11,4 +12,9 @@ class GetImageEvent extends CheckDataEvent {
   });
 }
 
-class CheckCin extends CheckDataEvent {}
+class CheckCin extends CheckDataEvent {
+  final String base64;
+  CheckCin({
+    required this.base64,
+  });
+}

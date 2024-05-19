@@ -5,5 +5,5 @@ import 'package:pfe_projet/core/utils/failures.dart';
 abstract class CheckDataRepo {
   Future<Either<Unit, XFile>> getImage(ImageSource source);
 
-  Future<Either<Failure, Unit>> checkCin();
+  Future<Either<Failure, bool>> checkCin(String base64);
 }

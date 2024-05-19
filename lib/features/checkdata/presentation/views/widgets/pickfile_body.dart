@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/features/checkdata/data/service/docscan_api_service.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20data%20bloc/check_data_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/widgets/iconbutton_with_text.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/widgets/image_viewer.dart';
@@ -15,7 +16,7 @@ class PickFileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Base64Container base64Container = Base64Container("");
+    String base64 = "";
     return Center(
       child: Column(
         children: [
@@ -49,13 +50,13 @@ class PickFileBody extends StatelessWidget {
           BlocBuilder<CheckDataBloc, CheckDataState>(
             builder: (context, state) {
               if (state is GetImageSucces) {
-                getBase64(state.file, base64Container);
+                base64 = getBase64(File(state.file.path));
                 return ImageViewer(
                   file: File(state.file.path),
                   name: state.file.name,
                 );
               }
-              base64Container.base64 = "";
+              base64 = "";
               return Text(
                 'veuillez importer une image',
                 style: Styles.normal16.copyWith(
@@ -70,7 +71,8 @@ class PickFileBody extends StatelessWidget {
           ),
           CustomNormalButton(
             onPressed: () {
-              
+              var result = DocscanService().getCin(base64);
+              print(result);
             },
             textButton: "Valider",
             backgroundColor: Theme.of(context).colorScheme.primary,
@@ -84,13 +86,9 @@ class PickFileBody extends StatelessWidget {
   }
 }
 
-void getBase64(XFile file, Base64Container base64Container) async {
-  List<int> imageBytes = await file.readAsBytes();
-  base64Container.base64 = base64Encode(imageBytes);
-}
+String getBase64(File file) {
+  List<int> imageBytes = file.readAsBytesSync();
+  String base64 = base64Encode(imageBytes);
 
-class Base64Container {
-  String base64;
-
-  Base64Container(this.base64);
+  return base64;
 }

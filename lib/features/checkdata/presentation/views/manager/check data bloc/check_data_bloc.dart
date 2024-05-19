@@ -18,6 +18,10 @@ class CheckDataBloc extends Bloc<CheckDataEvent, CheckDataState> {
           emit(GetImageSucces(file: image));
         });
       }
+
+      if (event is CheckCin) {
+        
+      }
     });
   }
 }
