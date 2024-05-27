@@ -27,9 +27,9 @@ class CustomNormalButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll(backgroundColor),
-          foregroundColor: const MaterialStatePropertyAll(Colors.white),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          backgroundColor: WidgetStatePropertyAll(backgroundColor),
+          foregroundColor: const WidgetStatePropertyAll(Colors.white),
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(radius),
             ),
