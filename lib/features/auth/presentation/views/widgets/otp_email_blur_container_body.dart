@@ -68,18 +68,18 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
                     phoneNumber: '+2120707314877',
                     verificationCompleted:
                         (PhoneAuthCredential credential) async {
-                      myShowToast(
-                          context, 'verificationCompleted', Colors.green);
+                      myShowToastSuccess(
+                          context, 'verificationCompleted',);
                       // await auth.currentUser?.updatePhoneNumber(credential);
                     },
                     verificationFailed: (FirebaseAuthException e) {
                       if (e.code == 'invalid-phone-number') {
-                        myShowToast(
+                        myShowToastError(
                             context,
                             'The provided phone number is not valid.',
-                            Colors.red);
+                            );
                       } else {
-                        myShowToast(context, e.message!, Colors.red);
+                        myShowToastError(context, e.message!,);
                       }
                     },
                     codeSent: (String verificationId, int? resendToken) async {
@@ -91,7 +91,7 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
                       //     PhoneAuthProvider.credential(
                       //         verificationId: verificationId, smsCode: smsCode);
                       codeVerification = verificationId;
-                      myShowToast(context, 'codeSent', Colors.green);
+                      myShowToastSuccess(context, 'codeSent',);
                       // Sign the user in (or link) with the credential
                       // await auth.currentUser?.updatePhoneNumber(credential);
                     },
@@ -99,8 +99,8 @@ class _OTPNumBlurContainerBodyState extends State<OTPNumBlurContainerBody> {
                     codeAutoRetrievalTimeout: (String verificationId) {
                       // Auto-resolution timed out...
                       codeVerification = verificationId;
-                      myShowToast(
-                          context, 'codeAutoRetrievalTimeout', Colors.green);
+                      myShowToastSuccess(
+                          context, 'codeAutoRetrievalTimeout',);
                     },
                   );
                 },

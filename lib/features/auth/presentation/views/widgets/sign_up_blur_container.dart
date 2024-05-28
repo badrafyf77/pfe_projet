@@ -46,7 +46,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
           setState(() {
             isLoading = false;
           });
-          myShowToast(context, state.errorMessage, Colors.red);
+          myShowToastError(context, state.errorMessage,);
         } else {
           setState(() {
             isLoading = false;

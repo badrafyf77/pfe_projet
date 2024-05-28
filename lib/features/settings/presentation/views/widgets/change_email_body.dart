@@ -36,14 +36,19 @@ class _ChangeEmailBodyState extends State<ChangeEmailBody> {
           setState(() {
             isLoading = false;
           });
-          myShowToast(context, state.errorMessage, Colors.red);
+          myShowToastError(
+            context,
+            state.errorMessage,
+          );
         }
         if (state is ChangeEmailSuccess) {
           setState(() {
             isLoading = false;
           });
-          myShowToast(context,
-              'Votre adresse e-mail a été modifiée avec succès.', Colors.green);
+          myShowToastSuccess(
+            context,
+            'Votre adresse e-mail a été modifiée avec succès.',
+          );
         }
       },
       child: Center(

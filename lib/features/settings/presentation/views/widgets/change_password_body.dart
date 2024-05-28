@@ -35,14 +35,14 @@ class _ChangeEmailBodyState extends State<ChangePasswordBody> {
           setState(() {
             isLoading = false;
           });
-          myShowToast(context, state.errorMessage, Colors.red);
+          myShowToastError(context, state.errorMessage,);
         }
         if (state is ChangePasswordSuccess) {
           setState(() {
             isLoading = false;
           });
-          myShowToast(context, 'Votre mot de passe a été modifiée avec succès.',
-              Colors.green);
+          myShowToastSuccess(context, 'Votre mot de passe a été modifiée avec succès.',
+              );
         }
       },
       child: Center(

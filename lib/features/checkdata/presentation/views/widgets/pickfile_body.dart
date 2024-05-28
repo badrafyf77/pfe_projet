@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
-import 'package:pfe_projet/features/checkdata/data/service/docscan_api_service.dart';
+import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20data%20bloc/check_data_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/widgets/iconbutton_with_text.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/widgets/image_viewer.dart';
@@ -73,8 +73,10 @@ class PickFileBody extends StatelessWidget {
             ),
             CustomNormalButton(
               onPressed: () async {
-                var result = await DocScanService().getCin(base64!);
-                debugPrint(result.toString());
+                myShowToastError(
+                  context,
+                  'text',
+                );
               },
               textButton: "Valider",
               backgroundColor: Theme.of(context).colorScheme.primary,

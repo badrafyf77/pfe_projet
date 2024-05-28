@@ -32,15 +32,15 @@ class _ForgotPassblurContainerBodyState
           setState(() {
             _isLoading = false;
           });
-          myShowToast(
+          myShowToastSuccess(
               context,
               "lien de réinitialiser le mot de passe envoyer avec succès",
-              Colors.green);
+              );
         } else if (state is ForgotPassFailure) {
           setState(() {
             _isLoading = false;
           });
-          myShowToast(context, state.errorMessage, Colors.red);
+          myShowToastError(context, state.errorMessage,);
         }
       },
       child: Padding(

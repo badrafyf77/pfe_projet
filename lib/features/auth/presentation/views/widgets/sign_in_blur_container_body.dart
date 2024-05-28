@@ -39,12 +39,12 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
           setState(() {
             isLoading = false;
           });
-          myShowToast(context, state.errorMessage, Colors.red);
+          myShowToastError(context, state.errorMessage,);
         } else if (state is SignInSuccess) {
           setState(() {
             isLoading = false;
           });
-          myShowToast(context, 'succes', Colors.green);
+          myShowToastSuccess(context, 'succes',);
           AppRouter.navigateOff(context, AppRouter.homeFeature.homeView);
         }
       },

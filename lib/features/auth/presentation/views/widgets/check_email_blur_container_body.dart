@@ -15,7 +15,7 @@ class CheckEmailBlurContainerBody extends StatelessWidget {
     return BlocListener<CheckEmailCubit, CheckEmailState>(
       listener: (context, state) {
         if (state is CheckEmailSuccess) {
-          myShowToast(context, 'Email vérifié avec succès', Colors.green);
+          myShowToastSuccess(context, 'Email vérifié avec succès',);
           AppRouter.navigateOff(context, AppRouter.homeFeature.homeView);
         }
       },

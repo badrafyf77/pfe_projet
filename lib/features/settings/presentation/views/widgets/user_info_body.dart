@@ -15,7 +15,7 @@ class UserInfoBody extends StatelessWidget {
     return BlocBuilder<GetUserCubit, GetUserState>(
       builder: (context, state) {
         if (state is GetUserFailure) {
-          myShowToast(context, state.errorMessage, Colors.red);
+          myShowToastError(context, state.errorMessage,);
         }
         if (state is GetUserSuccess) {
           return Center(
