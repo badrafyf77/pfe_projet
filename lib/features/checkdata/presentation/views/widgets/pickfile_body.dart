@@ -11,7 +11,8 @@ import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
-import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20data%20bloc/check_data_bloc.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20cin%20bloc/check_cin_bloc.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/manager/get%20image%20bloc/get_image_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/widgets/iconbutton_with_text.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/widgets/image_viewer.dart';
 
@@ -33,13 +34,17 @@ class _PickFileBodyState extends State<PickFileBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CheckDataBloc, CheckDataState>(
+    return BlocListener<CheckCinBloc, CheckCinState>(
       listener: (context, state) {
         if (state is CheckCinLoading) {
-          isLoding = true;
+          setState(() {
+            isLoding = true;
+          });
         }
         if (state is CheckCinSuccess) {
-          isLoding = false;
+          setState(() {
+            isLoding = false;
+          });
           myShowToastSuccess(context, 'CIN est compatible avec l\'image');
         }
       },
@@ -55,8 +60,8 @@ class _PickFileBodyState extends State<PickFileBody> {
                 icon: Icons.camera_alt,
                 onPressed: () {
                   if (!isLoding) {
-                    BlocProvider.of<CheckDataBloc>(context).add(
-                      GetImageEvent(source: ImageSource.camera),
+                    BlocProvider.of<GetImageBloc>(context).add(
+                      PickImageEvent(source: ImageSource.camera),
                     );
                   }
                 },
@@ -69,8 +74,8 @@ class _PickFileBodyState extends State<PickFileBody> {
                 icon: Icons.insert_photo,
                 onPressed: () {
                   if (!isLoding) {
-                    BlocProvider.of<CheckDataBloc>(context).add(
-                      GetImageEvent(source: ImageSource.gallery),
+                    BlocProvider.of<GetImageBloc>(context).add(
+                      PickImageEvent(source: ImageSource.gallery),
                     );
                   }
                 },
@@ -78,7 +83,7 @@ class _PickFileBodyState extends State<PickFileBody> {
               const SizedBox(
                 height: 10,
               ),
-              BlocBuilder<CheckDataBloc, CheckDataState>(
+              BlocBuilder<GetImageBloc, GetImageState>(
                 builder: (context, state) {
                   if (state is GetImageSucces) {
                     List<int> imageBytes =
@@ -102,15 +107,17 @@ class _PickFileBodyState extends State<PickFileBody> {
                 height: 10,
               ),
               isLoding
-                  ? const LoadingCircle()
+                  ? LoadingCircle(
+                      color: Theme.of(context).colorScheme.primary,
+                    )
                   : CustomNormalButton(
                       onPressed: () async {
                         if (base64 == null) {
                           myShowToastInfo(
                               context, 'Veulliez choisir une image');
                         } else {
-                          BlocProvider.of<CheckDataBloc>(context).add(
-                            CheckCinEvent(
+                          BlocProvider.of<CheckCinBloc>(context).add(
+                            CheckCin(
                               cin: widget.cin,
                               base64: base64!,
                             ),

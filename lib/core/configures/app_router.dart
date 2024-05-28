@@ -12,7 +12,8 @@ import 'package:pfe_projet/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
 import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo_implementation.dart';
-import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20data%20bloc/check_data_bloc.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20cin%20bloc/check_cin_bloc.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/manager/get%20image%20bloc/get_image_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/pickfile_view.dart';
 import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
@@ -167,10 +168,17 @@ class AppRouter {
         path: pickfileView,
         builder: (context, state) {
           String cin = state.extra as String;
-          return BlocProvider(
-            create: (BuildContext context) => CheckDataBloc(
-              getIt.get<CheckDataRepoImplement>(),
-            ),
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (BuildContext context) => GetImageBloc(
+                  getIt.get<CheckDataRepoImplement>(),
+                ),
+              ),
+              BlocProvider(
+                create: (BuildContext context) => CheckCinBloc(),
+              ),
+            ],
             child: PickFileView(
               cin: cin,
             ),
