@@ -52,7 +52,7 @@ class AuthRepoImplement implements AuthRepo {
   Future<bool> checkEmail() async {
     bool isEmailVerified = false;
     _authService.sendEmailVerification();
-    while (isEmailVerified == false) {
+    while (true) {
       await Future.delayed(const Duration(seconds: 3), () async {
         isEmailVerified = await _authService.checkIsEmailVerified();
       });
@@ -60,6 +60,7 @@ class AuthRepoImplement implements AuthRepo {
         break;
       }
     }
+    _firestoreService.updateStatuEmail(isEmailVerified);
     return isEmailVerified;
   }
 

@@ -20,6 +20,12 @@ class FirestoreService {
     return user;
   }
 
+  Future<void> updateStatuEmail(bool statu) async {
+    await users.doc(FirebaseAuth.instance.currentUser!.email!).update({
+      'isEmailVerified': statu,
+    });
+  }
+
   Future<void> deleteUser(String email) async {
     await users.doc(email).delete();
   }

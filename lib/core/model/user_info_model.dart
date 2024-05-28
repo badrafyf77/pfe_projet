@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class UserInformation {
   final String nom;
   final String prenom;
@@ -5,6 +6,8 @@ class UserInformation {
   String phone;
   String email;
   String password;
+  bool isCinVerified;
+  bool isEmailVerified;
 
   UserInformation({
     required this.nom,
@@ -13,6 +16,8 @@ class UserInformation {
     required this.phone,
     required this.email,
     required this.password,
+    required this.isCinVerified,
+    required this.isEmailVerified,
   });
 
   UserInformation.fromJson(Map<String, dynamic> json)
@@ -23,6 +28,8 @@ class UserInformation {
           phone: json['phone']! as String,
           email: json['email']! as String,
           password: json['password']! as String,
+          isCinVerified: json['isCinVerified']! as bool,
+          isEmailVerified: json['isEmailVerified']! as bool,
         );
 
   Map<String, dynamic> toJson() {
@@ -33,6 +40,8 @@ class UserInformation {
       'phone': phone,
       'email': email,
       'password': password,
+      'isCinVerified': isCinVerified,
+      'isEmailVerified': isEmailVerified,
     };
   }
 }
