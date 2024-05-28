@@ -176,7 +176,9 @@ class AppRouter {
                 ),
               ),
               BlocProvider(
-                create: (BuildContext context) => CheckCinBloc(),
+                create: (BuildContext context) => CheckCinBloc(
+                  getIt.get<CheckDataRepoImplement>(),
+                ),
               ),
             ],
             child: PickFileView(
@@ -201,6 +203,7 @@ class AppRouter {
       extra: obj,
     );
   }
+  
 
   static void navigateOff(BuildContext context, String path) {
     Navigator.of(context).popUntil((route) => route.isFirst);

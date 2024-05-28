@@ -1,7 +1,7 @@
 part of 'check_cin_bloc.dart';
 
 @immutable
-sealed class CheckCinEvent {}
+abstract class CheckCinEvent {}
 
 class CheckCin extends CheckCinEvent {
   final String cin;

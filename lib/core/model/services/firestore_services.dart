@@ -26,6 +26,12 @@ class FirestoreService {
     });
   }
 
+  Future<void> updateStatuCin(bool statu) async {
+    await users.doc(FirebaseAuth.instance.currentUser!.email!).update({
+      'isCinVerified': statu,
+    });
+  }
+
   Future<void> deleteUser(String email) async {
     await users.doc(email).delete();
   }

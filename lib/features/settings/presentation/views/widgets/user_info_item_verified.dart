@@ -1,5 +1,7 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/icon_button.dart';
@@ -7,12 +9,14 @@ import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 
 class UserInfoItemVerified extends StatelessWidget {
   const UserInfoItemVerified({
-    Key? key,
+    super.key,
+    required this.isVerified,
     required this.title,
     required this.value,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
+  final bool isVerified;
   final String title;
   final String value;
   final void Function()? onPressed;
@@ -81,13 +85,18 @@ class UserInfoItemVerified extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: MyIconButton(
-                  onPressed: onPressed,
-                  icon: const Icon(
-                    Icons.error,
-                    color: Colors.red,
-                  ),
-                ),
+                child: isVerified
+                    ? const Icon(
+                        Icons.done,
+                        color: Colors.green,
+                      )
+                    : MyIconButton(
+                        onPressed: onPressed,
+                        icon: const Icon(
+                          Icons.error,
+                          color: Colors.red,
+                        ),
+                      ),
               ),
             ),
           ],
