@@ -12,3 +12,15 @@ final class GetImageSucces extends CheckDataState {
     required this.file,
   });
 }
+
+final class CheckCinLoading extends CheckDataState {}
+
+final class CheckCinSuccess extends CheckDataState {}
+
+final class CheckCinFailure extends CheckDataState {
+  final String err;
+
+  CheckCinFailure({
+    required this.err,
+  });
+}

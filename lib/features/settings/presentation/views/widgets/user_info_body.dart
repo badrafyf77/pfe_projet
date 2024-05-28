@@ -15,7 +15,10 @@ class UserInfoBody extends StatelessWidget {
     return BlocBuilder<GetUserCubit, GetUserState>(
       builder: (context, state) {
         if (state is GetUserFailure) {
-          myShowToastError(context, state.errorMessage,);
+          myShowToastError(
+            context,
+            state.errorMessage,
+          );
         }
         if (state is GetUserSuccess) {
           return Center(
@@ -54,7 +57,11 @@ class UserInfoBody extends StatelessWidget {
                     title: "CIN :",
                     value: state.userInformation.cin,
                     onPressed: () {
-                      AppRouter.navigateTo(context, AppRouter.pickfileView);
+                      AppRouter.navigateToWithExtra(
+                        context,
+                        AppRouter.pickfileView,
+                        state.userInformation.cin,
+                      );
                     },
                   ),
                   const SizedBox(
@@ -69,7 +76,6 @@ class UserInfoBody extends StatelessWidget {
             ),
           );
         }
-        print("nothing");
         return Center(
           child: LoadingCircle(
             color: Theme.of(context).colorScheme.primary,

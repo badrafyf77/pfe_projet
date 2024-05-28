@@ -165,28 +165,33 @@ class AppRouter {
       ),
       GoRoute(
         path: pickfileView,
-        builder: (context, state) => BlocProvider(
-          create: (BuildContext context) => CheckDataBloc(
-            getIt.get<CheckDataRepoImplement>(),
-          ),
-          child: const PickFileView(),
-        ),
+        builder: (context, state) {
+          String cin = state.extra as String;
+          return BlocProvider(
+            create: (BuildContext context) => CheckDataBloc(
+              getIt.get<CheckDataRepoImplement>(),
+            ),
+            child: PickFileView(
+              cin: cin,
+            ),
+          );
+        },
       ),
     ],
   );
 
-  static void navigateTo(BuildContext context, String path, [Object obj = ""]) {
-    String str = obj as String;
-    if (str == "") {
-      context.push(
-        path,
-      );
-    } else {
-      context.push(
-        path,
-        extra: obj,
-      );
-    }
+  static void navigateTo(BuildContext context, String path) {
+    context.push(
+      path,
+    );
+  }
+
+  static void navigateToWithExtra(
+      BuildContext context, String path, Object obj) {
+    context.push(
+      path,
+      extra: obj,
+    );
   }
 
   static void navigateOff(BuildContext context, String path) {

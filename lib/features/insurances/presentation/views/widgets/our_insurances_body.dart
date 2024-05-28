@@ -34,7 +34,7 @@ class OurInsurancesBody extends StatelessWidget {
                   InsuranceItem(
                     text: "Itus Auto",
                     onPresssed: () {
-                      AppRouter.navigateTo(
+                      AppRouter.navigateToWithExtra(
                         context,
                         AppRouter.insurancesFeature.insurancesInfoView,
                         "Itus Auto",
@@ -47,7 +47,7 @@ class OurInsurancesBody extends StatelessWidget {
                   InsuranceItem(
                     text: "Itus Moto",
                     onPresssed: () {
-                      AppRouter.navigateTo(
+                      AppRouter.navigateToWithExtra(
                         context,
                         AppRouter.insurancesFeature.insurancesInfoView,
                         "Itus Moto",
@@ -60,7 +60,7 @@ class OurInsurancesBody extends StatelessWidget {
                   InsuranceItem(
                     text: "Itus 90to",
                     onPresssed: () {
-                      AppRouter.navigateTo(
+                      AppRouter.navigateToWithExtra(
                         context,
                         AppRouter.insurancesFeature.insurancesInfoView,
                         "Itus 90to",

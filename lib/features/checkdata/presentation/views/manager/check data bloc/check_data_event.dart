@@ -12,9 +12,11 @@ class GetImageEvent extends CheckDataEvent {
   });
 }
 
-class CheckCin extends CheckDataEvent {
+class CheckCinEvent extends CheckDataEvent {
+  final String cin;
   final String base64;
-  CheckCin({
+  CheckCinEvent({
+    required this.cin,
     required this.base64,
   });
 }

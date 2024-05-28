@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo.dart';
-
 part 'check_data_event.dart';
 part 'check_data_state.dart';
 
@@ -19,8 +18,10 @@ class CheckDataBloc extends Bloc<CheckDataEvent, CheckDataState> {
         });
       }
 
-      if (event is CheckCin) {
-        
+      if (event is CheckCinEvent) {
+        emit(CheckCinLoading());
+        Future.delayed(const Duration(seconds: 3), () {});
+        emit(CheckCinSuccess());
       }
     });
   }

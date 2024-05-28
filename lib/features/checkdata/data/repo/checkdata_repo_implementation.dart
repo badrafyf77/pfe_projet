@@ -31,7 +31,6 @@ class CheckDataRepoImplement implements CheckDataRepo {
   Future<Either<Failure, bool>> checkCin(String base64) async {
     try {
       var result = _docscanService.getCin(base64);
-      print(result);
       return right(true);
     } catch (e) {
       return left(FirebaseAuthFailure(errMessage: "errMessage"));
