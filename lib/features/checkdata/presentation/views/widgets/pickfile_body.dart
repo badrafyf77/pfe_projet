@@ -16,79 +16,75 @@ class PickFileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String base64 = "";
-    return Center(
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 25,
-          ),
-          IconButtonWithText(
-            text: 'Prendre en photo la CIN :',
-            icon: Icons.camera_alt,
-            onPressed: () {
-              BlocProvider.of<CheckDataBloc>(context).add(
-                GetImageEvent(source: ImageSource.camera),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          IconButtonWithText(
-            text: 'Choisir une photo  de la CIN :',
-            icon: Icons.insert_photo,
-            onPressed: () {
-              BlocProvider.of<CheckDataBloc>(context).add(
-                GetImageEvent(source: ImageSource.gallery),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          BlocBuilder<CheckDataBloc, CheckDataState>(
-            builder: (context, state) {
-              if (state is GetImageSucces) {
-                base64 = getBase64(File(state.file.path));
-                return ImageViewer(
-                  file: File(state.file.path),
-                  name: state.file.name,
+    String? base64;
+    return SingleChildScrollView(
+      child: Center(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 25,
+            ),
+            IconButtonWithText(
+              text: 'Prendre en photo la CIN :',
+              icon: Icons.camera_alt,
+              onPressed: () {
+                BlocProvider.of<CheckDataBloc>(context).add(
+                  GetImageEvent(source: ImageSource.camera),
                 );
-              }
-              base64 = "";
-              return Text(
-                'veuillez importer une image',
-                style: Styles.normal16.copyWith(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontWeight: FontWeight.bold,
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          CustomNormalButton(
-            onPressed: () {
-              var result = DocscanService().getCin(base64);
-              print(result);
-            },
-            textButton: "Valider",
-            backgroundColor: Theme.of(context).colorScheme.primary,
-            textColor: AppColors.kThirdColor,
-            height: 50,
-            width: 130,
-          ),
-        ],
+              },
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            IconButtonWithText(
+              text: 'Choisir une photo  de la CIN :',
+              icon: Icons.insert_photo,
+              onPressed: () {
+                BlocProvider.of<CheckDataBloc>(context).add(
+                  GetImageEvent(source: ImageSource.gallery),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            BlocBuilder<CheckDataBloc, CheckDataState>(
+              builder: (context, state) {
+                if (state is GetImageSucces) {
+                  List<int> imageBytes =
+                      File(state.file.path).readAsBytesSync();
+                  base64 = base64Encode(imageBytes);
+                  return ImageViewer(
+                    file: File(state.file.path),
+                    name: state.file.name,
+                  );
+                }
+                return Text(
+                  'veuillez importer une image',
+                  style: Styles.normal16.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            CustomNormalButton(
+              onPressed: () async {
+                var result = await DocScanService().getCin(base64!);
+                debugPrint(result.toString());
+              },
+              textButton: "Valider",
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              textColor: AppColors.kThirdColor,
+              height: 50,
+              width: 130,
+            ),
+          ],
+        ),
       ),
     );
   }
-}
-
-String getBase64(File file) {
-  List<int> imageBytes = file.readAsBytesSync();
-  String base64 = base64Encode(imageBytes);
-
-  return base64;
 }

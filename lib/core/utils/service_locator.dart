@@ -15,8 +15,8 @@ void setupServiceLocator() {
   getIt.registerSingleton<FirestoreService>(
     FirestoreService(),
   );
-  getIt.registerSingleton<DocscanService>(
-    DocscanService(),
+  getIt.registerSingleton<DocScanService>(
+    DocScanService(),
   );
   getIt.registerSingleton<AuthRepoImplement>(
     AuthRepoImplement(
@@ -32,7 +32,7 @@ void setupServiceLocator() {
   );
   getIt.registerSingleton<CheckDataRepoImplement>(
     CheckDataRepoImplement(
-      getIt.get<DocscanService>(),
+      getIt.get<DocScanService>(),
     ),
   );
 }

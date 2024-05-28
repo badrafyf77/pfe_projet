@@ -5,7 +5,7 @@ import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo.dart';
 import 'package:pfe_projet/features/checkdata/data/service/docscan_api_service.dart';
 
 class CheckDataRepoImplement implements CheckDataRepo {
-  final DocscanService _docscanService;
+  final DocScanService _docscanService;
 
   CheckDataRepoImplement(
     this._docscanService,
