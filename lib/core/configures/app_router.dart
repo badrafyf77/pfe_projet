@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pfe_projet/core/utils/service_locator.dart';
-import 'package:pfe_projet/features/auth/data/repo/auth_repo_implement.dart';
+import 'package:pfe_projet/features/auth/data/repo/auth_repo_implementation.dart';
 import 'package:pfe_projet/features/auth/presentation/views/auth_gate.dart';
 import 'package:pfe_projet/features/auth/presentation/views/check_email_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/forgot_pass_view.dart';
@@ -22,7 +22,7 @@ import 'package:pfe_projet/features/insurances/presentation/views/devis_duration
 import 'package:pfe_projet/features/insurances/presentation/views/devis_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/insurance_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/our_insurances_view.dart';
-import 'package:pfe_projet/features/settings/data/repo/settings_repo_implement.dart';
+import 'package:pfe_projet/features/settings/data/repo/settings_repo_implementation.dart';
 import 'package:pfe_projet/features/settings/presentation/manager/get%20user%20cubit/get_user_cubit.dart';
 import 'package:pfe_projet/features/settings/presentation/manager/securite%20bloc/securite_bloc.dart';
 import 'package:pfe_projet/features/settings/presentation/views/change_email_view.dart';

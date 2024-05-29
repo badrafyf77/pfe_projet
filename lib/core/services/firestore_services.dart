@@ -43,7 +43,21 @@ class FirestoreService {
     });
   }
 
-  Future<void> addMessage(String email,Message message) async {
+  Future<void> addMessage(String email, Message message) async {
     await users.doc(email).collection('messages').add(message.toJson());
+  }
+
+  List<Message> getMessages() {
+    List<Message> messagesList = [];
+    users
+        .doc(FirebaseAuth.instance.currentUser!.email!)
+        .collection('messages')
+        .snapshots()
+        .listen((event) {
+      for (var doc in event.docs) {
+        messagesList.add(Message.fromJson(doc));
+      }
+    });
+    return messagesList;
   }
 }

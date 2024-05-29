@@ -8,7 +8,7 @@ class Message {
     required this.createdAt,
   });
 
-  Message.fromJson(Map<String, dynamic> json)
+  Message.fromJson(json)
       : this(
           message: json['message']! as String,
           createdAt: json['createdAt']! as DateTime,

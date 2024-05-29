@@ -5,7 +5,7 @@ import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/themes.dart';
 import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 import 'package:pfe_projet/core/utils/service_locator.dart';
-import 'package:pfe_projet/features/auth/data/repo/auth_repo_implement.dart';
+import 'package:pfe_projet/features/auth/data/repo/auth_repo_implementation.dart';
 import 'package:pfe_projet/features/auth/presentation/manager/auth%20bloc/auth_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
