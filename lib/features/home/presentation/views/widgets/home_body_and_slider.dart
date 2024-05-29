@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/home_body.dart';
-import 'package:pfe_projet/features/home/presentation/views/widgets/home_slider_body.dart';
+import 'package:pfe_projet/features/home/presentation/views/widgets/home_slider.dart';
 
 class HomeBodyAndSlider extends StatelessWidget {
   const HomeBodyAndSlider({
@@ -11,13 +11,13 @@ class HomeBodyAndSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<SliderDrawerState> sliderDrawerKey =
-      GlobalKey<SliderDrawerState>();
+        GlobalKey<SliderDrawerState>();
     return SliderDrawer(
       appBar: const SizedBox(),
       key: sliderDrawerKey,
       sliderOpenSize: MediaQuery.of(context).size.width * .55,
       sliderCloseSize: 65,
-      slider: HomeSliderBody(
+      slider: HomeSlider(
         sliderDrawerKey: sliderDrawerKey,
       ),
       child: const HomeBody(),

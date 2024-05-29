@@ -33,6 +33,7 @@ class SliderBody extends StatelessWidget {
         ),
         const HorizontalLine(),
         SliderItem(
+          withNotification: true,
           onPressed: () {
             AppRouter.navigateTo(
                 context, AppRouter.homeFeature.notificationView);

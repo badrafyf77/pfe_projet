@@ -4,8 +4,8 @@ import 'package:pfe_projet/features/home/presentation/views/widgets/slider_body.
 import 'package:pfe_projet/features/home/presentation/views/widgets/slider_footer.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/slider_header.dart';
 
-class HomeSliderBody extends StatelessWidget {
-  const HomeSliderBody({
+class HomeSlider extends StatelessWidget {
+  const HomeSlider({
     Key? key,
     required this.sliderDrawerKey,
   }) : super(key: key);
