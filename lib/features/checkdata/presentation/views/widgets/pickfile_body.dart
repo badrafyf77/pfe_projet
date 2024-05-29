@@ -1,12 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-
 import 'package:pfe_projet/core/configures/app_colors.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
@@ -46,6 +45,7 @@ class _PickFileBodyState extends State<PickFileBody> {
             isLoding = false;
           });
           myShowToastSuccess(context, 'CIN est compatible avec l\'image');
+          AppRouter.pop(context);
         }
       },
       child: SingleChildScrollView(
