@@ -1,15 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
+import 'package:pfe_projet/core/model/message_model.dart';
 import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 
 class NotificationContent extends StatelessWidget {
   const NotificationContent({
-    super.key,
+    Key? key,
     required this.themeChange,
-  });
+    required this.message,
+  }) : super(key: key);
 
   final DarkThemeProvider themeChange;
+  final Message message;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,7 @@ class NotificationContent extends StatelessWidget {
                 ),
               ),
               Text(
-                '12/02/2024',
+                '${message.createdAt.toDate().day.toString()}/${message.createdAt.toDate().month.toString()}/${message.createdAt.toDate().year.toString()}',
                 style: Styles.normal12.copyWith(
                   color: themeChange.darkTheme
                       ? AppColors.kThirdColor
@@ -45,7 +50,7 @@ class NotificationContent extends StatelessWidget {
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(
-                'Vérifier votre adresse e-mailVeuillez vérifier votre adresse e-mailVeuillez vérifier votre adresse e-mail',
+                message.message,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 5,
                 textAlign: TextAlign.justify,

@@ -43,8 +43,8 @@ class FirestoreService {
     });
   }
 
-  Future<void> addMessage(String email, Message message) async {
-    await users.doc(email).collection('messages').add(message.toJson());
+  Future<void> addMessage(Message message) async {
+    await users.doc(FirebaseAuth.instance.currentUser!.email!).collection('messages').add(message.toJson());
   }
 
   List<Message> getMessages() {

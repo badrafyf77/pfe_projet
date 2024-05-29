@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pfe_projet/core/model/message_model.dart';
 import 'package:pfe_projet/core/services/firestore_services.dart';
@@ -12,10 +13,10 @@ class AuthService {
       email: email,
       password: password,
     );
-    Message message =
-        Message(message: 'Vérifier votre CIN', createdAt: DateTime.now());
+    Message message = Message(
+        message: 'Vérifier votre CIN',
+        createdAt: Timestamp.fromDate(DateTime.now()));
     await _firestoreService.addMessage(
-      email,
       message,
     );
     return credential.user!;

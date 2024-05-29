@@ -15,7 +15,12 @@ class GetMessagesCubit extends Cubit<GetMessagesState> {
   final HomeRepo _homeRepo;
 
   Future<void> getMessagesCubit() async {
+    emit(GetMessagesLoading());
     var result = await _homeRepo.getMessages();
-    
+    result.fold((left) {
+      emit(GetMessagesFailure(err: left.errMessage));
+    }, (right) {
+      emit(GetMessagesSuccess(messages: right));
+    });
   }
 }
