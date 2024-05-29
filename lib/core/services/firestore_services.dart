@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pfe_projet/core/model/message_model.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
 
 class FirestoreService {
@@ -40,5 +41,9 @@ class FirestoreService {
     await users.doc(FirebaseAuth.instance.currentUser!.email!).update({
       'password': newPassword,
     });
+  }
+
+  Future<void> addMessage(String email,Message message) async {
+    await users.doc(email).collection('messages').add(message.toJson());
   }
 }

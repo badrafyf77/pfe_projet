@@ -2,7 +2,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'package:pfe_projet/core/model/services/firestore_services.dart';
+import 'package:pfe_projet/core/services/firestore_services.dart';
 import 'package:pfe_projet/core/utils/failures.dart';
 import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo.dart';
 import 'package:pfe_projet/features/checkdata/data/service/docscan_api_service.dart';

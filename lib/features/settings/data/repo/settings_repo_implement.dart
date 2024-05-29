@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pfe_projet/core/model/services/auth_service.dart';
-import 'package:pfe_projet/core/model/services/firestore_services.dart';
+import 'package:pfe_projet/core/services/auth_service.dart';
+import 'package:pfe_projet/core/services/firestore_services.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
 import 'package:pfe_projet/core/utils/failures.dart';
 import 'package:pfe_projet/features/settings/data/repo/settings_repo.dart';

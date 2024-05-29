@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pfe_projet/core/model/services/firestore_services.dart';
+import 'package:pfe_projet/core/services/firestore_services.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
 
 class AuthService {
