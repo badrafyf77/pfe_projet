@@ -15,7 +15,7 @@ import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo_implement
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20cin%20bloc/check_cin_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/get%20image%20bloc/get_image_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/pickfile_view.dart';
-import 'package:pfe_projet/features/google_maps/presentation/views/google_maps_view.dart';
+import 'package:pfe_projet/features/flutter_map/presentation/views/flutter_map_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_duration_view.dart';
@@ -33,33 +33,33 @@ import 'package:pfe_projet/features/settings/presentation/views/user_info_view.d
 import 'package:pfe_projet/features/splash/presentation/views/splash_view.dart';
 
 class AppRouter {
-  static const splashView = '/splashView';
-  static const googleMapsView = '/googleMapsView';
-  static const pickfileView = '/pickfileView';
+  static const splashView = '/splash';
+  static const flutterMapView = '/googleMaps';
+  static const pickfileView = '/pickfile';
 
   static var authFeature = (
-    signInView: '/signInView',
-    signUpView: '/signUpView',
-    otpNumView: '/otpNumView',
-    forgotPassView: '/forgotPassView',
-    checkEmailView: '/checkEmailView',
+    signInView: '/signIn',
+    signUpView: '/signUp',
+    otpNumView: '/otpNum',
+    forgotPassView: '/forgotPass',
+    checkEmailView: '/checkEmail',
   );
   static var homeFeature = (
-    homeView: '/homeView',
-    notificationView: '/notificationView',
+    homeView: '/home',
+    notificationView: '/notification',
   );
   static var settingsFeature = (
-    settingsView: '/settingsView',
-    userInfoView: '/userInfoView',
-    securityView: '/securityView',
-    changeEmailView: '/changeEmailView',
-    changePasswordView: '/changePasswordView',
+    settingsView: '/settings',
+    userInfoView: '/userInfo',
+    securityView: '/security',
+    changeEmailView: '/changeEmail',
+    changePasswordView: '/changePassword',
   );
   static var insurancesFeature = (
-    ourInsurancesView: '/ourInsurancesView',
-    insurancesInfoView: '/insurancesInfoView',
-    devisInfoView: '/devisInfoView',
-    devisDurationView: '/devisDurationView',
+    ourInsurancesView: '/ourInsurances',
+    insurancesInfoView: '/insurancesInfo',
+    devisInfoView: '/devisInfo',
+    devisDurationView: '/devisDuration',
   );
 
   static final router = GoRouter(
@@ -101,8 +101,8 @@ class AppRouter {
         ),
       ),
       GoRoute(
-        path: googleMapsView,
-        builder: (context, state) => const GoogleMapsView(),
+        path: flutterMapView,
+        builder: (context, state) => const FlutterMapView(),
       ),
       GoRoute(
         path: homeFeature.notificationView,
@@ -203,7 +203,6 @@ class AppRouter {
       extra: obj,
     );
   }
-  
 
   static void navigateOff(BuildContext context, String path) {
     Navigator.of(context).popUntil((route) => route.isFirst);

@@ -71,7 +71,7 @@ class HomeBody extends StatelessWidget {
                     icon: Icons.place,
                     text: "Géolocalisation",
                     onTap: () {
-                      AppRouter.navigateTo(context, AppRouter.googleMapsView);
+                      AppRouter.navigateTo(context, AppRouter.flutterMapView);
                     },
                   ),
                 ],
