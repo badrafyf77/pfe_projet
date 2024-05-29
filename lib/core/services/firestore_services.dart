@@ -44,7 +44,10 @@ class FirestoreService {
   }
 
   Future<void> addMessage(Message message) async {
-    await users.doc(FirebaseAuth.instance.currentUser!.email!).collection('messages').add(message.toJson());
+    await users
+        .doc(FirebaseAuth.instance.currentUser!.email!)
+        .collection('messages')
+        .add(message.toJson());
   }
 
   List<Message> getMessages() {
@@ -52,6 +55,7 @@ class FirestoreService {
     users
         .doc(FirebaseAuth.instance.currentUser!.email!)
         .collection('messages')
+        .orderBy('createdAt')
         .snapshots()
         .listen((event) {
       for (var doc in event.docs) {

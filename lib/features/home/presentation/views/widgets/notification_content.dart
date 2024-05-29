@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:date_time_format/date_time_format.dart';
 import 'package:flutter/material.dart';
 
 import 'package:pfe_projet/core/configures/app_colors.dart';
@@ -34,7 +35,8 @@ class NotificationContent extends StatelessWidget {
                 ),
               ),
               Text(
-                '${message.createdAt.toDate().day.toString()}/${message.createdAt.toDate().month.toString()}/${message.createdAt.toDate().year.toString()}',
+                DateTimeFormat.format(message.createdAt.toDate(),
+                    format: DateTimeFormats.european),
                 style: Styles.normal12.copyWith(
                   color: themeChange.darkTheme
                       ? AppColors.kThirdColor
