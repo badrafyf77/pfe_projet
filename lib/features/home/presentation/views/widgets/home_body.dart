@@ -68,9 +68,11 @@ class HomeBody extends StatelessWidget {
                   ),
                   const SizedBox(width: 30),
                   HomeBodyItemCard(
-                    icon: Icons.phone,
-                    text: "Ch7al d jehd",
-                    onTap: () {},
+                    icon: Icons.place,
+                    text: "Géolocalisation",
+                    onTap: () {
+                      AppRouter.navigateTo(context, AppRouter.googleMapsView);
+                    },
                   ),
                 ],
               ),
