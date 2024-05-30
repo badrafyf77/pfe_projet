@@ -70,4 +70,10 @@ class FirestoreService {
         await getUser(FirebaseAuth.instance.currentUser!.email!);
     return user.isMessagesReaded;
   }
+
+  Future<void> changeIsMessagesReadedStatu(bool statu) async {
+    await users.doc(FirebaseAuth.instance.currentUser!.email!).update({
+      'isMessagesReaded': statu,
+    });
+  }
 }

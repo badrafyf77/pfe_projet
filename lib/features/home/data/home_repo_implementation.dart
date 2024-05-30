@@ -14,7 +14,9 @@ class HomeRepoImplementation implements HomeRepo {
   @override
   Future<Either<Failure, List<Message>>> getMessages() async {
     try {
-      return right(_firestoreService.getMessages());
+      var result = _firestoreService.getMessages();
+      await _firestoreService.changeIsMessagesReadedStatu(true);
+      return right(result);
     } catch (e) {
       return left(FirestoreFailure(
           errMessage: 'il y a une erreur, veuillez réessayer'));
