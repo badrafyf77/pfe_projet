@@ -38,7 +38,6 @@ void setupServiceLocator() {
   );
   getIt.registerSingleton<CheckDataRepoImplement>(
     CheckDataRepoImplement(
-      getIt.get<DocScanService>(),
       getIt.get<FirestoreService>(),
     ),
   );
