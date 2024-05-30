@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
+import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/messages_checker_cubit.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/home_body_item_card.dart';
 
 class HomeBody extends StatelessWidget {
@@ -29,9 +31,15 @@ class HomeBody extends StatelessWidget {
                   HomeBodyItemCard(
                     icon: CupertinoIcons.umbrella_fill,
                     text: "Nos Assurances",
-                    onTap: () {
-                      AppRouter.navigateTo(context,
-                          AppRouter.insurancesFeature.ourInsurancesView);
+                    onTap: () async {
+                      await AppRouter.navigateToAndDoSomething(
+                        context,
+                        AppRouter.insurancesFeature.ourInsurancesView,
+                        (_) {
+                          BlocProvider.of<MessagesCheckerCubit>(context)
+                              .getMessagesStatu();
+                        },
+                      );
                     },
                   ),
                   const SizedBox(width: 30),
@@ -70,8 +78,15 @@ class HomeBody extends StatelessWidget {
                   HomeBodyItemCard(
                     icon: Icons.place,
                     text: "Géolocalisation",
-                    onTap: () {
-                      AppRouter.navigateTo(context, AppRouter.flutterMapView);
+                    onTap: () async {
+                      await AppRouter.navigateToAndDoSomething(
+                        context,
+                        AppRouter.flutterMapView,
+                        (_) {
+                          BlocProvider.of<MessagesCheckerCubit>(context)
+                              .getMessagesStatu();
+                        },
+                      );
                     },
                   ),
                 ],

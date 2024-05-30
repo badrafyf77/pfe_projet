@@ -217,6 +217,25 @@ class AppRouter {
     );
   }
 
+  static Future<void> navigateToAndDoSomething(
+      BuildContext context, String path, Function(Object?) function) async {
+    context
+        .push(
+          path,
+        )
+        .then(function);
+  }
+
+  static Future<void> navigateToAndDoSomethingWithExtra(BuildContext context,
+      String path, Object obj, Function(Object?) function) async {
+    context
+        .push(
+          path,
+          extra: obj,
+        )
+        .then(function);
+  }
+
   static void navigateOff(BuildContext context, String path) {
     Navigator.of(context).popUntil((route) => route.isFirst);
     context.pushReplacement(path);

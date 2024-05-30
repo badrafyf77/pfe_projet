@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
@@ -66,14 +65,14 @@ class _UserInfoBodyState extends State<UserInfoBody> {
                     title: "CIN :",
                     value: state.userInformation.cin,
                     onPressed: () async {
-                      await context
-                          .push(
+                      await AppRouter.navigateToAndDoSomethingWithExtra(
+                        context,
                         AppRouter.pickfileView,
-                        extra: state.userInformation.cin,
-                      )
-                          .then((_) {
-                        BlocProvider.of<GetUserCubit>(context).getUserCubit();
-                      });
+                        state.userInformation.cin,
+                        (_) {
+                          BlocProvider.of<GetUserCubit>(context).getUserCubit();
+                        },
+                      );
                     },
                   ),
                   const SizedBox(
