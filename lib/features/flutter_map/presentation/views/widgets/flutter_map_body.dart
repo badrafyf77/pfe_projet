@@ -6,10 +6,6 @@ class FluterMapBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        FlutterMapWidget(),
-      ],
-    );
+    return const FlutterMapWidget();
   }
 }
