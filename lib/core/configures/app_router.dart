@@ -18,7 +18,6 @@ import 'package:pfe_projet/features/checkdata/presentation/views/pickfile_view.d
 import 'package:pfe_projet/features/flutter_map/presentation/views/flutter_map_view.dart';
 import 'package:pfe_projet/features/home/data/home_repo_implementation.dart';
 import 'package:pfe_projet/features/home/presentation/manager/get%20messages/get_messages_cubit.dart';
-import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/messages_checker_cubit.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_duration_view.dart';
@@ -77,12 +76,7 @@ class AppRouter {
       ),
       GoRoute(
         path: homeFeature.homeView,
-        builder: (context, state) => BlocProvider(
-          create: (context) => MessagesCheckerCubit(
-            getIt.get<HomeRepoImplementation>(),
-          )..getMessagesStatu(),
-          child: const HomeView(),
-        ),
+        builder: (context, state) => const HomeView(),
       ),
       GoRoute(
         path: authFeature.signInView,

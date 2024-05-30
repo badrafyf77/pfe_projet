@@ -15,6 +15,12 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   @override
+  void initState() {
+    BlocProvider.of<MessagesCheckerCubit>(context).getMessagesStatu();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppAppBar(
