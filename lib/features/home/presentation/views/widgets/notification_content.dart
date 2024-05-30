@@ -54,7 +54,7 @@ class NotificationContent extends StatelessWidget {
               child: Text(
                 message.message,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 5,
+                maxLines: 10,
                 textAlign: TextAlign.justify,
                 style: Styles.normal14.copyWith(
                   color: themeChange.darkTheme
