@@ -20,4 +20,14 @@ class HomeRepoImplementation implements HomeRepo {
           errMessage: 'il y a une erreur, veuillez réessayer'));
     }
   }
+
+  @override
+  Future<Either<Failure, bool>> getMessagesStatu() async {
+    try {
+      return right(await _firestoreService.isMessagesReaded());
+    } catch (e) {
+      return left(FirestoreFailure(
+          errMessage: 'il y a une erreur, veuillez réessayer'));
+    }
+  }
 }

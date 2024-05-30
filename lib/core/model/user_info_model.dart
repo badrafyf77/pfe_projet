@@ -8,6 +8,7 @@ class UserInformation {
   String password;
   bool isCinVerified;
   bool isEmailVerified;
+  bool isMessagesReaded;
 
   UserInformation({
     required this.nom,
@@ -18,6 +19,7 @@ class UserInformation {
     required this.password,
     required this.isCinVerified,
     required this.isEmailVerified,
+    required this.isMessagesReaded,
   });
 
   UserInformation.fromJson(Map<String, dynamic> json)
@@ -30,6 +32,7 @@ class UserInformation {
           password: json['password']! as String,
           isCinVerified: json['isCinVerified']! as bool,
           isEmailVerified: json['isEmailVerified']! as bool,
+          isMessagesReaded: json['isMessagesReaded']! as bool,
         );
 
   Map<String, dynamic> toJson() {
@@ -42,6 +45,7 @@ class UserInformation {
       'password': password,
       'isCinVerified': isCinVerified,
       'isEmailVerified': isEmailVerified,
+      'isMessagesReaded': isMessagesReaded,
     };
   }
 }

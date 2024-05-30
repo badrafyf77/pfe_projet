@@ -64,4 +64,10 @@ class FirestoreService {
     });
     return messagesList;
   }
+
+  Future<bool> isMessagesReaded() async {
+    UserInformation user =
+        await getUser(FirebaseAuth.instance.currentUser!.email!);
+    return user.isMessagesReaded;
+  }
 }

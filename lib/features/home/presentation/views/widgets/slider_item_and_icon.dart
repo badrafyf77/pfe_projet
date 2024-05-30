@@ -10,13 +10,13 @@ class SliderItem extends StatelessWidget {
     required this.icon,
     this.onPressed,
     required this.text,
-    this.withNotification = false,
+    this.isMessagesReaded = true,
   });
 
   final IconData icon;
   final void Function()? onPressed;
   final String text;
-  final bool withNotification;
+  final bool isMessagesReaded;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,9 @@ class SliderItem extends StatelessWidget {
         onTap: onPressed,
         child: Row(
           children: [
-            withNotification
-                ? SliderNotificationIcon(icon: icon, onPressed: onPressed)
-                : SliderIcon(icon: icon, onPressed: onPressed),
+            isMessagesReaded
+                ? SliderIcon(icon: icon, onPressed: onPressed)
+                : SliderNotificationIcon(icon: icon, onPressed: onPressed),
             const SizedBox(
               width: 8,
             ),

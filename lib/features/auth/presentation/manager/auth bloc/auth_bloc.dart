@@ -24,6 +24,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         password: event.password,
         isCinVerified: false,
         isEmailVerified: false,
+        isMessagesReaded: false,
         );
         var user = await _authRepo.signUp(userInfo);
         user.fold((failure) {
