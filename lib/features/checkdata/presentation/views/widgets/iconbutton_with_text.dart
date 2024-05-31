@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
+import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
+import 'package:provider/provider.dart';
 
 class IconButtonWithText extends StatelessWidget {
   const IconButtonWithText({
@@ -16,12 +18,15 @@ class IconButtonWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
     return Column(
       children: [
         Text(
           text,
           style: Styles.normal15.copyWith(
-            color: Theme.of(context).colorScheme.primary,
+            color: themeChange.darkTheme
+                ? AppColors.kThirdColor
+                : Theme.of(context).colorScheme.primary,
             fontWeight: FontWeight.bold,
           ),
         ),

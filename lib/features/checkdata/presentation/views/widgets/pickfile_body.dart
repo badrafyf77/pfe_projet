@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
-import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
@@ -50,87 +49,80 @@ class _PickFileBodyState extends State<PickFileBody> {
       },
       child: SingleChildScrollView(
         child: Center(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 25,
-              ),
-              IconButtonWithText(
-                text: 'Prendre en photo la CIN :',
-                icon: Icons.camera_alt,
-                onPressed: () {
-                  if (!isLoding) {
-                    BlocProvider.of<GetImageBloc>(context).add(
-                      PickImageEvent(source: ImageSource.camera),
-                    );
-                  }
-                },
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              IconButtonWithText(
-                text: 'Choisir une photo  de la CIN :',
-                icon: Icons.insert_photo,
-                onPressed: () {
-                  if (!isLoding) {
-                    BlocProvider.of<GetImageBloc>(context).add(
-                      PickImageEvent(source: ImageSource.gallery),
-                    );
-                  }
-                },
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              BlocBuilder<GetImageBloc, GetImageState>(
-                builder: (context, state) {
-                  if (state is GetImageSucces) {
-                    List<int> imageBytes =
-                        File(state.file.path).readAsBytesSync();
-                    base64 = base64Encode(imageBytes);
-                    return ImageViewer(
+          child: BlocBuilder<GetImageBloc, GetImageState>(
+            builder: (context, state) {
+              if (state is GetImageSucces) {
+                List<int> imageBytes = File(state.file.path).readAsBytesSync();
+                base64 = base64Encode(imageBytes);
+                return Column(
+                  children: [
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    ImageViewer(
                       file: File(state.file.path),
                       name: state.file.name,
-                    );
-                  }
-                  return Text(
-                    'veuillez importer une image',
-                    style: Styles.normal16.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontWeight: FontWeight.bold,
                     ),
-                  );
-                },
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              isLoding
-                  ? LoadingCircle(
-                      color: Theme.of(context).colorScheme.primary,
-                    )
-                  : CustomNormalButton(
-                      onPressed: () async {
-                        if (base64 == null) {
-                          myShowToastInfo(
-                              context, 'Veulliez choisir une image');
-                        } else {
-                          BlocProvider.of<CheckCinBloc>(context).add(
-                            CheckCin(
-                              cin: widget.cin,
-                              base64: base64!,
-                            ),
-                          );
-                        }
-                      },
-                      textButton: "Valider",
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      textColor: AppColors.kThirdColor,
-                      height: 50,
-                      width: 130,
+                    const SizedBox(
+                      height: 10,
                     ),
-            ],
+                    isLoding
+                        ? LoadingCircle(
+                            color: Theme.of(context).colorScheme.primary,
+                          )
+                        : CustomNormalButton(
+                            onPressed: () async {
+                              if (base64 == null) {
+                                myShowToastInfo(
+                                    context, 'Veulliez choisir une image');
+                              } else {
+                                BlocProvider.of<CheckCinBloc>(context).add(
+                                  CheckCin(
+                                    cin: widget.cin,
+                                    base64: base64!,
+                                  ),
+                                );
+                              }
+                            },
+                            textButton: "Valider",
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            textColor: AppColors.kThirdColor,
+                            height: 50,
+                            width: 130,
+                          ),
+                  ],
+                );
+              }
+              return Column(
+                children: [
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  IconButtonWithText(
+                    text: 'Prendre une photo la CIN :',
+                    icon: Icons.camera_alt,
+                    onPressed: () {
+                      BlocProvider.of<GetImageBloc>(context).add(
+                        PickImageEvent(source: ImageSource.camera),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  IconButtonWithText(
+                    text: 'Choisir une photo  de la CIN :',
+                    icon: Icons.insert_photo,
+                    onPressed: () {
+                      BlocProvider.of<GetImageBloc>(context).add(
+                        PickImageEvent(source: ImageSource.gallery),
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
+import 'package:pfe_projet/features/home/presentation/manager/cin%20checker/cin_checker_cubit.dart';
 import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/messages_checker_cubit.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/home_body_item_card.dart';
 
@@ -38,6 +39,8 @@ class HomeBody extends StatelessWidget {
                         (_) {
                           BlocProvider.of<MessagesCheckerCubit>(context)
                               .getMessagesStatu();
+                          BlocProvider.of<CinCheckerCubit>(context)
+                              .getCinStatu();
                         },
                       );
                     },
@@ -85,6 +88,8 @@ class HomeBody extends StatelessWidget {
                         (_) {
                           BlocProvider.of<MessagesCheckerCubit>(context)
                               .getMessagesStatu();
+                          BlocProvider.of<CinCheckerCubit>(context)
+                              .getCinStatu();
                         },
                       );
                     },
