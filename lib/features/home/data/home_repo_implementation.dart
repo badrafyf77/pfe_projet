@@ -31,4 +31,13 @@ class HomeRepoImplementation implements HomeRepo {
       return false;
     }
   }
+  
+  @override
+  Future<bool> getCinStatu() async {
+    try {
+      return await _firestoreService.isCinVerified();
+    } catch (e) {
+      return false;
+    }
+  }
 }
