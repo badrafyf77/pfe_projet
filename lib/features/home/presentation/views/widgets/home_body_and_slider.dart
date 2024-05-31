@@ -2,15 +2,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
-import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/features/home/presentation/manager/cin%20checker/cin_checker_cubit.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/home_body.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/home_slider.dart';
+import 'package:pfe_projet/features/home/presentation/views/widgets/warning_widget.dart';
 
-class HomeBodyAndSlider extends StatelessWidget {
+class HomeBodyAndSlider extends StatefulWidget {
   const HomeBodyAndSlider({
     super.key,
   });
+
+  @override
+  State<HomeBodyAndSlider> createState() => _HomeBodyAndSliderState();
+}
+
+class _HomeBodyAndSliderState extends State<HomeBodyAndSlider> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<CinCheckerCubit>(context).getCinStatu();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,31 +45,7 @@ class HomeBodyAndSlider extends StatelessWidget {
           if (state is CinCheckerSuccess) {
             return Column(
               children: [
-                if (!state.isCinVerified)
-                  Container(
-                    height: 30,
-                    color: Colors.yellow,
-                    child: Row(
-                      children: [
-                        const SizedBox(
-                          width: 40,
-                        ),
-                        const Icon(
-                          Icons.warning_amber,
-                          color: Colors.black,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'Please vefefied your CIN',
-                          style: Styles.normal14.copyWith(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                if (!state.isCinVerified) const WarningWidget(),
                 const Expanded(child: HomeBody()),
               ],
             );
