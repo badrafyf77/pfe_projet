@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pfe_projet/core/model/message_model.dart';
 import 'package:pfe_projet/core/services/firestore_services.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
 
@@ -11,8 +13,11 @@ class AuthService {
       email: email,
       password: password,
     );
+    Message message = Message(
+        message: 'Vérifier votre CIN',
+        createdAt: Timestamp.fromDate(DateTime.now()));
     await _firestoreService.addMessage(
-      'Vérifier votre CIN',
+      message,
     );
     return credential.user!;
   }
@@ -42,7 +47,7 @@ class AuthService {
     String email = _auth.currentUser!.email!;
     await reAuthentification(email, password);
     UserInformation user = await _firestoreService.getUser(email);
-    await _auth.currentUser!.verifyBeforeUpdateEmail(newEmail);
+    await _auth.currentUser!.updateEmail(newEmail);
     await _firestoreService.deleteUser(email);
     user.email = newEmail;
     await _firestoreService.addUser(user);
