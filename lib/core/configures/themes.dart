@@ -8,7 +8,6 @@ class AppThemes {
     primaryColor: AppColors.kLightPrimaryColor,
     fontFamily: GoogleFonts.inter().fontFamily,
     colorScheme: const ColorScheme.light(
-      background: AppColors.kLightSecondColor,
       primary: AppColors.kLightPrimaryColor,
       secondary: AppColors.kLightSecondColor,
     ),
@@ -23,7 +22,6 @@ class AppThemes {
     primaryColor: AppColors.kDarkPrimaryColor,
     fontFamily: GoogleFonts.inter().fontFamily,
     colorScheme: const ColorScheme.dark(
-      background: AppColors.kDarkSecondColor,
       primary: AppColors.kDarkPrimaryColor,
       secondary: AppColors.kDarkSecondColor,
     ),
