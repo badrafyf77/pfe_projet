@@ -16,7 +16,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
-    BlocProvider.of<HomePreferencesCubit>(context).getHomePreferences();
+    BlocProvider.of<HomePreferencesCubit>(context).setHomePreferences();
     super.initState();
   }
 
@@ -32,9 +32,7 @@ class _HomeViewState extends State<HomeView> {
             myShowToastError(context, state.err);
           }
           if (state is HomePreferencesSuccess) {
-            return HomeBodyAndSlider(
-              
-            );
+            return const HomeBodyAndSlider();
           }
           return LoadingCircle(
             color: Theme.of(context).colorScheme.primary,

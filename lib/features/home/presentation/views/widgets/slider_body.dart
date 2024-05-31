@@ -22,12 +22,12 @@ class _SliderBodyState extends State<SliderBody> {
 
   @override
   void initState() {
-    getisMessagesReaded();
     super.initState();
+    getisMessagesReaded();
   }
 
-  getisMessagesReaded() async {
-    isMessagesReaded = await getIt.get<HomePreferences>().getIsMessagesReaded();
+  void getisMessagesReaded() async {
+    isMessagesReaded = await HomePreferences().getIsMessagesReaded();
   }
 
   @override
@@ -43,10 +43,7 @@ class _SliderBodyState extends State<SliderBody> {
         ),
         const HorizontalLine(),
         SliderItem(
-          onPressed: () {},
-          icon: Icons.person,
-          text: 'Mon Conseiller',
-        ),
+            onPressed: () {}, icon: Icons.person, text: 'Mon Conseiller'),
         const HorizontalLine(),
         SliderItem(
           onPressed: () {},
@@ -62,7 +59,7 @@ class _SliderBodyState extends State<SliderBody> {
               AppRouter.homeFeature.notificationView,
               (_) {
                 BlocProvider.of<HomePreferencesCubit>(context)
-                    .getHomePreferences();
+                    .setHomePreferences();
               },
             );
           },
@@ -79,7 +76,7 @@ class _SliderBodyState extends State<SliderBody> {
               AppRouter.settingsFeature.settingsView,
               (_) {
                 BlocProvider.of<HomePreferencesCubit>(context)
-                    .getHomePreferences();
+                    .setHomePreferences();
               },
             );
           },

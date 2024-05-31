@@ -4,5 +4,5 @@ import 'package:pfe_projet/core/utils/failures.dart';
 
 abstract class HomeRepo {
   Future<Either<Failure, List<Message>>> getMessages();
-  Future<Either<Failure, Unit>> setHomePreferences();
+  Future<Either<Failure, bool>> getMessagesStatu();
 }

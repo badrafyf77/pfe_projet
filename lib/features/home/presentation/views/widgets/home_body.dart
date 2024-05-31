@@ -37,7 +37,7 @@ class HomeBody extends StatelessWidget {
                         AppRouter.insurancesFeature.ourInsurancesView,
                         (_) {
                           BlocProvider.of<HomePreferencesCubit>(context)
-                              .getHomePreferences();
+                              .setHomePreferences();
                         },
                       );
                     },
@@ -84,7 +84,7 @@ class HomeBody extends StatelessWidget {
                         AppRouter.flutterMapView,
                         (_) {
                           BlocProvider.of<HomePreferencesCubit>(context)
-                              .getHomePreferences();
+                              .setHomePreferences();
                         },
                       );
                     },
