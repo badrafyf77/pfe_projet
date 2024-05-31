@@ -10,11 +10,3 @@ final class MessagesCheckerSuccess extends MessagesCheckerState {
 
   MessagesCheckerSuccess({required this.isMessagesReaded});
 }
-
-final class MessagesCheckerFailure extends MessagesCheckerState {
-  final String err;
-
-  MessagesCheckerFailure({
-    required this.err,
-  });
-}

@@ -12,10 +12,6 @@ class MessagesCheckerCubit extends Cubit<MessagesCheckerState> {
 
   Future<void> getMessagesStatu() async {
     var result = await _homeRepo.getMessagesStatu();
-    result.fold((left) {
-      emit(MessagesCheckerFailure(err: left.errMessage));
-    }, (right) {
-      emit(MessagesCheckerSuccess(isMessagesReaded: right));
-    });
+    emit(MessagesCheckerSuccess(isMessagesReaded: result));
   }
 }

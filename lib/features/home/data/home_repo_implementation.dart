@@ -24,12 +24,11 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, bool>> getMessagesStatu() async {
+  Future<bool> getMessagesStatu() async {
     try {
-      return right(await _firestoreService.isMessagesReaded());
+      return await _firestoreService.isMessagesReaded();
     } catch (e) {
-      return left(FirestoreFailure(
-          errMessage: 'il y a une erreur, veuillez réessayer'));
+      return false;
     }
   }
 }

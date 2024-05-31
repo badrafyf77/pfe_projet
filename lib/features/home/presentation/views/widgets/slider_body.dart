@@ -16,10 +16,10 @@ class SliderBody extends StatefulWidget {
 }
 
 class _SliderBodyState extends State<SliderBody> {
-
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<MessagesCheckerCubit>(context).getMessagesStatu();
   }
 
   @override
@@ -43,20 +43,41 @@ class _SliderBodyState extends State<SliderBody> {
           text: 'Email',
         ),
         const HorizontalLine(),
-        SliderItem(
-          isMessagesReaded: false,
-          onPressed: () async {
-            await AppRouter.navigateToAndDoSomething(
-              context,
-              AppRouter.homeFeature.notificationView,
-              (_) {
-                BlocProvider.of<MessagesCheckerCubit>(context)
-                              .getMessagesStatu();
+        BlocBuilder<MessagesCheckerCubit, MessagesCheckerState>(
+          builder: (context, state) {
+            if (state is MessagesCheckerSuccess) {
+              return SliderItem(
+                isMessagesReaded: state.isMessagesReaded,
+                onPressed: () async {
+                  await AppRouter.navigateToAndDoSomething(
+                    context,
+                    AppRouter.homeFeature.notificationView,
+                    (_) {
+                      BlocProvider.of<MessagesCheckerCubit>(context)
+                          .getMessagesStatu();
+                    },
+                  );
+                },
+                icon: Icons.notifications,
+                text: 'Messagerie',
+              );
+            }
+            return SliderItem(
+              isMessagesReaded: true,
+              onPressed: () async {
+                await AppRouter.navigateToAndDoSomething(
+                  context,
+                  AppRouter.homeFeature.notificationView,
+                  (_) {
+                    BlocProvider.of<MessagesCheckerCubit>(context)
+                        .getMessagesStatu();
+                  },
+                );
               },
+              icon: Icons.notifications,
+              text: 'Messagerie',
             );
           },
-          icon: Icons.notifications,
-          text: 'Messagerie',
         ),
         const HorizontalLine(),
         SliderItem(
@@ -68,7 +89,7 @@ class _SliderBodyState extends State<SliderBody> {
               AppRouter.settingsFeature.settingsView,
               (_) {
                 BlocProvider.of<MessagesCheckerCubit>(context)
-                              .getMessagesStatu();
+                    .getMessagesStatu();
               },
             );
           },
