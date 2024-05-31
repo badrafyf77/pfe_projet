@@ -82,6 +82,4 @@ class FirestoreService {
         await getUser(FirebaseAuth.instance.currentUser!.email!);
     return user.isCinVerified;
   }
-
-  
 }

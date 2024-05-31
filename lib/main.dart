@@ -9,8 +9,7 @@ import 'package:pfe_projet/features/auth/data/repo/auth_repo_implementation.dart
 import 'package:pfe_projet/features/auth/presentation/manager/auth%20bloc/auth_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pfe_projet/features/home/data/home_repo_implementation.dart';
-import 'package:pfe_projet/features/home/data/model/home_preferences.dart';
-import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/home_preferences_cubit.dart';
+import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/messages_checker_cubit.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
@@ -32,7 +31,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   DarkThemeProvider themeChangeProvider = DarkThemeProvider();
-  HomeProvider homeChangeProvider = HomeProvider();
   @override
   void initState() {
     super.initState();
@@ -54,7 +52,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         BlocProvider(
-          create: (BuildContext context) => HomePreferencesCubit(
+          create: (BuildContext context) => MessagesCheckerCubit(
             getIt.get<HomeRepoImplementation>(),
           ),
         ),
@@ -65,19 +63,10 @@ class _MyAppState extends State<MyApp> {
         },
         child: Consumer<DarkThemeProvider>(
           builder: (BuildContext context, value, Widget? child) {
-            return ChangeNotifierProvider(
-              create: (_) {
-                return homeChangeProvider;
-              },
-              child: Consumer<HomePreferences>(
-                builder: (BuildContext context, value, Widget? child) {
-                  return MaterialApp.router(
-                    debugShowCheckedModeBanner: false,
-                    theme: AppThemes.themeData(themeChangeProvider.darkTheme),
-                    routerConfig: AppRouter.router,
-                  );
-                }
-              ),
+            return MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              theme: AppThemes.themeData(themeChangeProvider.darkTheme),
+              routerConfig: AppRouter.router,
             );
           },
         ),
