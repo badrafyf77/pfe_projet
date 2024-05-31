@@ -27,7 +27,7 @@ class FirestoreService {
     });
   }
 
-  Future<void> updateIsMessagesReadedStatu(bool statu) async {
+  Future<void> updateMessagesStatu(bool statu) async {
     await users.doc(FirebaseAuth.instance.currentUser!.email!).update({
       'isMessagesReaded': statu,
     });
@@ -49,11 +49,14 @@ class FirestoreService {
     });
   }
 
-  Future<void> addMessage(Message message) async {
+  Future<void> addMessage(String message) async {
+    Message m = Message(
+        message: message, createdAt: Timestamp.fromDate(DateTime.now()));
     await users
         .doc(FirebaseAuth.instance.currentUser!.email!)
         .collection('messages')
-        .add(message.toJson());
+        .add(m.toJson());
+    await updateMessagesStatu(false);
   }
 
   List<Message> getMessages() {
@@ -61,7 +64,7 @@ class FirestoreService {
     users
         .doc(FirebaseAuth.instance.currentUser!.email!)
         .collection('messages')
-        .orderBy('createdAt')
+        .orderBy('createdAt', descending: true)
         .snapshots()
         .listen((event) {
       for (var doc in event.docs) {
