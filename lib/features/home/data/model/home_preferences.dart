@@ -3,7 +3,7 @@ import 'package:get_storage/get_storage.dart';
 const isCinVerified = 'IS_CIN_VERIFIED';
 const isMessagesReaded = 'IS_MESSAGES_READED';
 
-class HomePreference {
+class HomePreferences {
   final box = GetStorage();
 
   Future<void> setIsCinVerified(bool value) async {

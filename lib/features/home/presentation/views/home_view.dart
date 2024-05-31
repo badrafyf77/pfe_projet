@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/customs/home_appbar.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
-import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/messages_checker_cubit.dart';
+import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/home_preferences_cubit.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/home_body_and_slider.dart';
 
 class HomeView extends StatefulWidget {
@@ -16,7 +16,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
-    BlocProvider.of<MessagesCheckerCubit>(context).getMessagesStatu();
+    BlocProvider.of<HomePreferencesCubit>(context).getHomePreferences();
     super.initState();
   }
 
@@ -26,14 +26,14 @@ class _HomeViewState extends State<HomeView> {
       appBar: const AppAppBar(
         withHeaderAndBackBar: false,
       ),
-      body: BlocBuilder<MessagesCheckerCubit, MessagesCheckerState>(
+      body: BlocBuilder<HomePreferencesCubit, HomePreferencesState>(
         builder: (context, state) {
-          if (state is MessagesCheckerFailure) {
+          if (state is HomePreferencesFailure) {
             myShowToastError(context, state.err);
           }
-          if (state is MessagesCheckerSuccess) {
+          if (state is HomePreferencesSuccess) {
             return HomeBodyAndSlider(
-              isMessagesReaded: state.isMessagesReaded,
+              
             );
           }
           return LoadingCircle(

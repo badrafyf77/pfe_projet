@@ -9,7 +9,7 @@ import 'package:pfe_projet/features/auth/data/repo/auth_repo_implementation.dart
 import 'package:pfe_projet/features/auth/presentation/manager/auth%20bloc/auth_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pfe_projet/features/home/data/home_repo_implementation.dart';
-import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/messages_checker_cubit.dart';
+import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/home_preferences_cubit.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         BlocProvider(
-          create: (BuildContext context) => MessagesCheckerCubit(
+          create: (BuildContext context) => HomePreferencesCubit(
             getIt.get<HomeRepoImplementation>(),
           ),
         ),

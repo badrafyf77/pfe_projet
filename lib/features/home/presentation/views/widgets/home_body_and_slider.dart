@@ -8,10 +8,8 @@ import 'package:pfe_projet/features/home/presentation/views/widgets/home_slider.
 class HomeBodyAndSlider extends StatelessWidget {
   const HomeBodyAndSlider({
     Key? key,
-    required this.isMessagesReaded,
   }) : super(key: key);
 
-  final bool isMessagesReaded;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,6 @@ class HomeBodyAndSlider extends StatelessWidget {
       sliderCloseSize: 65,
       slider: HomeSlider(
         sliderDrawerKey: sliderDrawerKey,
-        isMessagesReaded: isMessagesReaded,
       ),
       child: const HomeBody(),
     );

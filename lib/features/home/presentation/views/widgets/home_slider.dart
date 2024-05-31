@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
-
 import 'package:pfe_projet/features/home/presentation/views/widgets/slider_body.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/slider_footer.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/slider_header.dart';
@@ -10,14 +9,13 @@ class HomeSlider extends StatelessWidget {
   const HomeSlider({
     super.key,
     required this.sliderDrawerKey,
-    required this.isMessagesReaded,
   });
 
   final GlobalKey<SliderDrawerState> sliderDrawerKey;
-  final bool isMessagesReaded;
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       color: Theme.of(context).colorScheme.primary,
       child: Column(
@@ -30,9 +28,7 @@ class HomeSlider extends StatelessWidget {
               sliderDrawerKey.currentState!.toggle();
             },
           ),
-          SliderBody(
-            isMessagesReaded: isMessagesReaded,
-          ),
+          const SliderBody(),
           const Spacer(),
           const SliderFooter(),
           const SizedBox(
@@ -42,4 +38,5 @@ class HomeSlider extends StatelessWidget {
       ),
     );
   }
+
 }

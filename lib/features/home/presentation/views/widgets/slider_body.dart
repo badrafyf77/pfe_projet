@@ -3,16 +3,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/horizontal_line.dart';
-import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/messages_checker_cubit.dart';
+import 'package:pfe_projet/core/utils/service_locator.dart';
+import 'package:pfe_projet/features/home/data/model/home_preferences.dart';
+import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/home_preferences_cubit.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/slider_item_and_icon.dart';
 
-class SliderBody extends StatelessWidget {
+class SliderBody extends StatefulWidget {
   const SliderBody({
     Key? key,
-    required this.isMessagesReaded,
   }) : super(key: key);
 
-  final bool isMessagesReaded;
+  @override
+  State<SliderBody> createState() => _SliderBodyState();
+}
+
+class _SliderBodyState extends State<SliderBody> {
+  bool? isMessagesReaded;
+
+  @override
+  void initState() {
+    getisMessagesReaded();
+    super.initState();
+  }
+
+  getisMessagesReaded() async {
+    isMessagesReaded = await getIt.get<HomePreferences>().getIsMessagesReaded();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +55,14 @@ class SliderBody extends StatelessWidget {
         ),
         const HorizontalLine(),
         SliderItem(
-          isMessagesReaded: isMessagesReaded,
+          isMessagesReaded: isMessagesReaded!,
           onPressed: () async {
             await AppRouter.navigateToAndDoSomething(
               context,
               AppRouter.homeFeature.notificationView,
               (_) {
-                BlocProvider.of<MessagesCheckerCubit>(context)
-                    .getMessagesStatu();
+                BlocProvider.of<HomePreferencesCubit>(context)
+                    .getHomePreferences();
               },
             );
           },
@@ -62,8 +78,8 @@ class SliderBody extends StatelessWidget {
               context,
               AppRouter.settingsFeature.settingsView,
               (_) {
-                BlocProvider.of<MessagesCheckerCubit>(context)
-                    .getMessagesStatu();
+                BlocProvider.of<HomePreferencesCubit>(context)
+                    .getHomePreferences();
               },
             );
           },

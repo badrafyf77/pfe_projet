@@ -27,6 +27,12 @@ class FirestoreService {
     });
   }
 
+  Future<void> updateIsMessagesReadedStatu(bool statu) async {
+    await users.doc(FirebaseAuth.instance.currentUser!.email!).update({
+      'isMessagesReaded': statu,
+    });
+  }
+
   Future<void> updateStatuCin(bool statu) async {
     await users.doc(FirebaseAuth.instance.currentUser!.email!).update({
       'isCinVerified': statu,
@@ -73,9 +79,11 @@ class FirestoreService {
     return user.isMessagesReaded;
   }
 
-  Future<void> changeIsMessagesReadedStatu(bool statu) async {
-    await users.doc(FirebaseAuth.instance.currentUser!.email!).update({
-      'isMessagesReaded': statu,
-    });
+  Future<bool> isCinVerified() async {
+    UserInformation user =
+        await getUser(FirebaseAuth.instance.currentUser!.email!);
+    return user.isCinVerified;
   }
+
+  
 }
