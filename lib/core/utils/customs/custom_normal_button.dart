@@ -27,6 +27,8 @@ class CustomNormalButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
+          padding:
+              const WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 5)),
           backgroundColor: WidgetStatePropertyAll(backgroundColor),
           foregroundColor: const WidgetStatePropertyAll(Colors.white),
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(

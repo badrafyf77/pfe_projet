@@ -22,6 +22,7 @@ import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_duration_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_info_view.dart';
+import 'package:pfe_projet/features/insurances/presentation/views/garanties_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/insurance_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/our_insurances_view.dart';
 import 'package:pfe_projet/features/settings/data/repo/settings_repo_implementation.dart';
@@ -61,6 +62,7 @@ class AppRouter {
     ourInsurancesView: '/ourInsurances',
     insurancesInfoView: '/insurancesInfo',
     devisInfoView: '/devisInfo',
+    garantiesView: '/garantiesView',
     devisDurationView: '/devisDuration',
   );
 
@@ -166,6 +168,10 @@ class AppRouter {
       GoRoute(
         path: insurancesFeature.devisInfoView,
         builder: (context, state) => const DevisInfoView(),
+      ),
+      GoRoute(
+        path: insurancesFeature.garantiesView,
+        builder: (context, state) => const GarantiesView(),
       ),
       GoRoute(
         path: insurancesFeature.devisDurationView,

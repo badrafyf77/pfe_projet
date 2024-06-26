@@ -119,7 +119,7 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
           CustomNormalButton(
             onPressed: () {
               AppRouter.navigateTo(
-                  context, AppRouter.insurancesFeature.devisDurationView);
+                  context, AppRouter.insurancesFeature.garantiesView);
             },
             textButton: "SUIVANT",
             backgroundColor: Theme.of(context).colorScheme.primary,
