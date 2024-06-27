@@ -8,6 +8,7 @@ import 'package:pfe_projet/features/auth/presentation/views/auth_gate.dart';
 import 'package:pfe_projet/features/auth/presentation/views/check_email_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/forgot_pass_view.dart';
 import 'package:pfe_projet/features/auth/presentation/manager/check%20email%20cubit/check_email_cubit.dart';
+import 'package:pfe_projet/features/auth/presentation/views/select_agence_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
@@ -49,6 +50,7 @@ class AppRouter {
     otpNumView: '/otpNum',
     forgotPassView: '/forgotPass',
     checkEmailView: '/checkEmail',
+    selectAgenceView: '/selectAgence',
   );
   static var homeFeature = (
     homeView: '/home',
@@ -65,11 +67,11 @@ class AppRouter {
     ourInsurancesView: '/ourInsurances',
     insurancesInfoView: '/insurancesInfo',
     devisInfoView: '/devisInfo',
-    garantiesView: '/garantiesView',
+    garantiesView: '/garanties',
     devisDurationView: '/devisDuration',
-    autoDocumentsView: '/autoDocumentsView',
-    userInsurancesView: '/userInsurancesView',
-    userInsuranceInfoView: '/userInsuranceInfoView',
+    autoDocumentsView: '/autoDocuments',
+    userInsurancesView: '/userInsurances',
+    userInsuranceInfoView: '/userInsuranceInfo',
   );
 
   static final router = GoRouter(
@@ -109,6 +111,10 @@ class AppRouter {
             ..checkEmailCubit(),
           child: const CheckEmailView(),
         ),
+      ),
+      GoRoute(
+        path: authFeature.selectAgenceView,
+        builder: (context, state) => const SelectAgenceView(),
       ),
       GoRoute(
         path: flutterMapView,

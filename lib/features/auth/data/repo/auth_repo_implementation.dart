@@ -20,8 +20,8 @@ class AuthRepoImplement implements AuthRepo {
   @override
   Future<Either<Failure, User>> signUp(UserInformation userInfo) async {
     try {
-      User user = await _authService.signUp(userInfo.email, userInfo.password);
       await _firestoreService.addUser(userInfo);
+      User user = await _authService.signUp(userInfo.email, userInfo.password);
       return right(user);
     } catch (e) {
       if (e is FirebaseAuthException) {
