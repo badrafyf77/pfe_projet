@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/core/utils/customs/home_appbar.dart';
@@ -70,7 +71,10 @@ class AutoDocumentsBody extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             CustomNormalButton(
-              onPressed: () {},
+              onPressed: () {
+                AppRouter.navigateTo(
+                    context, AppRouter.insurancesFeature.userInsurancesView);
+              },
               textButton: 'Terminer',
               backgroundColor: Theme.of(context).colorScheme.primary,
               height: 45,
