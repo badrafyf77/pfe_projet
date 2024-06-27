@@ -7,16 +7,18 @@ import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/icon_button.dart';
 import 'package:pfe_projet/core/utils/dark_mode_logic.dart';
 
-class UserInfoItemVerified extends StatelessWidget {
-  const UserInfoItemVerified({
+class ItemVerified extends StatelessWidget {
+  const ItemVerified({
     super.key,
     required this.isVerified,
-    required this.title,
+    this.title = '',
     required this.value,
     required this.onPressed,
+    this.noTitle = false,
   });
 
   final bool isVerified;
+  final bool noTitle;
   final String title;
   final String value;
   final void Function()? onPressed;
@@ -26,18 +28,19 @@ class UserInfoItemVerified extends StatelessWidget {
     final themeChange = Provider.of<DarkThemeProvider>(context);
     return Column(
       children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            title,
-            style: Styles.normal16.copyWith(
-              color: themeChange.darkTheme
-                  ? AppColors.kThirdColor
-                  : Theme.of(context).colorScheme.primary,
-              fontWeight: FontWeight.bold,
+        if (!noTitle)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              title,
+              style: Styles.normal16.copyWith(
+                color: themeChange.darkTheme
+                    ? AppColors.kThirdColor
+                    : Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
         const SizedBox(
           height: 5,
         ),
@@ -62,7 +65,7 @@ class UserInfoItemVerified extends StatelessWidget {
                           value,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: Styles.normal18.copyWith(
+                          style: Styles.normal16.copyWith(
                             color: Theme.of(context).colorScheme.primary,
                             fontWeight: FontWeight.bold,
                           ),
