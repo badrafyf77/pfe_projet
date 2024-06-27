@@ -32,7 +32,7 @@ class CustomGradientButton extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: Styles.normal16,
+              style: Styles.normal16.copyWith(color: Colors.white),
             ),
           ),
         ));
