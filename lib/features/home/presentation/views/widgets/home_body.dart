@@ -58,8 +58,11 @@ class _HomeBodyState extends State<HomeBody> {
                   const SizedBox(width: 30),
                   HomeBodyItemCard(
                     icon: Icons.preview,
-                    text: "Ch7al d jehd",
-                    onTap: () {},
+                    text: "Mes Assurances",
+                    onTap: () {
+                      AppRouter.navigateTo(context,
+                          AppRouter.insurancesFeature.userInsurancesView);
+                    },
                   ),
                 ],
               ),

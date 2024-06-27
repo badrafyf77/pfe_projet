@@ -26,6 +26,7 @@ import 'package:pfe_projet/features/insurances/presentation/views/devis_info_vie
 import 'package:pfe_projet/features/insurances/presentation/views/garanties_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/insurance_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/our_insurances_view.dart';
+import 'package:pfe_projet/features/insurances/presentation/views/user_insurance_info_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/user_insurances_view.dart';
 import 'package:pfe_projet/features/settings/data/repo/settings_repo_implementation.dart';
 import 'package:pfe_projet/features/settings/presentation/manager/get%20user%20cubit/get_user_cubit.dart';
@@ -68,6 +69,7 @@ class AppRouter {
     devisDurationView: '/devisDuration',
     autoDocumentsView: '/autoDocumentsView',
     userInsurancesView: '/userInsurancesView',
+    userInsuranceInfoView: '/userInsuranceInfoView',
   );
 
   static final router = GoRouter(
@@ -188,6 +190,10 @@ class AppRouter {
       GoRoute(
         path: insurancesFeature.userInsurancesView,
         builder: (context, state) => const UserInsurancesView(),
+      ),
+      GoRoute(
+        path: insurancesFeature.userInsuranceInfoView,
+        builder: (context, state) => const UserInsuranceInfoView(),
       ),
       GoRoute(
         path: pickfileView,
