@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/features/insurances/data/model/garantie_model.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/garantie_item.dart';
@@ -125,7 +126,10 @@ class _GarantiesListAndButtonState extends State<GarantiesListAndButton> {
                 totale: total,
               ),
               CustomNormalButton(
-                onPressed: () {},
+                onPressed: () {
+                  AppRouter.navigateTo(
+                      context, AppRouter.insurancesFeature.devisDurationView);
+                },
                 textButton: 'Continue',
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 height: 40,

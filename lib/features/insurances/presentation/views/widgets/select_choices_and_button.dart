@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_duration_choices.dart';
 
@@ -50,7 +51,10 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
           height: 20,
         ),
         CustomNormalButton(
-          onPressed: () {},
+          onPressed: () {
+            AppRouter.navigateTo(
+                context, AppRouter.insurancesFeature.autoDocumentsView);
+          },
           textButton: "SUIVANT",
           backgroundColor: Theme.of(context).colorScheme.primary,
           textColor: AppColors.kThirdColor,
