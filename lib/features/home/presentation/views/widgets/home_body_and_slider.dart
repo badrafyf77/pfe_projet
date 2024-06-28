@@ -20,7 +20,7 @@ class _HomeBodyAndSliderState extends State<HomeBodyAndSlider> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<CinCheckerCubit>(context).getCinStatu();
+    BlocProvider.of<CinStatuCubit>(context).getCinStatu();
   }
 
   @override
@@ -40,9 +40,9 @@ class _HomeBodyAndSliderState extends State<HomeBodyAndSlider> {
       slider: HomeSlider(
         sliderDrawerKey: sliderDrawerKey,
       ),
-      child: BlocBuilder<CinCheckerCubit, CinCheckerState>(
+      child: BlocBuilder<CinStatuCubit, CinStatuState>(
         builder: (context, state) {
-          if (state is CinCheckerSuccess) {
+          if (state is CinStatuSuccess) {
             return Column(
               children: [
                 if (!state.isCinVerified) const WarningWidget(),

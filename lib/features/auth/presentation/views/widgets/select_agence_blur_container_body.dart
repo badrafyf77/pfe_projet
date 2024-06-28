@@ -8,12 +8,19 @@ class SelectAgenceBlurContainerBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> list = ['hh', 'dd', 'jj'];
+    List<String> citiesList = ['Casablanca', 'Berrechid', 'Rabat'];
+    List<List<String>> allAgencesList = [
+      ['Barnossi', 'Anwal', 'Ain diab'],
+      ['Bloc', 'Yasmina', 'Castoss'],
+      ['Agdal', 'Ta9adom', 'Hay riyad'],
+    ];
+    final ValueNotifier<List<String>> agencesList =
+        ValueNotifier<List<String>>(allAgencesList[0]);
     return Column(
       children: [
         const SizedBox(height: 40),
         Text(
-          'Choisissez votre Agence',
+          'Choisissez votre Agencse',
           style: Styles.normal24.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -31,9 +38,12 @@ class SelectAgenceBlurContainerBody extends StatelessWidget {
                 ),
               ),
               MyDropDownField(
-                onChanged: (s) {},
-                items: list,
-                initialValue: list[0],
+                onChanged: (value) {
+                  agencesList.value =
+                      allAgencesList[citiesList.indexOf(value!)];
+                },
+                items: citiesList,
+                initialValue: citiesList[0],
               ),
               const SizedBox(height: 40),
               Text(
@@ -42,10 +52,15 @@ class SelectAgenceBlurContainerBody extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              MyDropDownField(
-                onChanged: (s) {},
-                items: list,
-                initialValue: list[0],
+              ValueListenableBuilder<List<String>>(
+                valueListenable: agencesList,
+                builder: (context, value, child) {
+                  return MyDropDownField(
+                    onChanged: (value) {},
+                    items: value,
+                    initialValue: value[0],
+                  );
+                },
               ),
             ],
           ),

@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         BlocProvider(
-          create: (BuildContext context) => CinCheckerCubit(
+          create: (BuildContext context) => CinStatuCubit(
             getIt.get<HomeRepoImplementation>(),
           ),
         ),

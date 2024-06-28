@@ -1,12 +1,12 @@
 part of 'cin_checker_cubit.dart';
 
 @immutable
-abstract class CinCheckerState {}
+abstract class CinStatuState {}
 
-final class CinCheckerInitial extends CinCheckerState {}
+final class CinStatuInitial extends CinStatuState {}
 
-final class CinCheckerSuccess extends CinCheckerState {
+final class CinStatuSuccess extends CinStatuState {
   final bool isCinVerified;
 
-  CinCheckerSuccess({required this.isCinVerified});
+  CinStatuSuccess({required this.isCinVerified});
 }

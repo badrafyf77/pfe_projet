@@ -56,7 +56,7 @@ class _SliderBodyState extends State<SliderBody> {
                     (_) {
                       BlocProvider.of<MessagesCheckerCubit>(context)
                           .getMessagesStatu();
-                      BlocProvider.of<CinCheckerCubit>(context).getCinStatu();
+                      BlocProvider.of<CinStatuCubit>(context).getCinStatu();
                     },
                   );
                 },
@@ -73,7 +73,7 @@ class _SliderBodyState extends State<SliderBody> {
                   (_) {
                     BlocProvider.of<MessagesCheckerCubit>(context)
                         .getMessagesStatu();
-                    BlocProvider.of<CinCheckerCubit>(context).getCinStatu();
+                    BlocProvider.of<CinStatuCubit>(context).getCinStatu();
                   },
                 );
               },
@@ -93,7 +93,7 @@ class _SliderBodyState extends State<SliderBody> {
               (_) {
                 BlocProvider.of<MessagesCheckerCubit>(context)
                     .getMessagesStatu();
-                BlocProvider.of<CinCheckerCubit>(context).getCinStatu();
+                BlocProvider.of<CinStatuCubit>(context).getCinStatu();
               },
             );
           },

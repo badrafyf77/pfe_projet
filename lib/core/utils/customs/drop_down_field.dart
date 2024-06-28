@@ -61,7 +61,7 @@ class MyDropDownField extends StatelessWidget {
       ),
       dropdownStyleData: DropdownStyleData(
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(.28),
+          color: AppColors.kLightPrimaryColor.withOpacity(.88),
           borderRadius: BorderRadius.circular(8),
         ),
       ),

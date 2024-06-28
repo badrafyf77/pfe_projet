@@ -5,15 +5,15 @@ import 'package:pfe_projet/features/home/data/home_repo.dart';
 
 part 'cin_checker_state.dart';
 
-class CinCheckerCubit extends Cubit<CinCheckerState> {
-  CinCheckerCubit(
+class CinStatuCubit extends Cubit<CinStatuState> {
+  CinStatuCubit(
     this._homeRepo,
-  ) : super(CinCheckerInitial());
+  ) : super(CinStatuInitial());
 
   final HomeRepo _homeRepo;
 
   Future<void> getCinStatu() async {
     var result = await _homeRepo.getCinStatu();
-    emit(CinCheckerSuccess(isCinVerified: result));
+    emit(CinStatuSuccess(isCinVerified: result));
   }
 }
