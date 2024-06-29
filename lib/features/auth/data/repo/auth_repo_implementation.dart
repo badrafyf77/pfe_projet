@@ -19,17 +19,19 @@ class AuthRepoImplement implements AuthRepo {
   );
 
   @override
-  Future<Either<Failure, User>> signUp(UserInformation userInfo, Advisor advisor) async {
+  Future<Either<Failure, User>> signUp(
+      UserInformation userInfo, Advisor advisor) async {
     try {
       await _firestoreService.addUser(userInfo);
       User user = await _authService.signUp(userInfo.email, userInfo.password);
+      await _firestoreService.addAdvisor(advisor);
       return right(user);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return left(FirebaseAuthFailure.fromFirebaseAuthException(e));
       }
       return left(
-        FirebaseAuthFailure(
+        FirestoreFailure(
             errMessage: 'il y a une erreur, veuillez réessayer'),
       );
     }

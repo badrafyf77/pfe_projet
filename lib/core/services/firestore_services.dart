@@ -1,13 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pfe_projet/core/model/advisor_model.dart';
 import 'package:pfe_projet/core/model/message_model.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
 
 class FirestoreService {
   CollectionReference users = FirebaseFirestore.instance.collection('users');
+  CollectionReference advisors =
+      FirebaseFirestore.instance.collection('advisors');
 
   Future<void> addUser(UserInformation userInfo) async {
     await users.doc(userInfo.email).set(userInfo.toJson());
+  }
+
+  Future<void> addAdvisor(Advisor advisor) async {
+    await advisors.doc(advisor.id).set(advisor.toJson());
   }
 
   Future<UserInformation> getUser(String email) async {
