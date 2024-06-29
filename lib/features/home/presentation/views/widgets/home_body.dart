@@ -7,18 +7,8 @@ import 'package:pfe_projet/features/home/presentation/manager/cin%20checker/cin_
 import 'package:pfe_projet/features/home/presentation/manager/messages%20checker/messages_checker_cubit.dart';
 import 'package:pfe_projet/features/home/presentation/views/widgets/home_body_item_card.dart';
 
-class HomeBody extends StatefulWidget {
+class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
-
-  @override
-  State<HomeBody> createState() => _HomeBodyState();
-}
-
-class _HomeBodyState extends State<HomeBody> {
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

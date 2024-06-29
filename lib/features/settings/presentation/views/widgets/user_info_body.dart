@@ -42,19 +42,17 @@ class _UserInfoBodyState extends State<UserInfoBody> {
                   const SizedBox(
                     height: 15,
                   ),
-                  ItemVerified(
-                    isVerified: state.userInformation.isEmailVerified,
-                    title: "Email :",
-                    value: state.userInformation.email,
-                    onPressed: () {},
+                  UserInfoItem(
+                    title: "Numéro du téléphone :",
+                    value: state.userInformation.phone,
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   ItemVerified(
-                    isVerified: false,
-                    title: "Numéro du téléphone :",
-                    value: state.userInformation.phone,
+                    isVerified: state.userInformation.isEmailVerified,
+                    title: "Email :",
+                    value: state.userInformation.email,
                     onPressed: () {},
                   ),
                   const SizedBox(
