@@ -1,13 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_duration_choices.dart';
 
 class SelectOffersWithButton extends StatefulWidget {
   const SelectOffersWithButton({
-    super.key,
-  });
+    Key? key,
+    required this.devisInfo,
+  }) : super(key: key);
+
+  final DevisInfo devisInfo;
 
   @override
   State<SelectOffersWithButton> createState() => _SelectOffersWithButtonState();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/carburant_row.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/category_gender_row.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/puissancefiscal_text_and_field.dart';
@@ -33,6 +34,12 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
           const Spacer(),
           PuissanceFiscalTextAndField(
             controller: controller,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'entrer la puissance fiscale';
+              }
+              return null;
+            },
           ),
           const SizedBox(
             height: 24,
@@ -93,7 +100,7 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
             height: 24,
           ),
           CategoryAndGenderRow(
-            text: 'Sex',
+            text: 'Sexe',
             firstText: 'Homme',
             firstValue: maleValue,
             onTapFirst: (selected) {
@@ -118,8 +125,36 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
           const Spacer(),
           CustomNormalButton(
             onPressed: () {
-              AppRouter.navigateTo(
-                  context, AppRouter.insurancesFeature.garantiesView);
+              if (formKey.currentState!.validate()) {
+                String? carburantType;
+                if (dieselValue) {
+                  carburantType = 'Diesel';
+                } else if (essenceValue) {
+                  carburantType = 'Essence';
+                } else if (hybrideValue) {
+                  carburantType = 'Hybride';
+                }
+                String? categorie;
+                if (particuliersValue) {
+                  categorie = 'Particuliers';
+                } else if (essenceValue) {
+                  categorie = 'Professionnel';
+                }
+                String? sexe;
+                if (dieselValue) {
+                  sexe = 'Homme';
+                } else if (essenceValue) {
+                  sexe = 'Femme';
+                }
+                DevisInfo devisInfo = DevisInfo(
+                  puissanceFiscale: controller.text,
+                  carburantType: carburantType!,
+                  categorie: categorie!,
+                  sexe: sexe!,
+                );
+                AppRouter.navigateToWithExtra(context,
+                    AppRouter.insurancesFeature.garantiesView, devisInfo);
+              }
             },
             textButton: "SUIVANT",
             backgroundColor: Theme.of(context).colorScheme.primary,

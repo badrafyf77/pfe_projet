@@ -22,6 +22,7 @@ import 'package:pfe_projet/features/home/data/home_repo_implementation.dart';
 import 'package:pfe_projet/features/home/presentation/manager/get%20messages/get_messages_cubit.dart';
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
+import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/auto_documents_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_duration_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_info_view.dart';
@@ -187,11 +188,21 @@ class AppRouter {
       ),
       GoRoute(
         path: insurancesFeature.garantiesView,
-        builder: (context, state) => const GarantiesView(),
+        builder: (context, state) {
+          DevisInfo devisInfo = state.extra as DevisInfo;
+          return GarantiesView(
+            devisInfo: devisInfo,
+          );
+        },
       ),
       GoRoute(
         path: insurancesFeature.devisDurationView,
-        builder: (context, state) => const DevisDurationView(),
+        builder: (context, state) {
+          DevisInfo devisInfo = state.extra as DevisInfo;
+          return DevisDurationView(
+            devisInfo: devisInfo,
+          );
+        },
       ),
       GoRoute(
         path: insurancesFeature.autoDocumentsView,

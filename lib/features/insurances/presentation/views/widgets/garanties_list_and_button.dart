@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/insurances/data/model/garantie_model.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/garantie_item.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/garanties_total_price.dart';
@@ -8,7 +9,10 @@ import 'package:pfe_projet/features/insurances/presentation/views/widgets/garant
 class GarantiesListAndButton extends StatefulWidget {
   const GarantiesListAndButton({
     super.key,
+    required this.devisInfo,
   });
+
+  final DevisInfo devisInfo;
 
   @override
   State<GarantiesListAndButton> createState() => _GarantiesListAndButtonState();
@@ -79,6 +83,7 @@ class _GarantiesListAndButtonState extends State<GarantiesListAndButton> {
     checked: false,
   );
   List<Garantie> garantiesList = [];
+  List<Garantie> selectedGaranties = [];
   double total = 0;
 
   @override
@@ -103,8 +108,10 @@ class _GarantiesListAndButtonState extends State<GarantiesListAndButton> {
                         garantiesList[index].checked =
                             !garantiesList[index].checked;
                         if (garantiesList[index].checked) {
+                          selectedGaranties.add(garantiesList[index]);
                           total += garantiesList[index].prix;
                         } else {
+                          selectedGaranties.remove(garantiesList[index]);
                           total -= garantiesList[index].prix;
                         }
                       });
@@ -127,8 +134,11 @@ class _GarantiesListAndButtonState extends State<GarantiesListAndButton> {
               ),
               CustomNormalButton(
                 onPressed: () {
-                  AppRouter.navigateTo(
-                      context, AppRouter.insurancesFeature.devisDurationView);
+                  widget.devisInfo.garantiesList = selectedGaranties;
+                  AppRouter.navigateToWithExtra(
+                    context,
+                    AppRouter.insurancesFeature.devisDurationView, widget.devisInfo,
+                  );
                 },
                 textButton: 'Continue',
                 backgroundColor: Theme.of(context).colorScheme.primary,

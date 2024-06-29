@@ -1,9 +1,17 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
+import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/garanties_list_and_button.dart';
 
 class GarantiesBody extends StatelessWidget {
-  const GarantiesBody({super.key});
+  const GarantiesBody({
+    Key? key,
+    required this.devisInfo,
+  }) : super(key: key);
+
+  final DevisInfo devisInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +20,9 @@ class GarantiesBody extends StatelessWidget {
       child: BlurContainer(
         height: size.height * .65,
         width: size.width * .85,
-        blurContainerBody: const GarantiesListAndButton(),
+        blurContainerBody: GarantiesListAndButton(
+          devisInfo: devisInfo,
+        ),
       ),
     );
   }
