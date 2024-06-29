@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_dialog.dart';
+import 'package:pfe_projet/features/insurances/data/helpers/calcul_tarifs.dart';
 import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 
 class DurationViewGarantiesList extends StatelessWidget {
@@ -91,7 +92,7 @@ class DurationViewGarantiesList extends StatelessWidget {
           Row(
             children: [
               Text(
-                '3011.60 DH',
+                '${calcul12MonthTarif(devisInfo.garantiesList!)} DH',
                 style: Styles.normal14.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.bold,

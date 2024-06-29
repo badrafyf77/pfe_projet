@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/features/insurances/data/helpers/calcul_tarifs.dart';
 import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_duration_choices.dart';
 
@@ -22,6 +23,7 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
   bool offer1 = true;
   bool offer2 = false;
   bool offer3 = false;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,6 +37,7 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
               offer3 = false;
             });
           },
+          value1: calcul12MonthTarif(widget.devisInfo.garantiesList!),
           offer2: offer2,
           onTapOffer2: (selected) {
             setState(() {
@@ -43,6 +46,7 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
               offer3 = false;
             });
           },
+          value2: calcul6MonthTarif(widget.devisInfo.garantiesList!),
           offer3: offer3,
           onTapOffer3: (selected) {
             setState(() {
@@ -51,6 +55,7 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
               offer3 = true;
             });
           },
+          value3: calcul3MonthTarif(widget.devisInfo.garantiesList!),
         ),
         const SizedBox(
           height: 20,
@@ -63,23 +68,25 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
             if (offer1) {
               dateAnnulation =
                   DateTime(dateDebut.year + 1, dateDebut.month, dateDebut.day);
-              montant = 3011;
+              montant = calcul12MonthTarif(widget.devisInfo.garantiesList!);
             }
             if (offer2) {
               dateAnnulation =
                   DateTime(dateDebut.year, dateDebut.month + 6, dateDebut.day);
-              montant = 1505;
+              montant = calcul6MonthTarif(widget.devisInfo.garantiesList!);
             }
             if (offer3) {
               dateAnnulation = DateTime(
                   dateDebut.year + 1, dateDebut.month + 3, dateDebut.day);
-              montant = 760;
+              montant = calcul3MonthTarif(widget.devisInfo.garantiesList!);
             }
             widget.devisInfo.montant = montant;
             widget.devisInfo.dateDebut = dateDebut;
             widget.devisInfo.dateAnnulation = dateAnnulation!;
             AppRouter.navigateToWithExtra(
-                context, AppRouter.insurancesFeature.autoDocumentsView,widget.devisInfo);
+                context,
+                AppRouter.insurancesFeature.autoDocumentsView,
+                widget.devisInfo);
           },
           textButton: "SUIVANT",
           backgroundColor: Theme.of(context).colorScheme.primary,
