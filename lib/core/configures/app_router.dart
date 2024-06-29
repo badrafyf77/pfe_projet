@@ -206,7 +206,12 @@ class AppRouter {
       ),
       GoRoute(
         path: insurancesFeature.autoDocumentsView,
-        builder: (context, state) => const AutoDocumentsView(),
+        builder: (context, state) {
+          DevisInfo devisInfo = state.extra as DevisInfo;
+          return AutoDocumentsView(
+            devisInfo: devisInfo,
+          );
+        },
       ),
       GoRoute(
         path: insurancesFeature.userInsurancesView,

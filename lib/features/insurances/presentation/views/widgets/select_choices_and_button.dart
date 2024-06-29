@@ -57,8 +57,29 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
         ),
         CustomNormalButton(
           onPressed: () {
-            AppRouter.navigateTo(
-                context, AppRouter.insurancesFeature.autoDocumentsView);
+            DateTime dateDebut = DateTime.now();
+            DateTime? dateAnnulation;
+            double montant = 0;
+            if (offer1) {
+              dateAnnulation =
+                  DateTime(dateDebut.year + 1, dateDebut.month, dateDebut.day);
+              montant = 3011;
+            }
+            if (offer2) {
+              dateAnnulation =
+                  DateTime(dateDebut.year, dateDebut.month + 6, dateDebut.day);
+              montant = 1505;
+            }
+            if (offer3) {
+              dateAnnulation = DateTime(
+                  dateDebut.year + 1, dateDebut.month + 3, dateDebut.day);
+              montant = 760;
+            }
+            widget.devisInfo.montant = montant;
+            widget.devisInfo.dateDebut = dateDebut;
+            widget.devisInfo.dateAnnulation = dateAnnulation!;
+            AppRouter.navigateToWithExtra(
+                context, AppRouter.insurancesFeature.autoDocumentsView,widget.devisInfo);
           },
           textButton: "SUIVANT",
           backgroundColor: Theme.of(context).colorScheme.primary,

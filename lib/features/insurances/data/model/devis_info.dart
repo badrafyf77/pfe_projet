@@ -7,6 +7,9 @@ class DevisInfo {
   final String categorie;
   final String sexe;
   List<Garantie>? garantiesList = [];
+  double? montant;
+  DateTime? dateDebut;
+  DateTime? dateAnnulation;
 
   DevisInfo({
     required this.puissanceFiscale,
@@ -14,5 +17,8 @@ class DevisInfo {
     required this.categorie,
     required this.sexe,
     this.garantiesList,
+    this.montant,
+    this.dateDebut,
+    this.dateAnnulation,
   });
 }
