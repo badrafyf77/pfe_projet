@@ -15,6 +15,17 @@ class FirestoreService {
     await users.doc(userInfo.email).set(userInfo.toJson());
   }
 
+  Future<UserInformation> getUser(String email) async {
+    dynamic data;
+    UserInformation user;
+    final DocumentReference document = users.doc(email);
+    await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
+      data = snapshot.data();
+    });
+    user = UserInformation.fromJson(data);
+    return user;
+  }
+
   Future<void> addAdvisor(Advisor advisor) async {
     await advisors.doc(advisor.id).set(advisor.toJson());
   }
@@ -29,20 +40,53 @@ class FirestoreService {
     devisInfo.id = id;
     await users
         .doc(FirebaseAuth.instance.currentUser!.email!)
-        .collection('assurances')
+        .collection('auto_assurances')
         .doc(id)
         .set(devisInfo.toJson());
   }
 
-  Future<UserInformation> getUser(String email) async {
+  Future<void> updateStatuCarteGrise(String id, bool statu) async {
+    await users
+        .doc(FirebaseAuth.instance.currentUser!.email!)
+        .collection('auto_assurances')
+        .doc(id)
+        .update({
+      'carteGrisVerified': statu,
+    });
+  }
+
+  Future<void> updateStatuPermisRecto(String id, bool statu) async {
+    await users
+        .doc(FirebaseAuth.instance.currentUser!.email!)
+        .collection('auto_assurances')
+        .doc(id)
+        .update({
+      'permisRectoVerified': statu,
+    });
+  }
+
+  Future<void> updateStatuPermisVerso(String id, bool statu) async {
+    await users
+        .doc(FirebaseAuth.instance.currentUser!.email!)
+        .collection('auto_assurances')
+        .doc(id)
+        .update({
+      'permisVersoVerified': statu,
+    });
+  }
+
+  Future<DevisInfo> getInsurance(String id) async {
     dynamic data;
-    UserInformation user;
-    final DocumentReference document = users.doc(email);
+    DevisInfo devisInfo;
+    final DocumentReference document = users
+        .doc(FirebaseAuth.instance.currentUser!.email!)
+        .collection('auto_assurances')
+        .doc(id);
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
       data = snapshot.data();
     });
-    user = UserInformation.fromJson(data);
-    return user;
+    devisInfo = DevisInfo.fromJson(data);
+    return devisInfo;
   }
 
   Future<void> updateStatuEmail(bool statu) async {

@@ -4,4 +4,6 @@ import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 
 abstract class InsurancesRepo {
   Future<Either<Failure, Unit>> stockInsurance(DevisInfo devisInfo);
+
+  Future<Either<Failure, DevisInfo>> getInsurance(String id);
 }

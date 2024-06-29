@@ -1,7 +1,5 @@
-part of 'check_cin_bloc.dart';
 
-@immutable
-abstract class CheckDocumentEvent {}
+sealed class CheckDocumentEvent {}
 
 class CheckDocument extends CheckDocumentEvent {
   final String cin;

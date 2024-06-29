@@ -14,7 +14,7 @@ import 'package:pfe_projet/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
 import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo_implementation.dart';
-import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20cin%20bloc/check_cin_bloc.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20document%20bloc/check_document_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/get%20image%20bloc/get_image_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/pickfile_view.dart';
 import 'package:pfe_projet/features/flutter_map/presentation/views/flutter_map_view.dart';
@@ -24,6 +24,7 @@ import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
 import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/insurances/data/repo/insurances_repo_implementation.dart';
+import 'package:pfe_projet/features/insurances/presentation/manager/get%20auto%20insurance%20cubit/get_auto_insurance_cubit.dart';
 import 'package:pfe_projet/features/insurances/presentation/manager/stock%20insurance%20bloc/stock_insurance_bloc.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/auto_documents_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_duration_view.dart';
@@ -214,9 +215,14 @@ class AppRouter {
       GoRoute(
         path: insurancesFeature.autoDocumentsView,
         builder: (context, state) {
-          DevisInfo devisInfo = state.extra as DevisInfo;
-          return AutoDocumentsView(
-            devisInfo: devisInfo,
+          String id = state.extra as String;
+          return BlocProvider(
+            create: (BuildContext context) => GetAutoInsuranceCubit(
+              getIt.get<InsurancesRepoImplementation>(),
+            ),
+            child: AutoDocumentsView(
+              id: id,
+            ),
           );
         },
       ),
@@ -246,7 +252,7 @@ class AppRouter {
               ),
             ],
             child: PickFileView(
-              cin: cin,
+              documentName: cin,
             ),
           );
         },

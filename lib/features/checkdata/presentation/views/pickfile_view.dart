@@ -7,10 +7,10 @@ import 'package:pfe_projet/features/checkdata/presentation/views/widgets/pickfil
 class PickFileView extends StatelessWidget {
   const PickFileView({
     super.key,
-    required this.cin,
+    required this.documentName,
   });
 
-  final String cin;
+  final String documentName;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class PickFileView extends StatelessWidget {
         title: "Vérifier mes données",
       ),
       body: PickFileBody(
-        cin: cin,
+        documentName: documentName,
       ),
     );
   }

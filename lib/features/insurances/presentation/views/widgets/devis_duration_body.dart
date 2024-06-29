@@ -29,7 +29,7 @@ class DevisDurationBody extends StatelessWidget {
           AppRouter.navigateToWithExtra(
             context,
             AppRouter.insurancesFeature.autoDocumentsView,
-            devisInfo,
+            devisInfo.id!,
           );
         }
       },

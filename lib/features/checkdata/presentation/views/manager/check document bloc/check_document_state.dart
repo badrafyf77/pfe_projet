@@ -1,7 +1,5 @@
-part of 'check_cin_bloc.dart';
 
-@immutable
-abstract class CheckDocumentState {}
+sealed class CheckDocumentState {}
 
 final class CheckCinInitial extends CheckDocumentState {}
 

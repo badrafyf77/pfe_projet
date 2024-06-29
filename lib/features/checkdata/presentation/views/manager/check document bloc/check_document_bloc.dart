@@ -1,11 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20document%20bloc/check_document_event.dart';
+import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20document%20bloc/check_document_state.dart';
 
-part 'check_cin_event.dart';
-part 'check_cin_state.dart';
 
 class CheckDocumentBloc extends Bloc<CheckDocumentEvent, CheckDocumentState> {
   final CheckDataRepo _checkDataRepo;
