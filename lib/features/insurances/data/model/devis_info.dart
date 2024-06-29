@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pfe_projet/features/insurances/data/model/garantie_model.dart';
 
 class DevisInfo {
+  String? id;
   final int puissanceFiscale;
   final String carburantType;
   final String categorie;
@@ -18,6 +19,7 @@ class DevisInfo {
   final bool permisVersoVerified;
 
   DevisInfo({
+    this.id,
     required this.puissanceFiscale,
     required this.carburantType,
     required this.categorie,
@@ -35,6 +37,7 @@ class DevisInfo {
 
   DevisInfo.fromJson(json)
       : this(
+          id: json['id'] as String,
           puissanceFiscale: json['puissanceFiscale'] as int,
           carburantType: json['carburantType'] as String,
           categorie: json['categorie'] as String,
@@ -51,6 +54,7 @@ class DevisInfo {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'puissanceFiscale': puissanceFiscale,
       'carburantType': carburantType,
       'categorie': categorie,

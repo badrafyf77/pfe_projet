@@ -214,7 +214,9 @@ class AppRouter {
       GoRoute(
         path: insurancesFeature.autoDocumentsView,
         builder: (context, state) {
+          DevisInfo devisInfo = state.extra as DevisInfo;
           return AutoDocumentsView(
+            devisInfo: devisInfo,
           );
         },
       ),
@@ -238,7 +240,7 @@ class AppRouter {
                 ),
               ),
               BlocProvider(
-                create: (BuildContext context) => CheckCinBloc(
+                create: (BuildContext context) => CheckDocumentBloc(
                   getIt.get<CheckDataRepoImplement>(),
                 ),
               ),

@@ -7,18 +7,18 @@ import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo.dart';
 part 'check_cin_event.dart';
 part 'check_cin_state.dart';
 
-class CheckCinBloc extends Bloc<CheckCinEvent, CheckCinState> {
+class CheckDocumentBloc extends Bloc<CheckDocumentEvent, CheckDocumentState> {
   final CheckDataRepo _checkDataRepo;
 
-  CheckCinBloc(
+  CheckDocumentBloc(
     this._checkDataRepo,
   ) : super(CheckCinInitial()) {
-    on<CheckCinEvent>((event, emit) async {
-      if (event is CheckCin) {
-        emit(CheckCinLoading());
+    on<CheckDocumentEvent>((event, emit) async {
+      if (event is CheckDocument) {
+        emit(CheckDocumentLoading());
         _checkDataRepo.checkCin(event.base64);
         await Future.delayed(const Duration(seconds: 3), () {});
-        emit(CheckCinSuccess());
+        emit(CheckDocumentSuccess());
       }
     });
   }

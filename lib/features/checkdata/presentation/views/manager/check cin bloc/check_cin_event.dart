@@ -1,14 +1,13 @@
 part of 'check_cin_bloc.dart';
 
 @immutable
-abstract class CheckCinEvent {}
+abstract class CheckDocumentEvent {}
 
-class CheckCin extends CheckCinEvent {
+class CheckDocument extends CheckDocumentEvent {
   final String cin;
   final String base64;
-  CheckCin({
+  CheckDocument({
     required this.cin,
     required this.base64,
   });
 }
-

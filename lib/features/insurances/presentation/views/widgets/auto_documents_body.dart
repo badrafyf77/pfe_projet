@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/settings/presentation/views/widgets/user_info_item_verified.dart';
 
 class AutoDocumentsBody extends StatelessWidget {
-  const AutoDocumentsBody({super.key});
+  const AutoDocumentsBody({super.key, required this.devisInfo});
+
+  final DevisInfo devisInfo;
 
   @override
   Widget build(BuildContext context) {

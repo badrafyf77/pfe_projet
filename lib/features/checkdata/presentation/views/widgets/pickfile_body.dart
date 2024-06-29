@@ -32,14 +32,14 @@ class _PickFileBodyState extends State<PickFileBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CheckCinBloc, CheckCinState>(
+    return BlocListener<CheckDocumentBloc, CheckDocumentState>(
       listener: (context, state) {
-        if (state is CheckCinLoading) {
+        if (state is CheckDocumentLoading) {
           setState(() {
             isLoding = true;
           });
         }
-        if (state is CheckCinSuccess) {
+        if (state is CheckDocumentSuccess) {
           setState(() {
             isLoding = false;
           });
@@ -77,8 +77,8 @@ class _PickFileBodyState extends State<PickFileBody> {
                                 myShowToastInfo(
                                     context, 'Veulliez choisir une image');
                               } else {
-                                BlocProvider.of<CheckCinBloc>(context).add(
-                                  CheckCin(
+                                BlocProvider.of<CheckDocumentBloc>(context).add(
+                                  CheckDocument(
                                     cin: widget.cin,
                                     base64: base64!,
                                   ),

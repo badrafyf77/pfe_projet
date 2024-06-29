@@ -26,9 +26,10 @@ class DevisDurationBody extends StatelessWidget {
           myShowToastError(context, state.err);
         }
         if (state is StockInsuranceSuccess) {
-          AppRouter.navigateOff(
+          AppRouter.navigateToWithExtra(
             context,
             AppRouter.insurancesFeature.autoDocumentsView,
+            devisInfo,
           );
         }
       },

@@ -1,15 +1,15 @@
 part of 'check_cin_bloc.dart';
 
 @immutable
-abstract class CheckCinState {}
+abstract class CheckDocumentState {}
 
-final class CheckCinInitial extends CheckCinState {}
+final class CheckCinInitial extends CheckDocumentState {}
 
-final class CheckCinLoading extends CheckCinState {}
+final class CheckDocumentLoading extends CheckDocumentState {}
 
-final class CheckCinSuccess extends CheckCinState {}
+final class CheckDocumentSuccess extends CheckDocumentState {}
 
-final class CheckCinFailure extends CheckCinState {
+final class CheckCinFailure extends CheckDocumentState {
   final String err;
 
   CheckCinFailure({
