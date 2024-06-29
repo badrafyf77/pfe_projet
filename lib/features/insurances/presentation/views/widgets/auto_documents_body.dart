@@ -4,6 +4,7 @@ import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/features/checkdata/data/model/document.dart';
 import 'package:pfe_projet/features/insurances/presentation/manager/get%20auto%20insurance%20cubit/get_auto_insurance_cubit.dart';
 import 'package:pfe_projet/features/settings/presentation/views/widgets/user_info_item_verified.dart';
 
@@ -51,16 +52,19 @@ class _AutoDocumentsBodyState extends State<AutoDocumentsBody> {
                   ),
                   const SizedBox(height: 30),
                   ItemVerified(
-                    isVerified: state.devisInfo.carteGrisVerified,
+                    isVerified: state.devisInfo.carteGriseVerified,
                     noTitle: true,
                     value: 'Carte Grise',
                     onPressed: () async {
+                      Document document =
+                          Document(id: widget.id, documentName: 'Carte Grise');
                       await AppRouter.navigateToAndDoSomethingWithExtra(
                         context,
                         AppRouter.pickfileView,
-                        'Carte Grise',
+                        document,
                         (_) {
-                          // BlocProvider.of<GetUserCubit>(context).getUserCubit();
+                          BlocProvider.of<GetAutoInsuranceCubit>(context)
+                              .getInsurance(widget.id);
                         },
                       );
                     },
@@ -70,18 +74,42 @@ class _AutoDocumentsBodyState extends State<AutoDocumentsBody> {
                     isVerified: state.devisInfo.permisRectoVerified,
                     noTitle: true,
                     value: 'Permis de conduite (recto)',
-                    onPressed: () async {},
+                    onPressed: () async {
+                      Document document = Document(
+                          id: widget.id, documentName: 'Permis(recto)');
+                      await AppRouter.navigateToAndDoSomethingWithExtra(
+                        context,
+                        AppRouter.pickfileView,
+                        document,
+                        (_) {
+                          BlocProvider.of<GetAutoInsuranceCubit>(context)
+                              .getInsurance(widget.id);
+                        },
+                      );
+                    },
                   ),
                   const SizedBox(height: 20),
                   ItemVerified(
                     isVerified: state.devisInfo.permisVersoVerified,
                     noTitle: true,
                     value: 'Permis de conduite (verso)',
-                    onPressed: () async {},
+                    onPressed: () async {
+                      Document document = Document(
+                          id: widget.id, documentName: 'Permis(verso)');
+                      await AppRouter.navigateToAndDoSomethingWithExtra(
+                        context,
+                        AppRouter.pickfileView,
+                        document,
+                        (_) {
+                          BlocProvider.of<GetAutoInsuranceCubit>(context)
+                              .getInsurance(widget.id);
+                        },
+                      );
+                    },
                   ),
                   const SizedBox(height: 50),
                   CustomNormalButton(
-                    onPressed: () {
+                    onPressed: () async {
                       // AppRouter.navigateTo(
                       //     context, AppRouter.insurancesFeature.userInsurancesView);
                     },

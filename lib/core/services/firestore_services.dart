@@ -46,12 +46,13 @@ class FirestoreService {
   }
 
   Future<void> updateStatuCarteGrise(String id, bool statu) async {
+    print('object');
     await users
         .doc(FirebaseAuth.instance.currentUser!.email!)
         .collection('auto_assurances')
         .doc(id)
         .update({
-      'carteGrisVerified': statu,
+      'carteGriseVerified': statu,
     });
   }
 

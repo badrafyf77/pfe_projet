@@ -13,6 +13,7 @@ import 'package:pfe_projet/features/auth/presentation/views/select_agence_view.d
 import 'package:pfe_projet/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pfe_projet/features/auth/presentation/views/otp_num_view.dart';
+import 'package:pfe_projet/features/checkdata/data/model/document.dart';
 import 'package:pfe_projet/features/checkdata/data/repo/checkdata_repo_implementation.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20document%20bloc/check_document_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/get%20image%20bloc/get_image_bloc.dart';
@@ -237,7 +238,7 @@ class AppRouter {
       GoRoute(
         path: pickfileView,
         builder: (context, state) {
-          String cin = state.extra as String;
+          Document document = state.extra as Document;
           return MultiBlocProvider(
             providers: [
               BlocProvider(
@@ -252,7 +253,7 @@ class AppRouter {
               ),
             ],
             child: PickFileView(
-              documentName: cin,
+              document: document,
             ),
           );
         },

@@ -9,6 +9,7 @@ import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
+import 'package:pfe_projet/features/checkdata/data/model/document.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20document%20bloc/check_document_bloc.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20document%20bloc/check_document_event.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/manager/check%20document%20bloc/check_document_state.dart';
@@ -19,10 +20,10 @@ import 'package:pfe_projet/features/checkdata/presentation/views/widgets/image_v
 class PickFileBody extends StatefulWidget {
   const PickFileBody({
     super.key,
-    required this.documentName,
+    required this.document,
   });
 
-  final String documentName;
+  final Document document;
 
   @override
   State<PickFileBody> createState() => _PickFileBodyState();
@@ -46,7 +47,7 @@ class _PickFileBodyState extends State<PickFileBody> {
             isLoding = false;
           });
           myShowToastSuccess(
-              context, '${widget.documentName} est compatible avec l\'image');
+              context, '${widget.document.documentName} est compatible avec l\'image');
           AppRouter.pop(context);
         }
       },
@@ -81,8 +82,9 @@ class _PickFileBodyState extends State<PickFileBody> {
                               } else {
                                 BlocProvider.of<CheckDocumentBloc>(context).add(
                                   CheckDocument(
-                                    cin: widget.documentName,
+                                    documentName: widget.document.documentName,
                                     base64: base64!,
+                                    id: widget.document.id
                                   ),
                                 );
                               }
@@ -103,7 +105,7 @@ class _PickFileBodyState extends State<PickFileBody> {
                     height: 25,
                   ),
                   IconButtonWithText(
-                    text: 'Prendre une photo la ${widget.documentName} :',
+                    text: 'Prendre une photo la ${widget.document.documentName} :',
                     icon: Icons.camera_alt,
                     onPressed: () {
                       BlocProvider.of<GetImageBloc>(context).add(
@@ -115,7 +117,7 @@ class _PickFileBodyState extends State<PickFileBody> {
                     height: 15,
                   ),
                   IconButtonWithText(
-                    text: 'Choisir une photo  de la ${widget.documentName} :',
+                    text: 'Choisir une photo  de la ${widget.document.documentName} :',
                     icon: Icons.insert_photo,
                     onPressed: () {
                       BlocProvider.of<GetImageBloc>(context).add(

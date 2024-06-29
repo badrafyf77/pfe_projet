@@ -29,11 +29,23 @@ class CheckDataRepoImplement implements CheckDataRepo {
   }
 
   @override
-  Future<Either<Failure, bool>> checkCin(String base64) async {
+  Future<Either<Failure, bool>> checkDocument(
+      String base64, String documentName, String id) async {
     try {
-      await _firestoreService.updateStatuCin(true);
-      await _firestoreService
-          .addMessage('Votre CIN a été vérifiée avec succès');
+      if (documentName == 'CIN') {
+        await _firestoreService.updateStatuCin(true);
+        await _firestoreService
+            .addMessage('Votre CIN a été vérifiée avec succès');
+      }
+      if (documentName == 'Carte Grise') {
+        await _firestoreService.updateStatuCarteGrise(id, true);
+      }
+      if (documentName == 'Permis(recto)') {
+        await _firestoreService.updateStatuPermisRecto(id, true);
+      }
+      if (documentName == 'Permis(verso)') {
+        await _firestoreService.updateStatuPermisVerso(id, true);
+      }
       return right(true);
     } catch (e) {
       return left(FirebaseAuthFailure(errMessage: "errMessage"));

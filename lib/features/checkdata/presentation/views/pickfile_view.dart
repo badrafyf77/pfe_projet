@@ -2,15 +2,16 @@
 import 'package:flutter/material.dart';
 
 import 'package:pfe_projet/core/utils/customs/home_appbar.dart';
+import 'package:pfe_projet/features/checkdata/data/model/document.dart';
 import 'package:pfe_projet/features/checkdata/presentation/views/widgets/pickfile_body.dart';
 
 class PickFileView extends StatelessWidget {
   const PickFileView({
     super.key,
-    required this.documentName,
+    required this.document,
   });
 
-  final String documentName;
+  final Document document;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class PickFileView extends StatelessWidget {
         title: "Vérifier mes données",
       ),
       body: PickFileBody(
-        documentName: documentName,
+        document: document,
       ),
     );
   }

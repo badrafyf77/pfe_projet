@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
 import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
+import 'package:pfe_projet/features/checkdata/data/model/document.dart';
 import 'package:pfe_projet/features/settings/presentation/manager/get%20user%20cubit/get_user_cubit.dart';
 import 'package:pfe_projet/features/settings/presentation/views/widgets/user_info_item.dart';
 import 'package:pfe_projet/features/settings/presentation/views/widgets/user_info_item_verified.dart';
@@ -63,10 +64,11 @@ class _UserInfoBodyState extends State<UserInfoBody> {
                     title: "CIN :",
                     value: state.userInformation.cin,
                     onPressed: () async {
+                      Document document = Document(id: '', documentName: 'CIN');
                       await AppRouter.navigateToAndDoSomethingWithExtra(
                         context,
                         AppRouter.pickfileView,
-                        'CIN',
+                        document,
                         (_) {
                           BlocProvider.of<GetUserCubit>(context).getUserCubit();
                         },

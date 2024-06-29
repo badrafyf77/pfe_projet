@@ -14,7 +14,7 @@ class DevisInfo {
   Timestamp? dateDebut;
   Timestamp? dateAnnulation;
   final String statu;
-  final bool carteGrisVerified;
+  final bool carteGriseVerified;
   final bool permisRectoVerified;
   final bool permisVersoVerified;
 
@@ -30,7 +30,7 @@ class DevisInfo {
     this.dateDebut,
     this.dateAnnulation,
     this.statu = 'en cours de traitement',
-    this.carteGrisVerified = false,
+    this.carteGriseVerified = false,
     this.permisRectoVerified = false,
     this.permisVersoVerified = false,
   });
@@ -47,7 +47,7 @@ class DevisInfo {
           dateDebut: json['dateDebut'] as Timestamp,
           dateAnnulation: json['dateAnnulation'] as Timestamp,
           statu: json['statu'] as String,
-          carteGrisVerified: json['carteGrisVerified'] as bool,
+          carteGriseVerified: json['carteGriseVerified'] as bool,
           permisRectoVerified: json['permisRectoVerified'] as bool,
           permisVersoVerified: json['permisVersoVerified'] as bool,
         );
@@ -64,7 +64,7 @@ class DevisInfo {
       'dateDebut': dateDebut,
       'dateAnnulation': dateAnnulation,
       'statu': statu,
-      'carteGrisVerified': carteGrisVerified,
+      'carteGriseVerified': carteGriseVerified,
       'permisRectoVerified': permisRectoVerified,
       'permisVersoVerified': permisVersoVerified,
     };
