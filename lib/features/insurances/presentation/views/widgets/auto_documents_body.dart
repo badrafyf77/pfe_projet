@@ -110,11 +110,24 @@ class _AutoDocumentsBodyState extends State<AutoDocumentsBody> {
                   const SizedBox(height: 50),
                   CustomNormalButton(
                     onPressed: () async {
-                      // AppRouter.navigateTo(
-                      //     context, AppRouter.insurancesFeature.userInsurancesView);
+                      if (state.devisInfo.carteGriseVerified &&
+                          state.devisInfo.permisRectoVerified &&
+                          state.devisInfo.permisVersoVerified) {
+                        AppRouter.navigateTo(
+                            context, AppRouter.homeFeature.homeView);
+                      }
                     },
                     textButton: 'Terminer',
-                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    backgroundColor: (state.devisInfo.carteGriseVerified &&
+                            state.devisInfo.permisRectoVerified &&
+                            state.devisInfo.permisVersoVerified)
+                        ? Theme.of(context).colorScheme.primary
+                        : Colors.grey,
+                    textColor: (state.devisInfo.carteGriseVerified &&
+                            state.devisInfo.permisRectoVerified &&
+                            state.devisInfo.permisVersoVerified)
+                        ? Colors.grey
+                        : Theme.of(context).colorScheme.primary,
                     height: 45,
                     width: 120,
                   )

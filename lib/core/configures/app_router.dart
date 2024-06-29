@@ -26,6 +26,7 @@ import 'package:pfe_projet/features/home/presentation/views/notification_view.da
 import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/insurances/data/repo/insurances_repo_implementation.dart';
 import 'package:pfe_projet/features/insurances/presentation/manager/get%20auto%20insurance%20cubit/get_auto_insurance_cubit.dart';
+import 'package:pfe_projet/features/insurances/presentation/manager/get%20user%20insurances%20cubit/get_user_insurances_cubit.dart';
 import 'package:pfe_projet/features/insurances/presentation/manager/stock%20insurance%20bloc/stock_insurance_bloc.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/auto_documents_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_duration_view.dart';
@@ -229,7 +230,12 @@ class AppRouter {
       ),
       GoRoute(
         path: insurancesFeature.userInsurancesView,
-        builder: (context, state) => const UserInsurancesView(),
+        builder: (context, state) => BlocProvider(
+          create: (BuildContext context) => GetUserInsurancesCubit(
+              getIt.get<InsurancesRepoImplementation>(),
+            ),
+          child: const UserInsurancesView(),
+        ),
       ),
       GoRoute(
         path: insurancesFeature.userInsuranceInfoView,

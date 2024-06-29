@@ -23,12 +23,27 @@ class InsurancesRepoImplementation implements InsurancesRepo {
       );
     }
   }
-  
+
   @override
-  Future<Either<Failure, DevisInfo>> getInsurance(String id) async{
+  Future<Either<Failure, DevisInfo>> getInsurance(String id) async {
     try {
       DevisInfo devisInfo = await _firestoreService.getInsurance(id);
       return right(devisInfo);
+    } catch (e) {
+      if (e is FirebaseException) {
+        return left(FirestoreFailure.fromFirestoreFailure(e));
+      }
+      return left(
+        FirestoreFailure(errMessage: 'il y a une erreur, veuillez réessayer'),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<DevisInfo>>> getUserInsurances() async {
+    try {
+      List<DevisInfo> devisList = _firestoreService.getUserInsurances();
+      return right(devisList);
     } catch (e) {
       if (e is FirebaseException) {
         return left(FirestoreFailure.fromFirestoreFailure(e));

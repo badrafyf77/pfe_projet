@@ -45,8 +45,22 @@ class FirestoreService {
         .set(devisInfo.toJson());
   }
 
+  List<DevisInfo> getUserInsurances() {
+    List<DevisInfo> devisList = [];
+    users
+        .doc(FirebaseAuth.instance.currentUser!.email!)
+        .collection('auto_assurances')
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .listen((event) {
+      for (var doc in event.docs) {
+        devisList.add(DevisInfo.fromJson(doc));
+      }
+    });
+    return devisList;
+  }
+
   Future<void> updateStatuCarteGrise(String id, bool statu) async {
-    print('object');
     await users
         .doc(FirebaseAuth.instance.currentUser!.email!)
         .collection('auto_assurances')
