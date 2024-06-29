@@ -35,10 +35,18 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
           PuissanceFiscalTextAndField(
             controller: controller,
             validator: (value) {
-              if (value!.isEmpty) {
-                return 'entrer la puissance fiscale';
+              if (value == null || value.isEmpty) {
+                return 'Rntrer la puissance fiscale';
               }
-              return null;
+              final intValue = int.tryParse(value);
+              if (intValue != null) {
+                return null;
+              }
+              final doubleValue = double.tryParse(value);
+              if (doubleValue != null) {
+                return 'Entrer une puissance fiscale valide';
+              }
+              return 'Entrer une puissance fiscale valide';
             },
           ),
           const SizedBox(
@@ -146,8 +154,9 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
                 } else if (essenceValue) {
                   sexe = 'Femme';
                 }
+                final puissanceFiscale = int.tryParse(controller.text);
                 DevisInfo devisInfo = DevisInfo(
-                  puissanceFiscale: controller.text,
+                  puissanceFiscale: puissanceFiscale!,
                   carburantType: carburantType!,
                   categorie: categorie!,
                   sexe: sexe!,

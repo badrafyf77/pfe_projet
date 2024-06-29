@@ -24,7 +24,7 @@ class _GarantiesListAndButtonState extends State<GarantiesListAndButton> {
     description:
         'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',
     prix: 3011,
-    checked: false,
+    checked: true,
   );
   Garantie g2 = Garantie(
     title: 'Défense et recours',
@@ -84,11 +84,18 @@ class _GarantiesListAndButtonState extends State<GarantiesListAndButton> {
   );
   List<Garantie> garantiesList = [];
   List<Garantie> selectedGaranties = [];
-  double total = 0;
+  late double total;
+
+  @override
+  void initState() {
+    super.initState();
+    total = g1.prix;
+    selectedGaranties.add(g1);
+  }
 
   @override
   Widget build(BuildContext context) {
-    garantiesList = [g1, g2, g3, g4, g5, g6, g7, g8, g9];
+    garantiesList = [g2, g3, g4, g5, g6, g7, g8, g9];
     return Column(
       children: [
         Expanded(
@@ -101,22 +108,27 @@ class _GarantiesListAndButtonState extends State<GarantiesListAndButton> {
               return Column(
                 children: [
                   if (index == 0) const SizedBox(height: 10),
-                  GarantieItem(
-                    garantie: garantiesList[index],
-                    onChanged: (p) {
-                      setState(() {
-                        garantiesList[index].checked =
-                            !garantiesList[index].checked;
-                        if (garantiesList[index].checked) {
-                          selectedGaranties.add(garantiesList[index]);
-                          total += garantiesList[index].prix;
-                        } else {
-                          selectedGaranties.remove(garantiesList[index]);
-                          total -= garantiesList[index].prix;
-                        }
-                      });
-                    },
-                  ),
+                  (index == 0)
+                      ? GarantieItem(
+                          garantie: g1,
+                          onChanged: (p) {},
+                        )
+                      : GarantieItem(
+                          garantie: garantiesList[index],
+                          onChanged: (p) {
+                            setState(() {
+                              garantiesList[index].checked =
+                                  !garantiesList[index].checked;
+                              if (garantiesList[index].checked) {
+                                selectedGaranties.add(garantiesList[index]);
+                                total += garantiesList[index].prix;
+                              } else {
+                                selectedGaranties.remove(garantiesList[index]);
+                                total -= garantiesList[index].prix;
+                              }
+                            });
+                          },
+                        ),
                   if (index == (garantiesList.length - 1))
                     const SizedBox(height: 10),
                 ],
@@ -137,7 +149,8 @@ class _GarantiesListAndButtonState extends State<GarantiesListAndButton> {
                   widget.devisInfo.garantiesList = selectedGaranties;
                   AppRouter.navigateToWithExtra(
                     context,
-                    AppRouter.insurancesFeature.devisDurationView, widget.devisInfo,
+                    AppRouter.insurancesFeature.devisDurationView,
+                    widget.devisInfo,
                   );
                 },
                 textButton: 'Continue',

@@ -2,7 +2,7 @@
 import 'package:pfe_projet/features/insurances/data/model/garantie_model.dart';
 
 class DevisInfo {
-  final String puissanceFiscale;
+  final int puissanceFiscale;
   final String carburantType;
   final String categorie;
   final String sexe;

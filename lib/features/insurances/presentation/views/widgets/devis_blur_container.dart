@@ -16,10 +16,10 @@ class DevisBlurContainer extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(
-            height: 100,
+            height: 70,
           ),
           BlurContainer(
-            height: size.height * .5,
+            height: size.height * .58,
             width: size.width * .75,
             opacity: 0.6,
             blurContainerBody: child,

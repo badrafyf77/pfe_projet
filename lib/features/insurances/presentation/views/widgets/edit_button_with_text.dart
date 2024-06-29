@@ -1,28 +1,34 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:pfe_projet/core/configures/app_colors.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
+import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 
 class EditButtonWithText extends StatelessWidget {
-  const EditButtonWithText({super.key});
+  const EditButtonWithText({
+    Key? key,
+    required this.devisInfo,
+  }) : super(key: key);
+
+  final DevisInfo devisInfo;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Column(
       children: [
         Column(
           children: [
             Text(
               'Votre Devis Itus oTo :',
-              style: Styles.normal12.copyWith(
+              style: Styles.normal14.copyWith(
                 color: Theme.of(context).colorScheme.primary,
-                fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              '6 CV - Diesel',
-              style: Styles.normal20.copyWith(
+              '${devisInfo.puissanceFiscale} CV - ${devisInfo.carburantType}',
+              style: Styles.normal18.copyWith(
                 color: Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.bold,
               ),
@@ -30,7 +36,7 @@ class EditButtonWithText extends StatelessWidget {
           ],
         ),
         const SizedBox(
-          width: 20,
+          height: 20,
         ),
         CustomNormalButton(
           onPressed: () {},

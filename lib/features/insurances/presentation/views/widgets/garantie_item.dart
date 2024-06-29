@@ -4,10 +4,10 @@ import 'package:pfe_projet/features/insurances/data/model/garantie_model.dart';
 
 class GarantieItem extends StatefulWidget {
   const GarantieItem({
-    Key? key,
+    super.key,
     required this.garantie,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   final Garantie garantie;
   final void Function(bool?) onChanged;

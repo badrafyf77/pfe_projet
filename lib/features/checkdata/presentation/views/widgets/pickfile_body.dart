@@ -43,7 +43,8 @@ class _PickFileBodyState extends State<PickFileBody> {
           setState(() {
             isLoding = false;
           });
-          myShowToastSuccess(context, 'CIN est compatible avec l\'image');
+          myShowToastSuccess(
+              context, '${widget.cin} est compatible avec l\'image');
           AppRouter.pop(context);
         }
       },
@@ -100,7 +101,7 @@ class _PickFileBodyState extends State<PickFileBody> {
                     height: 25,
                   ),
                   IconButtonWithText(
-                    text: 'Prendre une photo la CIN :',
+                    text: 'Prendre une photo la ${widget.cin} :',
                     icon: Icons.camera_alt,
                     onPressed: () {
                       BlocProvider.of<GetImageBloc>(context).add(
@@ -112,7 +113,7 @@ class _PickFileBodyState extends State<PickFileBody> {
                     height: 15,
                   ),
                   IconButtonWithText(
-                    text: 'Choisir une photo  de la CIN :',
+                    text: 'Choisir une photo  de la ${widget.cin} :',
                     icon: Icons.insert_photo,
                     onPressed: () {
                       BlocProvider.of<GetImageBloc>(context).add(

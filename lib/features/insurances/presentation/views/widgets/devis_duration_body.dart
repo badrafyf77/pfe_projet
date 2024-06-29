@@ -18,7 +18,9 @@ class DevisDurationBody extends StatelessWidget {
     return Column(
       children: [
         const Spacer(),
-        const EditButtonWithDescription(),
+        EditButtonWithGaranties(
+          devisInfo: devisInfo,
+        ),
         SelectOffersWithButton(
           devisInfo: devisInfo,
         ),

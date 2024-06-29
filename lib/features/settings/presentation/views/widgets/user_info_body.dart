@@ -66,7 +66,7 @@ class _UserInfoBodyState extends State<UserInfoBody> {
                       await AppRouter.navigateToAndDoSomethingWithExtra(
                         context,
                         AppRouter.pickfileView,
-                        state.userInformation.cin,
+                        'CIN',
                         (_) {
                           BlocProvider.of<GetUserCubit>(context).getUserCubit();
                         },
