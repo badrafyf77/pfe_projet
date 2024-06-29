@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/list_item.dart';
+import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 
 class UserInsuranceItem extends StatelessWidget {
-  const UserInsuranceItem({super.key});
+  const UserInsuranceItem({super.key, required this.devisInfo});
+
+  final DevisInfo devisInfo;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        AppRouter.navigateTo(
-            context, AppRouter.insurancesFeature.userInsuranceInfoView);
+        AppRouter.navigateToWithExtra(
+            context, AppRouter.insurancesFeature.userInsuranceInfoView,devisInfo);
       },
       child: CustomListItem(
         child: Padding(
@@ -30,7 +33,7 @@ class UserInsuranceItem extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      'CIN+DC+ID',
+                      devisInfo.id!,
                       style: Styles.normal16.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                         fontWeight: FontWeight.bold,
@@ -40,7 +43,7 @@ class UserInsuranceItem extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'en cours de traitement',
+                    devisInfo.statu,
                     style: Styles.normal16.copyWith(color: Colors.green),
                     maxLines: 1,
                   ),

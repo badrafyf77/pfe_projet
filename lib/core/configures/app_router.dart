@@ -232,15 +232,19 @@ class AppRouter {
         path: insurancesFeature.userInsurancesView,
         builder: (context, state) => BlocProvider(
           create: (BuildContext context) => GetUserInsurancesCubit(
-              getIt.get<InsurancesRepoImplementation>(),
-            ),
+            getIt.get<InsurancesRepoImplementation>(),
+          ),
           child: const UserInsurancesView(),
         ),
       ),
       GoRoute(
-        path: insurancesFeature.userInsuranceInfoView,
-        builder: (context, state) => const UserInsuranceInfoView(),
-      ),
+          path: insurancesFeature.userInsuranceInfoView,
+          builder: (context, state) {
+            DevisInfo devisInfo = state.extra as DevisInfo;
+            return UserInsuranceInfoView(
+              devisInfo: devisInfo,
+            );
+          }),
       GoRoute(
         path: pickfileView,
         builder: (context, state) {

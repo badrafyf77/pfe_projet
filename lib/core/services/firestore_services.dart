@@ -45,14 +45,14 @@ class FirestoreService {
         .set(devisInfo.toJson());
   }
 
-  List<DevisInfo> getUserInsurances() {
+  Future<List<DevisInfo>> getUserInsurances() async {
     List<DevisInfo> devisList = [];
-    users
+    await users
         .doc(FirebaseAuth.instance.currentUser!.email!)
         .collection('auto_assurances')
-        .orderBy('createdAt', descending: true)
-        .snapshots()
-        .listen((event) {
+        .orderBy('dateDebut', descending: true)
+        .get()
+        .then((event) {
       for (var doc in event.docs) {
         devisList.add(DevisInfo.fromJson(doc));
       }

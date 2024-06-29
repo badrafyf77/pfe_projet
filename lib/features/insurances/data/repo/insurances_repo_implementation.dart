@@ -42,7 +42,7 @@ class InsurancesRepoImplementation implements InsurancesRepo {
   @override
   Future<Either<Failure, List<DevisInfo>>> getUserInsurances() async {
     try {
-      List<DevisInfo> devisList = _firestoreService.getUserInsurances();
+      List<DevisInfo> devisList = await _firestoreService.getUserInsurances();
       return right(devisList);
     } catch (e) {
       if (e is FirebaseException) {
