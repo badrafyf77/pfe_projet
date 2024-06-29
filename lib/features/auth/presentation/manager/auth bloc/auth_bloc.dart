@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pfe_projet/core/model/advisor_model.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo.dart';
 
@@ -22,11 +23,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         phone: event.phone,
         email: event.email,
         password: event.password,
+        advisorId: event.advisor.id,
+        agence: event.advisor.agence,
+        ville: event.advisor.ville,
         isCinVerified: false,
         isEmailVerified: false,
         isMessagesReaded: false,
         );
-        var user = await _authRepo.signUp(userInfo);
+        var user = await _authRepo.signUp(userInfo, event.advisor);
         user.fold((failure) {
           emit(SignUpFailure(errorMessage: failure.errMessage));
         }, (userCredential) {

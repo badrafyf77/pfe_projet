@@ -3,6 +3,9 @@ class UserInformation {
   final String nom;
   final String prenom;
   final String cin;
+  final String advisorId;
+  final String agence;
+  final String ville;
   String phone;
   String email;
   String password;
@@ -14,6 +17,9 @@ class UserInformation {
     required this.nom,
     required this.prenom,
     required this.cin,
+    required this.advisorId,
+    required this.agence,
+    required this.ville,
     required this.phone,
     required this.email,
     required this.password,
@@ -27,6 +33,9 @@ class UserInformation {
           nom: json['nom']! as String,
           prenom: json['prenom']! as String,
           cin: json['cin']! as String,
+          advisorId: json['advisorId'] as String,
+          agence: json['agence'] as String,
+          ville: json['ville'] as String,
           phone: json['phone']! as String,
           email: json['email']! as String,
           password: json['password']! as String,
@@ -40,6 +49,9 @@ class UserInformation {
       'nom': nom,
       'prenom': prenom,
       'cin': cin,
+      'advisorId': advisorId,
+      'agence': agence,
+      'ville': ville,
       'phone': phone,
       'email': email,
       'password': password,

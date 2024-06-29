@@ -135,7 +135,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
                 onpressed: () {
                   AppRouter.navigateTo(
                     context,
-                    AppRouter.authFeature.signUpView,
+                    AppRouter.authFeature.selectAgenceView,
                   );
                 },
                 text: 'S\'inscrire?',

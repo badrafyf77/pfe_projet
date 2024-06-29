@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_gradient_button.dart';
 import 'package:pfe_projet/core/utils/customs/drop_down_field.dart';
+import 'package:pfe_projet/features/auth/data/helpers/fetch_advisor.dart';
 
 class SelectAgenceBlurContainerBody extends StatelessWidget {
   const SelectAgenceBlurContainerBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<String> citiesList = ['Casablanca', 'Berrechid', 'Rabat'];
+    List<String> villesList = ['Casablanca', 'Berrechid', 'Rabat'];
     List<List<String>> allAgencesList = [
       ['Barnossi', 'Anwal', 'Ain diab'],
       ['Bloc', 'Yasmina', 'Castoss'],
@@ -16,11 +18,13 @@ class SelectAgenceBlurContainerBody extends StatelessWidget {
     ];
     final ValueNotifier<List<String>> agencesList =
         ValueNotifier<List<String>>(allAgencesList[0]);
+    String villeSelected = villesList[0];
+    String agenceSelected = agencesList.value[0];
     return Column(
       children: [
         const SizedBox(height: 40),
         Text(
-          'Choisissez votre Agencse',
+          'Choisissez votre Agence',
           style: Styles.normal24.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -40,10 +44,11 @@ class SelectAgenceBlurContainerBody extends StatelessWidget {
               MyDropDownField(
                 onChanged: (value) {
                   agencesList.value =
-                      allAgencesList[citiesList.indexOf(value!)];
+                      allAgencesList[villesList.indexOf(value!)];
+                  villeSelected = value;
                 },
-                items: citiesList,
-                initialValue: citiesList[0],
+                items: villesList,
+                initialValue: villesList[0],
               ),
               const SizedBox(height: 40),
               Text(
@@ -56,7 +61,9 @@ class SelectAgenceBlurContainerBody extends StatelessWidget {
                 valueListenable: agencesList,
                 builder: (context, value, child) {
                   return MyDropDownField(
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      agenceSelected = value!;
+                    },
                     items: value,
                     initialValue: value[0],
                   );
@@ -69,7 +76,12 @@ class SelectAgenceBlurContainerBody extends StatelessWidget {
         CustomGradientButton(
           text: 'Terminer',
           width: 134,
-          onPressed: () {},
+          onPressed: () {
+            AppRouter.navigateToWithExtra(
+                context,
+                AppRouter.authFeature.signUpView,
+                fetchAdvisor(villeSelected, agenceSelected));
+          },
         ),
       ],
     );

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pfe_projet/core/model/advisor_model.dart';
 import 'package:pfe_projet/core/utils/service_locator.dart';
 import 'package:pfe_projet/features/auth/data/repo/auth_repo_implementation.dart';
 import 'package:pfe_projet/features/auth/presentation/views/auth_gate.dart';
@@ -94,7 +95,10 @@ class AppRouter {
       ),
       GoRoute(
         path: authFeature.signUpView,
-        builder: (context, state) => const SignUpView(),
+        builder: (context, state) {
+          Advisor advisor = state.extra as Advisor;
+          return SignUpView(advisor: advisor);
+        },
       ),
       GoRoute(
         path: authFeature.forgotPassView,

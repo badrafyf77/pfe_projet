@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'auth_bloc.dart';
 
 @immutable
@@ -10,6 +11,7 @@ class SignUpEvent extends AuthEvent {
   final String prenom;
   final String cin;
   final String phone;
+  final Advisor advisor;
 
   SignUpEvent({
     required this.email,
@@ -18,23 +20,23 @@ class SignUpEvent extends AuthEvent {
     required this.prenom,
     required this.cin,
     required this.phone,
+    required this.advisor,
   });
 }
 
 class SignInEvent extends AuthEvent {
   final String email;
   final String password;
-  
+
   SignInEvent({
     required this.email,
     required this.password,
   });
 }
 
-
 class ForgotPassEvent extends AuthEvent {
   final String email;
-  
+
   ForgotPassEvent({
     required this.email,
   });

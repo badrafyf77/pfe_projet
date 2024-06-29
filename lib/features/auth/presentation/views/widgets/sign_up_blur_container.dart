@@ -1,7 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/constants.dart';
+import 'package:pfe_projet/core/model/advisor_model.dart';
 import 'package:pfe_projet/core/utils/customs/blur_container.dart';
 import 'package:pfe_projet/core/utils/customs/custom_gradient_button.dart';
 import 'package:pfe_projet/core/utils/customs/custom_loading_circle.dart';
@@ -13,7 +16,12 @@ import 'package:pfe_projet/features/auth/presentation/views/widgets/blur_contain
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
 
 class SignUpBlurContainer extends StatefulWidget {
-  const SignUpBlurContainer({super.key});
+  const SignUpBlurContainer({
+    Key? key,
+    required this.advisor,
+  }) : super(key: key);
+
+  final Advisor advisor;
 
   @override
   State<SignUpBlurContainer> createState() => _SignUpBlurContainerState();
@@ -46,7 +54,10 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
           setState(() {
             isLoading = false;
           });
-          myShowToastError(context, state.errorMessage,);
+          myShowToastError(
+            context,
+            state.errorMessage,
+          );
         } else {
           setState(() {
             isLoading = false;
@@ -232,6 +243,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
                             prenom: prenomController.text,
                             cin: cinController.text,
                             phone: phoneController.text,
+                            advisor: widget.advisor,
                           ),
                         );
                       }
