@@ -145,13 +145,13 @@ class _DevisInfoBodyState extends State<DevisInfoBody> {
                 String? categorie;
                 if (particuliersValue) {
                   categorie = 'Particuliers';
-                } else if (essenceValue) {
+                } else if (proValue) {
                   categorie = 'Professionnel';
                 }
                 String? sexe;
-                if (dieselValue) {
+                if (maleValue) {
                   sexe = 'Homme';
-                } else if (essenceValue) {
+                } else if (femaleValue) {
                   sexe = 'Femme';
                 }
                 final puissanceFiscale = int.tryParse(controller.text);

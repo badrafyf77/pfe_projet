@@ -23,6 +23,8 @@ import 'package:pfe_projet/features/home/presentation/manager/get%20messages/get
 import 'package:pfe_projet/features/home/presentation/views/home_view.dart';
 import 'package:pfe_projet/features/home/presentation/views/notification_view.dart';
 import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
+import 'package:pfe_projet/features/insurances/data/repo/insurances_repo_implementation.dart';
+import 'package:pfe_projet/features/insurances/presentation/manager/stock%20insurance%20bloc/stock_insurance_bloc.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/auto_documents_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_duration_view.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/devis_info_view.dart';
@@ -199,17 +201,20 @@ class AppRouter {
         path: insurancesFeature.devisDurationView,
         builder: (context, state) {
           DevisInfo devisInfo = state.extra as DevisInfo;
-          return DevisDurationView(
-            devisInfo: devisInfo,
+          return BlocProvider(
+            create: (BuildContext context) => StockInsuranceBloc(
+              getIt.get<InsurancesRepoImplementation>(),
+            ),
+            child: DevisDurationView(
+              devisInfo: devisInfo,
+            ),
           );
         },
       ),
       GoRoute(
         path: insurancesFeature.autoDocumentsView,
         builder: (context, state) {
-          DevisInfo devisInfo = state.extra as DevisInfo;
           return AutoDocumentsView(
-            devisInfo: devisInfo,
           );
         },
       ),

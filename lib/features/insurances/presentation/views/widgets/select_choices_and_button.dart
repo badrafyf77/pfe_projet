@@ -1,10 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pfe_projet/core/configures/app_colors.dart';
-import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
 import 'package:pfe_projet/features/insurances/data/helpers/calcul_tarifs.dart';
 import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
+import 'package:pfe_projet/features/insurances/presentation/manager/stock%20insurance%20bloc/stock_insurance_bloc.dart';
 import 'package:pfe_projet/features/insurances/presentation/views/widgets/devis_duration_choices.dart';
 
 class SelectOffersWithButton extends StatefulWidget {
@@ -81,12 +83,11 @@ class _SelectOffersWithButtonState extends State<SelectOffersWithButton> {
               montant = calcul3MonthTarif(widget.devisInfo.garantiesList!);
             }
             widget.devisInfo.montant = montant;
-            widget.devisInfo.dateDebut = dateDebut;
-            widget.devisInfo.dateAnnulation = dateAnnulation!;
-            AppRouter.navigateToWithExtra(
-                context,
-                AppRouter.insurancesFeature.autoDocumentsView,
-                widget.devisInfo);
+            widget.devisInfo.dateDebut = Timestamp.fromDate(dateDebut);
+            widget.devisInfo.dateAnnulation =
+                Timestamp.fromDate(dateAnnulation!);
+            BlocProvider.of<StockInsuranceBloc>(context)
+                .add(StockInsurance(devisInfo: widget.devisInfo));
           },
           textButton: "SUIVANT",
           backgroundColor: Theme.of(context).colorScheme.primary,

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pfe_projet/core/model/advisor_model.dart';
 import 'package:pfe_projet/core/model/message_model.dart';
 import 'package:pfe_projet/core/model/user_info_model.dart';
+import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 
 class FirestoreService {
   CollectionReference users = FirebaseFirestore.instance.collection('users');
@@ -15,6 +16,18 @@ class FirestoreService {
 
   Future<void> addAdvisor(Advisor advisor) async {
     await advisors.doc(advisor.id).set(advisor.toJson());
+  }
+
+  Future<void> addAssurance(DevisInfo devisInfo) async {
+    List<String> garanties = [];
+    for (var garantie in devisInfo.garantiesList!) {
+      garanties.add(garantie.title);
+    }
+    devisInfo.garanties = garanties;
+    await users
+        .doc(FirebaseAuth.instance.currentUser!.email!)
+        .collection('assurances')
+        .add(devisInfo.toJson());
   }
 
   Future<UserInformation> getUser(String email) async {

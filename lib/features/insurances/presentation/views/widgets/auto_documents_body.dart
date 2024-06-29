@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pfe_projet/core/configures/app_router.dart';
 import 'package:pfe_projet/core/configures/styles.dart';
 import 'package:pfe_projet/core/utils/customs/custom_normal_button.dart';
-import 'package:pfe_projet/features/insurances/data/model/devis_info.dart';
 import 'package:pfe_projet/features/settings/presentation/views/widgets/user_info_item_verified.dart';
 
 class AutoDocumentsBody extends StatelessWidget {
-  const AutoDocumentsBody({super.key, required this.devisInfo});
-
-  final DevisInfo devisInfo;
+  const AutoDocumentsBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +54,8 @@ class AutoDocumentsBody extends StatelessWidget {
             const SizedBox(height: 50),
             CustomNormalButton(
               onPressed: () {
-                AppRouter.navigateTo(
-                    context, AppRouter.insurancesFeature.userInsurancesView);
+                // AppRouter.navigateTo(
+                //     context, AppRouter.insurancesFeature.userInsurancesView);
               },
               textButton: 'Terminer',
               backgroundColor: Theme.of(context).colorScheme.primary,
