@@ -29,7 +29,7 @@ class SecuriteBloc extends Bloc<SecuriteEvent, SecuriteState> {
       if (event is ChangePasswordEvent) {
         emit(ChangePasswordLoading());
         if (await AuthService().checkPassword(event.oldPassword) == false) {
-          emit(ChangePasswordFailure(errorMessage: "Anncien mot de passe est incorrect."));
+          emit(ChangePasswordFailure(errorMessage: "Ancien mot de passe est incorrect."));
         } else {
           var data = await _settingsRepo.changePassword(event.oldPassword, event.newPassword);
           data.fold((failure) {

@@ -24,11 +24,11 @@ class FirebaseAuthFailure extends Failure {
         }
       case 'user-not-found':
         {
-          return FirebaseAuthFailure(errMessage: 'Utilisateur non trouvé');
+          return FirebaseAuthFailure(errMessage: 'Utilisateur introuvable');
         }
       case 'wrong-password':
         {
-          return FirebaseAuthFailure(errMessage: 'Mauvais mot de passe');
+          return FirebaseAuthFailure(errMessage: 'Mot de passe incorrecte');
         }
       default:
         return FirebaseAuthFailure(errMessage: e.code);

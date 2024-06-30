@@ -46,8 +46,8 @@ class _PickFileBodyState extends State<PickFileBody> {
           setState(() {
             isLoding = false;
           });
-          myShowToastSuccess(
-              context, '${widget.document.documentName} est compatible avec l\'image');
+          myShowToastError(context,
+              '${widget.document.documentName} n\'est pas compatible avec l\'image.');
           AppRouter.pop(context);
         }
       },
@@ -82,10 +82,10 @@ class _PickFileBodyState extends State<PickFileBody> {
                               } else {
                                 BlocProvider.of<CheckDocumentBloc>(context).add(
                                   CheckDocument(
-                                    documentName: widget.document.documentName,
-                                    base64: base64!,
-                                    id: widget.document.id
-                                  ),
+                                      documentName:
+                                          widget.document.documentName,
+                                      base64: base64!,
+                                      id: widget.document.id),
                                 );
                               }
                             },
@@ -105,7 +105,8 @@ class _PickFileBodyState extends State<PickFileBody> {
                     height: 25,
                   ),
                   IconButtonWithText(
-                    text: 'Prendre une photo de votre ${widget.document.documentName} :',
+                    text:
+                        'Prendre une photo de votre ${widget.document.documentName} :',
                     icon: Icons.camera_alt,
                     onPressed: () {
                       BlocProvider.of<GetImageBloc>(context).add(
@@ -117,7 +118,8 @@ class _PickFileBodyState extends State<PickFileBody> {
                     height: 15,
                   ),
                   IconButtonWithText(
-                    text: 'Choisir une photo de votre ${widget.document.documentName} :',
+                    text:
+                        'Choisir une photo de votre ${widget.document.documentName} :',
                     icon: Icons.insert_photo,
                     onPressed: () {
                       BlocProvider.of<GetImageBloc>(context).add(
