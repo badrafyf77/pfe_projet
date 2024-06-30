@@ -13,8 +13,8 @@ class UserInsuranceItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        AppRouter.navigateToWithExtra(
-            context, AppRouter.insurancesFeature.userInsuranceInfoView,devisInfo);
+        AppRouter.navigateToWithExtra(context,
+            AppRouter.insurancesFeature.userInsuranceInfoView, devisInfo);
       },
       child: CustomListItem(
         child: Padding(
@@ -44,7 +44,12 @@ class UserInsuranceItem extends StatelessWidget {
                   ),
                   Text(
                     devisInfo.statu,
-                    style: Styles.normal16.copyWith(color: Colors.green),
+                    style: Styles.normal16.copyWith(
+                        color: (devisInfo.statu == 'accordé')
+                            ? Colors.green
+                            : (devisInfo.statu == 'annulée')
+                                ? Colors.red
+                                : Colors.amber),
                     maxLines: 1,
                   ),
                 ],

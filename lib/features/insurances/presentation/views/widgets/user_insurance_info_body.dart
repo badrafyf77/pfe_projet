@@ -76,16 +76,6 @@ class UserInsuranceInfoBody extends StatelessWidget {
                   ),
                   UserInsuranceItemTitleAndValue(
                     maxWidth: maxWidth,
-                    title: 'Conseiller',
-                    value: 'Ahmed Abdu',
-                  ),
-                  UserInsuranceItemTitleAndValue(
-                    maxWidth: maxWidth,
-                    title: 'Agence',
-                    value: 'Berrechid',
-                  ),
-                  UserInsuranceItemTitleAndValue(
-                    maxWidth: maxWidth,
                     title: 'Date d’accordation',
                     value: dateFormat.format(devisInfo.dateDebut!.toDate()),
                   ),

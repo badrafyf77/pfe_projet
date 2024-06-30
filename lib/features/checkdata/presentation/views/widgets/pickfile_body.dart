@@ -105,7 +105,7 @@ class _PickFileBodyState extends State<PickFileBody> {
                     height: 25,
                   ),
                   IconButtonWithText(
-                    text: 'Prendre une photo la ${widget.document.documentName} :',
+                    text: 'Prendre une photo de votre ${widget.document.documentName} :',
                     icon: Icons.camera_alt,
                     onPressed: () {
                       BlocProvider.of<GetImageBloc>(context).add(
@@ -117,7 +117,7 @@ class _PickFileBodyState extends State<PickFileBody> {
                     height: 15,
                   ),
                   IconButtonWithText(
-                    text: 'Choisir une photo  de la ${widget.document.documentName} :',
+                    text: 'Choisir une photo de votre ${widget.document.documentName} :',
                     icon: Icons.insert_photo,
                     onPressed: () {
                       BlocProvider.of<GetImageBloc>(context).add(

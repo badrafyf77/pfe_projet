@@ -21,8 +21,8 @@ class HomeBodyItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
     return Container(
-      height: 100,
-      width: 100,
+      height: 130,
+      width: 130,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: GradientBoxBorder(

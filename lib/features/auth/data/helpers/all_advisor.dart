@@ -24,5 +24,5 @@ Advisor casa3 = Advisor(
     nomComplet: 'smail omar',
     email: 'email@khalid.com',
     phone: '0827961133',
-    agence: 'Ain Diab',
+    agence: 'Ain diab',
     ville: 'Casablanca');

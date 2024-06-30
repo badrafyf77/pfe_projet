@@ -30,19 +30,7 @@ class _SliderBodyState extends State<SliderBody> {
       children: [
         const HorizontalLine(),
         SliderItem(
-          onPressed: () {},
-          icon: Icons.home,
-          text: 'Acceuil',
-        ),
-        const HorizontalLine(),
-        SliderItem(
             onPressed: () {}, icon: Icons.person, text: 'Mon Conseiller'),
-        const HorizontalLine(),
-        SliderItem(
-          onPressed: () {},
-          icon: Icons.mail,
-          text: 'Email',
-        ),
         const HorizontalLine(),
         BlocBuilder<MessagesCheckerCubit, MessagesCheckerState>(
           builder: (context, state) {

@@ -59,22 +59,6 @@ class HomeBody extends StatelessWidget {
               Row(
                 children: [
                   HomeBodyItemCard(
-                    icon: Icons.diamond,
-                    text: "Ch7al d jehd",
-                    onTap: () {},
-                  ),
-                  const SizedBox(width: 30),
-                  HomeBodyItemCard(
-                    icon: Icons.pinch,
-                    text: "Ch7al d jehd",
-                    onTap: () {},
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  HomeBodyItemCard(
                     icon: Icons.assignment_turned_in,
                     text: "Ch7al d jehd",
                     onTap: () {},

@@ -8,7 +8,6 @@ import 'package:pfe_projet/core/utils/helpers/custom_show_toast.dart';
 import 'package:pfe_projet/core/utils/helpers/validators.dart';
 import 'package:pfe_projet/features/auth/presentation/manager/auth%20bloc/auth_bloc.dart';
 import 'package:pfe_projet/features/auth/presentation/views/widgets/custom_text_and_textfield.dart';
-import 'package:pfe_projet/features/auth/presentation/views/widgets/google_button.dart';
 
 class SignInBlurContainerBody extends StatefulWidget {
   const SignInBlurContainerBody({
@@ -39,12 +38,18 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
           setState(() {
             isLoading = false;
           });
-          myShowToastError(context, state.errorMessage,);
+          myShowToastError(
+            context,
+            state.errorMessage,
+          );
         } else if (state is SignInSuccess) {
           setState(() {
             isLoading = false;
           });
-          myShowToastSuccess(context, 'succes',);
+          myShowToastSuccess(
+            context,
+            'succes',
+          );
           AppRouter.navigateOff(context, AppRouter.homeFeature.homeView);
         }
       },
@@ -106,11 +111,7 @@ class _SignInBlurContainerBodyState extends State<SignInBlurContainerBody> {
                 ),
               ),
               const SizedBox(
-                height: 24,
-              ),
-              const GoogleButton(),
-              const SizedBox(
-                height: 40,
+                height: 30,
               ),
               isLoading
                   ? const LoadingCircle()
