@@ -46,7 +46,7 @@ class HomeBody extends StatelessWidget {
                   ),
                   const SizedBox(width: 30),
                   HomeBodyItemCard(
-                    icon: Icons.preview,
+                    icon: Icons.verified_user,
                     text: "Mes Assurances",
                     onTap: () {
                       AppRouter.navigateTo(context,
@@ -59,8 +59,8 @@ class HomeBody extends StatelessWidget {
               Row(
                 children: [
                   HomeBodyItemCard(
-                    icon: Icons.assignment_turned_in,
-                    text: "Ch7al d jehd",
+                    icon: Icons.monetization_on,
+                    text: "Simulation",
                     onTap: () {},
                   ),
                   const SizedBox(width: 30),

@@ -10,8 +10,8 @@ class LogoAndText extends StatelessWidget {
   const LogoAndText({
     Key? key,
     this.alignment = MainAxisAlignment.spaceBetween,
-    this.height = 99,
-    this.width = 80,
+    this.height = 85,
+    this.width = 60,
   }) : super(key: key);
   final MainAxisAlignment alignment;
   final double height;
@@ -32,9 +32,17 @@ class LogoAndText extends StatelessWidget {
           const SizedBox(
             width: 18,
           ),
-        Text(
-          Constants.appTitle,
-          style: Styles.titleStyle24,
+        SizedBox(
+          width: 200,
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              Constants.appTitle,
+              style: Styles.titleStyle22,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ),
       ],
     );

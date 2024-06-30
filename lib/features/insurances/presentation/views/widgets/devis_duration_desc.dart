@@ -37,34 +37,32 @@ class DurationViewGarantiesList extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: Center(
-                            child: Expanded(
-                          child: ListView.builder(
-                            itemCount: devisInfo.garantiesList!.length,
-                            itemBuilder: (context, index) {
-                              return Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    devisInfo.garantiesList![index].title,
-                                    style: Styles.normal14.copyWith(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            child: ListView.builder(
+                          itemCount: devisInfo.garantiesList!.length,
+                          itemBuilder: (context, index) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  devisInfo.garantiesList![index].title,
+                                  style: Styles.normal14.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    devisInfo.garantiesList![index].description,
-                                    style: Styles.normal12.copyWith(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  devisInfo.garantiesList![index].description,
+                                  style: Styles.normal12.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                   ),
-                                  const SizedBox(height: 8),
-                                ],
-                              );
-                            },
-                          ),
+                                ),
+                                const SizedBox(height: 8),
+                              ],
+                            );
+                          },
                         )),
                       ),
                     );

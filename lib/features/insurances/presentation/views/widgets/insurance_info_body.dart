@@ -53,7 +53,8 @@ class InsuranceInfoBody extends StatelessWidget {
               : AppColors.kThirdColor,
           height: 50,
           width: 185,
-        )
+        ),
+        const SizedBox(height: 30),
       ],
     );
   }

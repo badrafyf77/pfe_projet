@@ -11,36 +11,38 @@ class Itus90to extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            Column(
-              children: [
-                SizedBox(
-                  height: 25,
-                ),
-                SvgReader(assetImage: AppImages.itus90to, defaultSize: true),
-              ],
-            ),
-            InsuranceInfoTextHeader(
-              text: 'Itus Auto, c’est Quoi ?',
-            )
-          ],
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 42, right: 42, top: 30, bottom: 15),
-          child: Column(
+    return Expanded(
+      child: ListView(
+        children: const [
+          Stack(
+            alignment: Alignment.topCenter,
             children: [
-              JustifyText(
-                text:
-                    "Soucieux(se) de votre confort, Mesdames, Itus Assurance a mis en place la première assurance auto dédiée aux jeunes au Maroc. Cette solution d'assurance et d'assistance vous propose des garanties spécifiques et des services premium en cas de sinistre.",
+              Column(
+                children: [
+                  SizedBox(
+                    height: 25,
+                  ),
+                  SvgReader(assetImage: AppImages.itus90to, defaultSize: true),
+                ],
               ),
+              InsuranceInfoTextHeader(
+                text: 'Itus Auto, c’est Quoi ?',
+              )
             ],
           ),
-        ),
-      ],
+          Padding(
+            padding: EdgeInsets.only(left: 42, right: 42, top: 30, bottom: 15),
+            child: Column(
+              children: [
+                JustifyText(
+                  text:
+                      "Soucieux(se) de votre confort, Mesdames, Itus Assurance a mis en place la première assurance auto dédiée aux jeunes au Maroc. Cette solution d'assurance et d'assistance vous propose des garanties spécifiques et des services premium en cas de sinistre.",
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

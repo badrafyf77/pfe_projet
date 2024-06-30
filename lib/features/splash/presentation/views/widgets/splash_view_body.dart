@@ -61,7 +61,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
             opacity: opacity,
             child: Text(
               Constants.appTitle,
-              style: Styles.titleStyle24,
+              style: Styles.titleStyle22,
             ),
           ),
         ),
@@ -92,8 +92,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
       Future.delayed(const Duration(seconds: 1), () {
         if (mounted) {
-          AppRouter.navigateOff(
-              context, AppRouter.authFeature.signInView);
+          AppRouter.navigateOff(context, AppRouter.authFeature.signInView);
         }
       });
     });

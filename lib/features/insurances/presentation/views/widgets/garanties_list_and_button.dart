@@ -29,57 +29,57 @@ class _GarantiesListAndButtonState extends State<GarantiesListAndButton> {
   Garantie g2 = Garantie(
     title: 'Défense et recours',
     description:
-        'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',
-    prix: 3011,
+        "Garantie d'assistance juridique, elle permet d'aider et accompagner l'automobiliste lorsqu'il a subi ou causé un accident de la circulation au sujet duquel son niveau de responsabilité est contesté.",
+    prix: 1008,
     checked: false,
   );
   Garantie g3 = Garantie(
     title: 'Dommages tous accidents',
     description:
-        'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',
-    prix: 3011,
+        "Cette garantie assure tous les dommages subis par votre véhicule assuré suite à une collision avec un autre véhicule, un choc avec un corps fixe ou mobile ou un renversement sans collision préalable.",
+    prix: 505,
     checked: false,
   );
   Garantie g4 = Garantie(
     title: 'Incendie',
     description:
-        'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',
-    prix: 3011,
+        "Garantie qui couvre les dommages causés au véhicule assuré en cas d’incendie, d’explosion, d’embrasement, de simple combustion ou de chute de la foudre.",
+    prix: 700,
     checked: false,
   );
   Garantie g5 = Garantie(
     title: 'Vol',
     description:
-        'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',
-    prix: 3011,
+        "Garantie qui couvre les dommages subis par le véhicule assuré en cas de disparition ou de détérioration de celui-ci suite à un vol ou tentative de vol.",
+    prix: 1100,
     checked: false,
   );
   Garantie g6 = Garantie(
     title: 'Bris de glaces',
     description:
-        'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',
-    prix: 3011,
+        "Cette garantie vous couvre contre les dommages subis par les parties vitrées de votre véhicule assuré à savoir les vitres latérales, pare-brise, lunette arrière et toit ouvrant.",
+    prix: 200,
     checked: false,
   );
   Garantie g7 = Garantie(
     title: 'Protection des passagers',
     description:
-        'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',
-    prix: 3011,
+        "Garantie qui couvre les dommages corporels causés au conducteur et aux personnes transportées à l’intérieur du véhicule assuré à la suite d’un accident automobile.",
+    prix: 920,
     checked: false,
   );
   Garantie g8 = Garantie(
     title: 'Rachat de vétusité',
     description:
-        'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',
-    prix: 3011,
+        "Garantie couvrant le montant de la vétusté restant à la charge de l’assuré en cas de sinistre partiel affectant les garanties Dommage tous accidents, Incendie, Vol et Inondation.",
+    prix: 2099,
     checked: false,
   );
   Garantie g9 = Garantie(
     title: 'Dommage collision',
     description:
-        'la responsabilité civile est la garantie minimum obligatoire qui couvre les dommages causés aux tiers',
-    prix: 3011,
+        "Cette garantie vous couvre contre les dégâts subis par votre véhicule assuré en cas de collision avec un autre véhicule identifié, que vous soyez responsable ou non.",
+    prix: 1099,
     checked: false,
   );
   List<Garantie> garantiesList = [];

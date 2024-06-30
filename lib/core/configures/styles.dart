@@ -8,9 +8,9 @@ class Styles {
     fontWeight: FontWeight.normal,
   );
 
-  static final titleStyle24 = GoogleFonts.comfortaa(
+  static final titleStyle22 = GoogleFonts.comfortaa(
     textStyle: basicStyle.copyWith(
-      fontSize: 24,
+      fontSize: 22,
     ),
   );
   static final normal27 = basicStyle.copyWith(

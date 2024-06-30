@@ -60,13 +60,23 @@ class FirestoreService {
     return devisList;
   }
 
-  Future<void> updateStatuCarteGrise(String id, bool statu) async {
+  Future<void> updateStatuCarteGriseRecto(String id, bool statu) async {
     await users
         .doc(FirebaseAuth.instance.currentUser!.email!)
         .collection('auto_assurances')
         .doc(id)
         .update({
-      'carteGriseVerified': statu,
+      'carteGriseRectoVerified': statu,
+    });
+  }
+
+  Future<void> updateStatuCarteGriseVerso(String id, bool statu) async {
+    await users
+        .doc(FirebaseAuth.instance.currentUser!.email!)
+        .collection('auto_assurances')
+        .doc(id)
+        .update({
+      'carteGriseVersoVerified': statu,
     });
   }
 

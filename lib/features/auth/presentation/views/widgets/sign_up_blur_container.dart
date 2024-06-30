@@ -38,7 +38,7 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
   TextEditingController passController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
 
-  double containerHeight = .8;
+  double containerHeight = 720;
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {
@@ -72,12 +72,12 @@ class _SignUpBlurContainerState extends State<SignUpBlurContainer> {
         alignment: AlignmentDirectional.center,
         children: [
           SizedBox(
-            height: size.height * containerHeight,
+            height: containerHeight,
           ),
           Form(
             key: formKey,
             child: BlurContainer(
-              height: size.height * (containerHeight - 0.05),
+              height: containerHeight - 30,
               width: size.width * Constants.blurConatinerWidth,
               blurContainerBody: Padding(
                 padding:

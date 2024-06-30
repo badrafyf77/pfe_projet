@@ -27,22 +27,22 @@ double containerHeightFunction(txt1, txt2, txt3, txt4, txt5, txt6, txt7) {
   }
   switch (errNum) {
     case 0:
-      return .8;
+      return 720;
     case 1:
-      return .82;
+      return 740;
     case 2:
-      return .85;
+      return 760;
     case 3:
-      return .88;
+      return 780;
     case 4:
-      return .91;
+      return 800;
     case 5:
-      return .94;
+      return 820;
     case 6:
-      return .97;
+      return 840;
     case 7:
-      return 1;
+      return 860;
     default:
-      return .8;
+      return 720;
   }
 }

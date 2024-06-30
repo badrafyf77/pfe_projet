@@ -52,12 +52,31 @@ class _AutoDocumentsBodyState extends State<AutoDocumentsBody> {
                   ),
                   const SizedBox(height: 30),
                   ItemVerified(
-                    isVerified: state.devisInfo.carteGriseVerified,
+                    isVerified: state.devisInfo.carteGriseRectoVerified,
                     noTitle: true,
-                    value: 'Carte Grise',
+                    value: 'Carte Grise(recto)',
                     onPressed: () async {
-                      Document document =
-                          Document(id: widget.id, documentName: 'Carte Grise');
+                      Document document = Document(
+                          id: widget.id, documentName: 'Carte Grise(recto)');
+                      await AppRouter.navigateToAndDoSomethingWithExtra(
+                        context,
+                        AppRouter.pickfileView,
+                        document,
+                        (_) {
+                          BlocProvider.of<GetAutoInsuranceCubit>(context)
+                              .getInsurance(widget.id);
+                        },
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  ItemVerified(
+                    isVerified: state.devisInfo.carteGriseVersoVerified,
+                    noTitle: true,
+                    value: 'Carte Grise(verso)',
+                    onPressed: () async {
+                      Document document = Document(
+                          id: widget.id, documentName: 'Carte Grise(verso)');
                       await AppRouter.navigateToAndDoSomethingWithExtra(
                         context,
                         AppRouter.pickfileView,
@@ -110,7 +129,8 @@ class _AutoDocumentsBodyState extends State<AutoDocumentsBody> {
                   const SizedBox(height: 50),
                   CustomNormalButton(
                     onPressed: () async {
-                      if (state.devisInfo.carteGriseVerified &&
+                      if (state.devisInfo.carteGriseRectoVerified &&
+                          state.devisInfo.carteGriseVersoVerified &&
                           state.devisInfo.permisRectoVerified &&
                           state.devisInfo.permisVersoVerified) {
                         AppRouter.navigateTo(
@@ -118,12 +138,14 @@ class _AutoDocumentsBodyState extends State<AutoDocumentsBody> {
                       }
                     },
                     textButton: 'Terminer',
-                    backgroundColor: (state.devisInfo.carteGriseVerified &&
+                    backgroundColor: (state.devisInfo.carteGriseRectoVerified &&
+                            state.devisInfo.carteGriseVersoVerified &&
                             state.devisInfo.permisRectoVerified &&
                             state.devisInfo.permisVersoVerified)
                         ? Theme.of(context).colorScheme.primary
                         : Colors.grey,
-                    textColor: (state.devisInfo.carteGriseVerified &&
+                    textColor: (state.devisInfo.carteGriseRectoVerified &&
+                            state.devisInfo.carteGriseVersoVerified &&
                             state.devisInfo.permisRectoVerified &&
                             state.devisInfo.permisVersoVerified)
                         ? Colors.grey

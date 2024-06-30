@@ -24,7 +24,7 @@ class WarningWidget extends StatelessWidget {
             width: 10,
           ),
           Text(
-            'Please vefefied your CIN',
+            'Veuillez vérifier votre CIN',
             style: Styles.normal14.copyWith(
               color: Colors.black,
             ),

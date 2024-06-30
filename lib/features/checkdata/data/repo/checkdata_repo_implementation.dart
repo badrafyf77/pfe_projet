@@ -37,8 +37,11 @@ class CheckDataRepoImplement implements CheckDataRepo {
         await _firestoreService
             .addMessage('Votre CIN a été vérifiée avec succès');
       }
-      if (documentName == 'Carte Grise') {
-        await _firestoreService.updateStatuCarteGrise(id, true);
+      if (documentName == 'Carte Grise(recto)') {
+        await _firestoreService.updateStatuCarteGriseRecto(id, true);
+      }
+      if (documentName == 'Carte Grise(verso)') {
+        await _firestoreService.updateStatuCarteGriseVerso(id, true);
       }
       if (documentName == 'Permis(recto)') {
         await _firestoreService.updateStatuPermisRecto(id, true);

@@ -11,34 +11,36 @@ class ItusMoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 32),
-              child: InsuranceInfoTextHeader(
-                text: 'Itus Moto, c’est Quoi ?',
-              ),
-            ),
-            SizedBox(
-              height: 6,
-            ),
-            SvgReader(assetImage: AppImages.itusMoto, defaultSize: true),
-          ],
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 42, right: 42, top: 40, bottom: 20),
-          child: Column(
+    return Expanded(
+      child: ListView(
+        children: const [
+          Column(
             children: [
-              JustifyText(
-                text:
-                    "Vous êtes propriétaire d'un deux roues, scooter ou moto? Wafa Moto est un contrat complet proposé à des tarifs très compétitifs. Les garanties sont adaptées pour vous permettre de rouler en toute sécurité.",
+              Padding(
+                padding: EdgeInsets.only(top: 32),
+                child: InsuranceInfoTextHeader(
+                  text: 'Itus Moto, c’est Quoi ?',
+                ),
               ),
+              SizedBox(
+                height: 6,
+              ),
+              SvgReader(assetImage: AppImages.itusMoto, defaultSize: true),
             ],
           ),
-        ),
-      ],
+          Padding(
+            padding: EdgeInsets.only(left: 42, right: 42, top: 40, bottom: 20),
+            child: Column(
+              children: [
+                JustifyText(
+                  text:
+                      "Vous êtes propriétaire d'un deux roues, scooter ou moto? Wafa Moto est un contrat complet proposé à des tarifs très compétitifs. Les garanties sont adaptées pour vous permettre de rouler en toute sécurité.",
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
